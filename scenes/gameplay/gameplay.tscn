@@ -8,11 +8,9 @@
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 script = ExtResource("1_q64rj")
 
-[node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_l", "note_spawner_tl", "note_spawner_tr", "note_spawner_r") instance=ExtResource("1_elxb5")]
-note_spawner_l = NodePath("../NotePathL")
+[node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_tl", "note_spawner_tr") instance=ExtResource("1_elxb5")]
 note_spawner_tl = NodePath("../NotePathTL")
 note_spawner_tr = NodePath("../NotePathTR")
-note_spawner_r = NodePath("../NotePathR")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=10818863]
 
