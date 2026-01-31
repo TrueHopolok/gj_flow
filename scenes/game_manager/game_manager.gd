@@ -2,6 +2,9 @@ class_name GameManager
 extends Node2D
 
 
+signal health_changed(new_health: int)
+
+
 ## Time between note spawn and getting in click range 
 const NOTE_SPAWN_OFFSET: float = 2.0 # sec
 
@@ -20,7 +23,6 @@ const TIMING_WINDOW: float = 0.25 # sec
 @onready var music_player: PartialAudioStreamPlayer = $MusicPlayer
 
 
-
 ## Current state
 
 var section_id: int
@@ -36,9 +38,14 @@ func _ready() -> void:
 	start_game()
 
 
+func set_health(h: int) -> void:
+	health = h
+	health_changed.emit(health)
+
+
 func start_game() -> void:
 	assert(len(sections) > 0, "FAILED TO FIND ANY SECTIONS")
-	health = LevelDamage.MAX_HEALTH
+	set_health(LevelDamage.MAX_HEALTH)
 	section_id = -1
 	next_section()
 
@@ -101,10 +108,10 @@ func spawn_note(note: LevelNote) -> void:
 
 func damage(hp_change: int) -> void:
 	if hp_change >= 0:
-		health = min(LevelDamage.MAX_HEALTH, health + hp_change)
+		set_health(min(LevelDamage.MAX_HEALTH, health + hp_change))
 		return
 	var min_health: int = 1 if health >= LevelDamage.SAVING_HEALTH_THRESHOLD else 0
-	health = max(min_health, health + hp_change)
+	set_health(max(min_health, health + hp_change))
 	if health == 0:
 		print("DEAD")
 		get_tree().quit(1)

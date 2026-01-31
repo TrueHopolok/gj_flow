@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://c5xhu8a0xuks7" path="res://assets/sections/experiment.tres" id="4_gh441"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_path.tscn" id="4_q64rj"]
+[ext_resource type="Script" uid="uid://dxjjwbgw4rjjb" path="res://scenes/gameplay/health_label.gd" id="5_0w2j2"]
 
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
+unique_name_in_owner = true
 sections = Array[ExtResource("3_0w2j2")]([ExtResource("4_gh441")])
 note_spawner_ll = NodePath("../NotePathLL")
 note_spawner_tl = NodePath("../NotePathTL")
@@ -32,6 +34,14 @@ texture = ExtResource("2_x0t60")
 [node name="Polygon2D" type="Polygon2D" parent="Visuals" unique_id=660520905]
 color = Color(0.90600294, 0.7644726, 0.15930474, 0.34117648)
 polygon = PackedVector2Array(260, 188, -16, 192, -23, 172, 299, 163, 295, 153, 59, -17, 70, -36, 303, 144, 325, 144, 489, -31, 514, -17, 338, 152, 334, 170, 663, 166, 662, 183, 319, 185)
+
+[node name="HealthLabel" type="Label" parent="Visuals" unique_id=582415041]
+offset_left = 289.0
+offset_top = 305.0
+offset_right = 342.0
+offset_bottom = 319.0
+text = "Health: 100%"
+script = ExtResource("5_0w2j2")
 
 [node name="NotePathTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
 
