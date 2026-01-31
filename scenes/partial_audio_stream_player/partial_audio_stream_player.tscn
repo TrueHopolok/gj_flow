@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://gvcjykx8q1xl"]
+
+[ext_resource type="Script" uid="uid://bq2xx0l5qy125" path="res://scenes/partial_audio_stream_player/partial_audio_stream_player.gd" id="1_7tvhc"]
+
+[node name="PartialAudioStreamPlayer" type="AudioStreamPlayer" unique_id=1407401440]
+script = ExtResource("1_7tvhc")
