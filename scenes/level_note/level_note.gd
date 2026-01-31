@@ -2,6 +2,9 @@ class_name LevelNote
 extends Resource
 
 
+## Those are based on input map and should match,
+## otherwise - Габэла.
+
 const LOW_LEFT: String = 'low_left'
 const TOP_LEFT: String = 'low_right'
 const TOP_RIGHT: String = 'top_right'

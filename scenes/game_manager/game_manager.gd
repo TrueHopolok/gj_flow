@@ -11,6 +11,7 @@ const NOTE_SPAWN_OFFSET: float = 2.0 # sec
 ## Absolute error of player's clicking the note
 const TIMING_WINDOW: float = 0.25 # sec
 
+
 @export var note_spawner_ll: NotePath = null
 @export var note_spawner_tl: NotePath = null
 @export var note_spawner_tr: NotePath = null
@@ -23,17 +24,12 @@ var sections: Array[LevelSection]
 
 ## Current state
 
-## Song:
-
 var section_id: int
 var section: LevelSection
 var notes: Array[LevelNote]
 var note_spawn_id: int
 var note_active_id: int
-
-## Health:
-
-
+var health: int = 100
 
 
 func _ready() -> void:
@@ -47,6 +43,7 @@ func _ready() -> void:
 
 func start_game() -> void:
 	assert(len(sections) > 0, "FAILED TO FIND ANY SECTIONS")
+	health = LevelDamage.MAX_HEALTH
 	section_id = -1
 	next_section()
 
@@ -94,7 +91,7 @@ func spawn_note(note: LevelNote) -> void:
 					spawner = note_spawner_lr
 				_:
 					printerr("Trying to spawn regular note in unknown direction: %s" % note.type)
-		_: 
+		_:
 			printerr("Trying to spawn unknown note type: %s" % LevelNote.NoteType.keys()[note.type])
 			return
 
@@ -109,36 +106,35 @@ func spawn_note(note: LevelNote) -> void:
 			spawner.spawn_note(NOTE_SPAWN_OFFSET)
 
 
-## Guarantee constant damage - missclick
-func damage_early() -> void:
-	pass
-
-
-## Damage scales based on note type - missed completely
-func damage_late(_note_type: LevelNote.NoteType) -> void:
-	pass
+func damage(hp_change: int) -> void:
+	if hp_change >= 0:
+		health = min(LevelDamage.MAX_HEALTH, health + hp_change)
+		return
+	var min_health: int = 1 if health >= LevelDamage.SAVING_HEALTH_THRESHOLD else 0
+	health = max(min_health, health + hp_change)
+	if health == 0:
+		get_tree().quit(1)
 
 
 func _input(event: InputEvent) -> void:
 	var note_id: int = note_active_id
 	var pressed_amount: int = 0
 	while note_id < len(notes) && get_song_pos() + TIMING_WINDOW > notes[note_id].timing:
-		if !notes[note_id].activated: 
+		if !notes[note_id].activated:
 			note_id += 1
 			continue
 		if event.as_text() == notes[note_id].direction:
 			notes[note_id].activated = false
 			pressed_amount += 1
-	if pressed_amount == 0:
-		damage_early()
+	if pressed_amount == 0: damage(LevelDamage.DAMAGE_PER_MISCLICK)
+	else: damage(LevelDamage.HEAL_PER_HIT)
 
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	while note_spawn_id < len(notes) && get_song_pos() + NOTE_SPAWN_OFFSET > notes[note_spawn_id].timing:
 		spawn_note(notes[note_spawn_id])
 		note_spawn_id += 1
 
 	while note_active_id < len(notes) && get_song_pos() - TIMING_WINDOW > notes[note_active_id].timing:
-		if notes[note_active_id].activated:
-			damage_late(notes[note_active_id].type)
+		if notes[note_active_id].activated: damage(LevelDamage.DAMAGE_PER_MISS[notes[note_active_id].type])
 		note_active_id += 1
