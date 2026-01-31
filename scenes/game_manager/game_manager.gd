@@ -17,7 +17,7 @@ const TIMING_WINDOW: float = 0.25 # sec
 @export var note_spawner_tr: NotePath = null
 @export var note_spawner_lr: NotePath = null
 
-@onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var music_player: PartialAudioStreamPlayer = $MusicPlayer
 
 var sections: Array[LevelSection]
 
@@ -49,27 +49,25 @@ func start_game() -> void:
 
 
 func next_section() -> void:
-	music_player.stop()
-
 	if len(sections) - 1 > section_id:
 		section_id += 1
 	section = sections[section_id]
 	section.parts.shuffle()
 
 	notes.clear()
-	var offset: float = section.intro_length
+	music_player.stream_queue.clear()
+	var offset: float = section.intro_stream.get_length()
 	for part in section.parts:
 		for note in part.notes:
 			notes.append(note)
 			notes[-1].timing += offset
-		offset += part.length
+		music_player.stream_queue.append(part.stream)
+		offset += part.stream.get_length()
 	note_spawn_id = 0
 	note_active_id = 0
 
-	music_player.stream = section.stream
 	# maybe play some animation that next section starts
-
-	music_player.play()
+	music_player.restart()
 
 
 func get_song_pos() -> float:
