@@ -28,14 +28,12 @@ func _run() -> void:
 	if tracks.size() != 1:
 		printerr("tracks: %d, want 1" % tracks.size())
 		return
-	
-	var values: Dictionary = {}
-	
+
 	var min_time: float = 0.0
 	var max_time: float = 0.0
 	
 	var notes: Array[LevelNote] = []
-	
+
 	for note in tracks[0].notes:
 		min_time = minf(min_time, note.time)
 		max_time = maxf(max_time, note.time)
