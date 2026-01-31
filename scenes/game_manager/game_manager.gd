@@ -23,11 +23,17 @@ var sections: Array[LevelSection]
 
 ## Current state
 
+## Song:
+
 var section_id: int
 var section: LevelSection
 var notes: Array[LevelNote]
 var note_spawn_id: int
 var note_active_id: int
+
+## Health:
+
+
 
 
 func _ready() -> void:
@@ -129,6 +135,6 @@ func _process(_delta: float) -> void:
 		note_spawn_id += 1
 
 	while note_active_id < len(notes) && get_song_pos() - TIMING_WINDOW > notes[note_active_id].timing:
-		if notes[note_active_id].active:
+		if notes[note_active_id].activated:
 			damage_late(notes[note_active_id].type)
 		note_active_id += 1
