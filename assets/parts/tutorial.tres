@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_grlfu"]
 [ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_lqjgx"]
+[ext_resource type="AudioStream" uid="uid://b478y0k5oyl1t" path="res://audio/music/tutorial.wav" id="3_i488h"]
 
 [sub_resource type="Resource" id="Resource_grlfu"]
 script = ExtResource("1_grlfu")
@@ -285,5 +286,5 @@ direction = "low_right"
 
 [resource]
 script = ExtResource("2_lqjgx")
+stream = ExtResource("3_i488h")
 notes = Array[ExtResource("1_grlfu")]([SubResource("Resource_grlfu"), SubResource("Resource_lqjgx"), SubResource("Resource_4iuy7"), SubResource("Resource_0dxrt"), SubResource("Resource_afl32"), SubResource("Resource_af3il"), SubResource("Resource_vkkpp"), SubResource("Resource_mtrtr"), SubResource("Resource_hrx7h"), SubResource("Resource_axk86"), SubResource("Resource_lb7ok"), SubResource("Resource_pg0jo"), SubResource("Resource_mndl1"), SubResource("Resource_6m1mp"), SubResource("Resource_glu3t"), SubResource("Resource_u55nk"), SubResource("Resource_m7chx"), SubResource("Resource_lb6r7"), SubResource("Resource_b3y31"), SubResource("Resource_7lf4d"), SubResource("Resource_8vsf8"), SubResource("Resource_gnia7"), SubResource("Resource_scmyt"), SubResource("Resource_yn2eo"), SubResource("Resource_mr1ew"), SubResource("Resource_swq2q"), SubResource("Resource_3d8e2"), SubResource("Resource_ddr4u"), SubResource("Resource_hju7g"), SubResource("Resource_ydgxr"), SubResource("Resource_7if0r"), SubResource("Resource_n0mcw"), SubResource("Resource_vtmww"), SubResource("Resource_rfiri"), SubResource("Resource_27bq8"), SubResource("Resource_6n3vj"), SubResource("Resource_mxwi0"), SubResource("Resource_elqvp"), SubResource("Resource_mpspe"), SubResource("Resource_xv3p7"), SubResource("Resource_yxetb"), SubResource("Resource_h26i3"), SubResource("Resource_tnvs6"), SubResource("Resource_m4jq0"), SubResource("Resource_sndxw"), SubResource("Resource_vqlob"), SubResource("Resource_ns306"), SubResource("Resource_jyqhw"), SubResource("Resource_8wkot"), SubResource("Resource_uvjof"), SubResource("Resource_v7tms"), SubResource("Resource_x2vlf"), SubResource("Resource_imxwy"), SubResource("Resource_q25pc"), SubResource("Resource_ctbbl"), SubResource("Resource_obcvf")])
-length = 49.5

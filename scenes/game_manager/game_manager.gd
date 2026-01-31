@@ -2,16 +2,16 @@ class_name GameManager
 extends Node2D
 
 
-## Directory of all level sections
-const LEVEL_SECTION_DIR: String = ""
-
 ## Time between note spawn and getting in click range 
 const NOTE_SPAWN_OFFSET: float = 2.0 # sec
 
 ## Absolute error of player's clicking the note
 const TIMING_WINDOW: float = 0.25 # sec
 
+@export_group('Section')
+@export var sections: Array[LevelSection]
 
+@export_group('Spawners')
 @export var note_spawner_ll: NotePath = null
 @export var note_spawner_tl: NotePath = null
 @export var note_spawner_tr: NotePath = null
@@ -19,7 +19,6 @@ const TIMING_WINDOW: float = 0.25 # sec
 
 @onready var music_player: PartialAudioStreamPlayer = $MusicPlayer
 
-var sections: Array[LevelSection]
 
 
 ## Current state
@@ -33,12 +32,8 @@ var health: int = 100
 
 
 func _ready() -> void:
-	var dir = DirAccess.open(LEVEL_SECTION_DIR)
-	assert(dir, "FAILED OPENING LEVEL SECTION DIRECTORY")
-	var files: PackedStringArray = dir.get_files()
-	for filename in files:
-		sections.append(load(filename) as LevelSection)
-	music_player.finished.connect(next_section)
+	music_player.fully_finished.connect(next_section)
+	start_game()
 
 
 func start_game() -> void:
@@ -56,7 +51,7 @@ func next_section() -> void:
 
 	notes.clear()
 	music_player.stream_queue.clear()
-	var offset: float = section.intro_stream.get_length()
+	var offset: float = section.intro_stream.get_length() if is_instance_of(section.intro_stream, AudioStreamPlayer) else 0.0
 	for part in section.parts:
 		for note in part.notes:
 			notes.append(note)
@@ -111,21 +106,23 @@ func damage(hp_change: int) -> void:
 	var min_health: int = 1 if health >= LevelDamage.SAVING_HEALTH_THRESHOLD else 0
 	health = max(min_health, health + hp_change)
 	if health == 0:
+		print("DEAD")
 		get_tree().quit(1)
 
 
 func _input(event: InputEvent) -> void:
-	var note_id: int = note_active_id
-	var pressed_amount: int = 0
-	while note_id < len(notes) && get_song_pos() + TIMING_WINDOW > notes[note_id].timing:
-		if !notes[note_id].activated:
-			note_id += 1
-			continue
-		if event.as_text() == notes[note_id].direction:
-			notes[note_id].activated = false
-			pressed_amount += 1
-	if pressed_amount == 0: damage(LevelDamage.DAMAGE_PER_MISCLICK)
-	else: damage(LevelDamage.HEAL_PER_HIT)
+	if event.is_action_pressed(&'low_left') || event.is_action_pressed(&'low_right') || event.is_action_pressed(&'top_left') || event.is_action_pressed(&'top_right'):
+		var note_id: int = note_active_id
+		var pressed_amount: int = 0
+		while note_id < len(notes) && get_song_pos() + TIMING_WINDOW > notes[note_id].timing:
+			if !notes[note_id].activated:
+				note_id += 1
+				continue
+			if event.as_text() == notes[note_id].direction:
+				notes[note_id].activated = false
+				pressed_amount += 1
+		if pressed_amount == 0: damage(LevelDamage.DAMAGE_PER_MISCLICK)
+		else: damage(LevelDamage.HEAL_PER_HIT)
 
 
 func _physics_process(_delta: float) -> void:

@@ -6,7 +6,7 @@ signal fully_finished
 
 
 var stream_id: int
-var stream_queue: Array[AudioStream]
+var stream_queue: Array[Variant]
 var current_offset: float
 
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func restart() -> void:
-	stream_id = 0
+	stream_id = -1
 	current_offset = 0
 	stream = stream_queue[0]
 	play()
@@ -26,9 +26,12 @@ func get_song_pos() -> float:
 
 
 func switch() -> void:
-	current_offset += stream.get_length()
+	if stream_id >= 0: current_offset += stream.get_length()
 	stop()
 	stream_id += 1
+	while stream_id < len(stream_queue):
+		if is_instance_of(stream_queue[stream_id], AudioStream): break;
+		stream_id += 1
 	if (stream_id >= len(stream_queue)):
 		fully_finished.emit()
 	else:

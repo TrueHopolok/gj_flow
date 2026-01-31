@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://d16orrk0chqod"]
 
 [ext_resource type="PackedScene" uid="uid://b4q8luyciuacn" path="res://scenes/game_manager/game_manager.tscn" id="1_elxb5"]
-[ext_resource type="Script" uid="uid://dio0r5t4jjjgr" path="res://scenes/gameplay/gameplay.gd" id="1_q64rj"]
 [ext_resource type="Texture2D" uid="uid://6kokviu1djnn" path="res://icon.png" id="2_x0t60"]
+[ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
+[ext_resource type="Resource" uid="uid://c5xhu8a0xuks7" path="res://assets/sections/experiment.tres" id="4_gh441"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_path.tscn" id="4_q64rj"]
 
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
-script = ExtResource("1_q64rj")
 
-[node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_tl", "note_spawner_tr") instance=ExtResource("1_elxb5")]
+[node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
+sections = Array[ExtResource("3_0w2j2")]([ExtResource("4_gh441")])
+note_spawner_ll = NodePath("../NotePathLL")
 note_spawner_tl = NodePath("../NotePathTL")
 note_spawner_tr = NodePath("../NotePathTR")
+note_spawner_lr = NodePath("../NotePathLR")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=10818863]
 
@@ -47,20 +50,20 @@ position = Vector2(238, -5)
 [node name="End" type="Node2D" parent="NotePathTL" unique_id=1551811618]
 position = Vector2(492, 179)
 
-[node name="NotePathR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
+[node name="NotePathLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
 
-[node name="Begin" type="Node2D" parent="NotePathR" unique_id=750047591]
+[node name="Begin" type="Node2D" parent="NotePathLR" unique_id=750047591]
 position = Vector2(862, 204)
 
-[node name="End" type="Node2D" parent="NotePathR" unique_id=1800098628]
+[node name="End" type="Node2D" parent="NotePathLR" unique_id=1800098628]
 position = Vector2(513.90533, 199.60953)
 
-[node name="NotePathL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
+[node name="NotePathLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
 
-[node name="Begin" type="Node2D" parent="NotePathL" unique_id=1322360622]
+[node name="Begin" type="Node2D" parent="NotePathLL" unique_id=1322360622]
 position = Vector2(161.84787, 204.19125)
 
-[node name="End" type="Node2D" parent="NotePathL" unique_id=549396061]
+[node name="End" type="Node2D" parent="NotePathLL" unique_id=549396061]
 position = Vector2(488.23175, 200.99448)
