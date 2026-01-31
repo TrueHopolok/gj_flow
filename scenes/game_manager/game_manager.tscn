@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b4q8luyciuacn"]
+
+[ext_resource type="Script" uid="uid://dnsdctno3btid" path="res://scenes/game_manager/game_manager.gd" id="1_lycnq"]
+
+[node name="GameManager" type="Node2D" unique_id=679855574 groups=["GameManager"]]
+script = ExtResource("1_lycnq")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=668046959]
+bus = &"Music"
