@@ -102,15 +102,19 @@ func spawn_note(note: LevelNote) -> void:
 		printerr("Trying to spawn node on unknown node path")
 		return
 
-	spawner.spawn_note(NOTE_SPAWN_OFFSET)
+	match note.type:
+		LevelNote.NoteType.ENEMY:
+			spawner.spawn_enemy(NOTE_SPAWN_OFFSET)
+		_:
+			spawner.spawn_note(NOTE_SPAWN_OFFSET)
 
 
-## Gurantee constant damage - misclick
+## Guarantee constant damage - missclick
 func damage_early() -> void:
 	pass
 
 
-## Damage scales based on note type - missed completly
+## Damage scales based on note type - missed completely
 func damage_late(_note_type: LevelNote.NoteType) -> void:
 	pass
 

@@ -16,4 +16,5 @@ var activated: bool = true
 
 enum NoteType {
 	REGULAR,
+	ENEMY,
 }
