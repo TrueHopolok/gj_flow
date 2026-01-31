@@ -3,10 +3,15 @@ extends Node2D
 
 
 const LEVEL_SECTION_DIR: String = ""
-const NOTE_SPAWN_OFFSET: float = 2.0
+const NOTE_SPAWN_OFFSET: float = 2.0 ## Seconds
 
+@export var note_spawner_l: NotePath = null
+@export var note_spawner_tl: NotePath = null
+@export var note_spawner_tr: NotePath = null
+@export var note_spawner_r: NotePath = null
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
+
 var sections: Array[LevelSection]
 
 # State
@@ -52,7 +57,7 @@ func next_section() -> void:
 	note_click_id = 0
 
 	music_player.stream = section.stream
-	# maybe play some anitmation that next section starts
+	# maybe play some animation that next section starts
 
 	music_player.play()
 
@@ -61,13 +66,30 @@ func get_song_pos() -> float:
 	return music_player.get_playback_position()
 
 
-func spawn_note(_note: LevelPart.Note) -> void:
-	pass
+func spawn_note(note: LevelPart.Note) -> void:
+	var spawner: NotePath
+	match note.direction:
+		LevelPart.NoteType.NOTE_LEFT:
+			spawner = note_spawner_l
+		LevelPart.NoteType.NOTE_RIGHT:
+			spawner = note_spawner_r
+		LevelPart.NoteType.NOTE_TOP_LEFT:
+			spawner = note_spawner_tl
+		LevelPart.NoteType.NOTE_TOP_RIGHT:
+			spawner = note_spawner_tr
+		_: 
+			printerr("Trying to spawn unknown note type: %s" % LevelPart.NoteType.keys()[note.direction])
+			return
 
+	if spawner == null:
+		printerr("Trying to spawn node on unknown node path")
+		return
+	
+	spawner.spawn_note(NOTE_SPAWN_OFFSET)
 
 func _process(_delta: float) -> void:
 	if notes_spawning:
-		while note_spawn_id < len(notes) && get_song_pos() > notes[note_spawn_id].timing:
+		while note_spawn_id < len(notes) && get_song_pos() + NOTE_SPAWN_OFFSET > notes[note_spawn_id].timing:
 			spawn_note(notes[note_spawn_id])
 			note_spawn_id += 1
 		notes_spawning = note_spawn_id < len(notes)
