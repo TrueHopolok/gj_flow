@@ -6,5 +6,6 @@
 
 [resource]
 script = ExtResource("2_bfdpq")
+bpm = 60.0
 parts = Array[ExtResource("1_85abv")]([ExtResource("3_qatc3")])
 metadata/_custom_type_script = "uid://crkfqj4wv8qok"

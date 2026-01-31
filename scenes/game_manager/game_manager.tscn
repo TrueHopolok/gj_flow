@@ -10,3 +10,7 @@ script = ExtResource("1_lycnq")
 bus = &"Music"
 script = ExtResource("2_0drbn")
 metadata/_custom_type_script = "uid://bq2xx0l5qy125"
+
+[node name="Tlabel" type="Label" parent="." unique_id=802774425]
+offset_right = 40.0
+offset_bottom = 14.0
