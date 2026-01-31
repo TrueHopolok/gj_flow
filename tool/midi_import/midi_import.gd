@@ -7,11 +7,19 @@ extends EditorScript
 # F#2 - hi hat
 # D2 - clap/snare
 
-const NOTE_TYPES: Dictionary[String, String] = {
+const NOTE_DIRS: Dictionary[String, String] = {
 	"C2": LevelNote.LOW_RIGHT,
 	"C#2": LevelNote.TOP_RIGHT,
 	"F#2": LevelNote.TOP_LEFT,
 	"D2": LevelNote.LOW_LEFT,
+}
+
+const DEFAULT_NOTE_TYPE := LevelNote.NoteType.REGULAR
+const NOTE_TYPES: Dictionary[String, LevelNote.NoteType] = {
+	"C2": LevelNote.NoteType.REGULAR,
+	"C#2": LevelNote.NoteType.REGULAR,
+	"F#2": LevelNote.NoteType.REGULAR,
+	"D2": LevelNote.NoteType.REGULAR,
 }
 
 const INPUT_FILE: String = "/home/anpir/jam/midiparser/fuck.json"
@@ -38,14 +46,14 @@ func _run() -> void:
 		min_time = minf(min_time, note.time)
 		max_time = maxf(max_time, note.time)
 		
-		var tp = NOTE_TYPES.get(note.name, null)
-		if tp == null:
+		var dir: Variant = NOTE_DIRS.get(note.name, null)
+		if dir == null:
 			printerr("Unknown note: %s" % note.name)
 			continue
 
 		var ln := LevelNote.new()
-		ln.type = LevelNote.NoteType.REGULAR
-		ln.direction = tp
+		ln.type = NOTE_TYPES.get(note.name, DEFAULT_NOTE_TYPE)
+		ln.direction = dir
 		ln.timing = note.time
 		notes.append(ln)
 	
@@ -58,4 +66,4 @@ func _run() -> void:
 	lp.notes = notes
 	ResourceSaver.save(lp, OUTPUT_RESOURCE)
 
-	print("DONE!")
+	print("DONE! Written to %s" % OUTPUT_RESOURCE)
