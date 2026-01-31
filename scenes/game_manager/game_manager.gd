@@ -11,10 +11,10 @@ const NOTE_SPAWN_OFFSET: float = 2.0 # sec
 ## Absolute error of player's clicking the note
 const TIMING_WINDOW: float = 0.25 # sec
 
-@export var note_spawner_l: NotePath = null
+@export var note_spawner_ll: NotePath = null
 @export var note_spawner_tl: NotePath = null
 @export var note_spawner_tr: NotePath = null
-@export var note_spawner_r: NotePath = null
+@export var note_spawner_lr: NotePath = null
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
@@ -25,7 +25,7 @@ var sections: Array[LevelSection]
 
 var section_id: int
 var section: LevelSection
-var notes: Array[LevelPart.Note]
+var notes: Array[LevelNote]
 var note_spawn_id: int
 var note_active_id: int
 
@@ -73,38 +73,54 @@ func get_song_pos() -> float:
 	return music_player.get_playback_position()
 
 
-func spawn_note(note: LevelPart.Note) -> void:
+func spawn_note(note: LevelNote) -> void:
 	var spawner: NotePath
-	match note.direction:
-		LevelPart.NoteType.NOTE_LEFT:
-			spawner = note_spawner_l
-		LevelPart.NoteType.NOTE_RIGHT:
-			spawner = note_spawner_r
-		LevelPart.NoteType.NOTE_TOP_LEFT:
-			spawner = note_spawner_tl
-		LevelPart.NoteType.NOTE_TOP_RIGHT:
-			spawner = note_spawner_tr
+	match note.type:
+		LevelNote.NoteType.REGULAR:
+			match note.direction:
+				LevelNote.LOW_LEFT:
+					spawner = note_spawner_ll
+				LevelNote.TOP_LEFT:
+					spawner = note_spawner_tl
+				LevelNote.TOP_RIGHT:
+					spawner = note_spawner_tr
+				LevelNote.LOW_RIGHT:
+					spawner = note_spawner_lr
+				_:
+					printerr("Trying to spawn regular note in unknown direction: %s" % note.type)
 		_: 
-			printerr("Trying to spawn unknown note type: %s" % LevelPart.NoteType.keys()[note.direction])
+			printerr("Trying to spawn unknown note type: %s" % LevelNote.NoteType.keys()[note.type])
 			return
 
 	if spawner == null:
 		printerr("Trying to spawn node on unknown node path")
 		return
-	
+
 	spawner.spawn_note(NOTE_SPAWN_OFFSET)
 
-## Gurantee constant damage
+
+## Gurantee constant damage - misclick
 func damage_early() -> void:
 	pass
 
-## Damage scales based on note type
-func damage_late(_note_type: LevelPart.NoteType) -> void:
+
+## Damage scales based on note type - missed completly
+func damage_late(_note_type: LevelNote.NoteType) -> void:
 	pass
 
 
-func _input(_event: InputEvent) -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	var note_id: int = note_active_id
+	var pressed_amount: int = 0
+	while note_id < len(notes) && get_song_pos() + TIMING_WINDOW > notes[note_id].timing:
+		if !notes[note_id].activated: 
+			note_id += 1
+			continue
+		if event.as_text() == notes[note_id].direction:
+			notes[note_id].activated = false
+			pressed_amount += 1
+	if pressed_amount == 0:
+		damage_early()
 
 
 func _process(_delta: float) -> void:
@@ -113,5 +129,6 @@ func _process(_delta: float) -> void:
 		note_spawn_id += 1
 
 	while note_active_id < len(notes) && get_song_pos() - TIMING_WINDOW > notes[note_active_id].timing:
-		damage_late(notes[note_active_id].direction)
+		if notes[note_active_id].active:
+			damage_late(notes[note_active_id].type)
 		note_active_id += 1
