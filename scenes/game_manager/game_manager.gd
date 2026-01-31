@@ -2,20 +2,27 @@ class_name GameManager
 extends Node2D
 
 
+## Directory of all level sections
 const LEVEL_SECTION_DIR: String = ""
-const NOTE_SPAWN_OFFSET: float = 2.0
+
+## Time between note spawn and getting in click range 
+const NOTE_SPAWN_OFFSET: float = 2.0 # sec
+
+## Absolute error of player's clicking the note
+const TIMING_WINDOW: float = 0.25 # sec
 
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 var sections: Array[LevelSection]
 
-# State
+
+## Current state
+
 var section_id: int
 var section: LevelSection
 var notes: Array[LevelPart.Note]
-var notes_spawning: bool
 var note_spawn_id: int
-var note_click_id: int
+var note_active_id: int
 
 
 func _ready() -> void:
@@ -24,6 +31,7 @@ func _ready() -> void:
 	var files: PackedStringArray = dir.get_files()
 	for filename in files:
 		sections.append(load(filename) as LevelSection)
+	music_player.finished.connect(next_section)
 
 
 func start_game() -> void:
@@ -47,9 +55,8 @@ func next_section() -> void:
 			notes.append(note)
 			notes[-1].timing += offset
 		offset += part.length
-	notes_spawning = true
 	note_spawn_id = 0
-	note_click_id = 0
+	note_active_id = 0
 
 	music_player.stream = section.stream
 	# maybe play some anitmation that next section starts
@@ -65,9 +72,24 @@ func spawn_note(_note: LevelPart.Note) -> void:
 	pass
 
 
+## Gurantee constant damage
+func damage_early() -> void:
+	pass
+
+## Damage scales based on note type
+func damage_late(_note_type: LevelPart.NoteType) -> void:
+	pass
+
+
+func _input(_event: InputEvent) -> void:
+	pass
+
+
 func _process(_delta: float) -> void:
-	if notes_spawning:
-		while note_spawn_id < len(notes) && get_song_pos() > notes[note_spawn_id].timing:
-			spawn_note(notes[note_spawn_id])
-			note_spawn_id += 1
-		notes_spawning = note_spawn_id < len(notes)
+	while note_spawn_id < len(notes) && get_song_pos() + NOTE_SPAWN_OFFSET > notes[note_spawn_id].timing:
+		spawn_note(notes[note_spawn_id])
+		note_spawn_id += 1
+
+	while note_active_id < len(notes) && get_song_pos() - TIMING_WINDOW > notes[note_active_id].timing:
+		damage_late(notes[note_active_id].direction)
+		note_active_id += 1
