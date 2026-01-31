@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var note_path: NotePath = $NotePath
+@onready var note_path: NotePath = $NotePathLR
 
 
 # Called when the node enters the scene tree for the first time.
