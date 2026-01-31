@@ -10,7 +10,7 @@ const LOW_RIGHT: String = 'low_right'
 
 @export var type: NoteType
 @export var timing: float ## 1 unit == tact
-var direction: String
+@export var direction: String
 var activated: bool = false
 
 
