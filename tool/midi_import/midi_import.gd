@@ -22,8 +22,8 @@ const NOTE_TYPES: Dictionary[String, LevelNote.NoteType] = {
 	"D2": LevelNote.NoteType.REGULAR,
 }
 
-const INPUT_FILE: String = "/home/anpir/jam/midiparser/fuck.json"
-const OUTPUT_RESOURCE: String = "res://assets/generated.tres"
+const INPUT_FILE: String = "res://assets/midi/tutorial.midi.json"
+const OUTPUT_RESOURCE: String = "res://assets/tutorial.tres"
 
 func _run() -> void:
 	var content := FileAccess.get_file_as_string(INPUT_FILE)
