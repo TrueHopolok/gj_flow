@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var note_path: NotePath = $NotePathLR
+@onready var note_path: NotePath = $NotePathTL
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,12 +15,10 @@ func start() -> void:
 	note_path.spawn_note(3.0)
 	await get_tree().create_timer(3.0).timeout
 	
-	note_path.spawn_note(2.0)
-	await get_tree().create_timer(2.0).timeout
-	
 	note_path.spawn_note(1.0)
 	await get_tree().create_timer(1.0).timeout
 	
 	note_path.spawn_note(0.5)
 	await get_tree().create_timer(0.5).timeout
 	
+	note_path.spawn_enemy(0.2)

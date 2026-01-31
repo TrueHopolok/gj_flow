@@ -4,6 +4,7 @@ extends Node2D
 
 
 const NOTE := preload("res://scenes/note/note.tscn")
+const ENEMY := preload("res://scenes/enemy/enemy.tscn")
 
 
 @onready var begin_node: Node2D = $Begin
@@ -11,9 +12,15 @@ const NOTE := preload("res://scenes/note/note.tscn")
 
 
 func spawn_note(delay_s: float) -> void:
-	var inst := NOTE.instantiate()
-	add_child(inst)
+	_spawn_internal(delay_s, NOTE.instantiate())
 
-	var t := inst.create_tween()
-	t.tween_property(inst, "global_position", end_node.global_position, delay_s).from(begin_node.global_position)
-	t.chain().tween_callback(inst.queue_free)
+
+func spawn_enemy(delay_s: float) -> void:
+	_spawn_internal(delay_s, ENEMY.instantiate())
+
+
+func _spawn_internal(delay_s: float, node: Node2D) -> void:
+	add_child(node)
+	var t := node.create_tween()
+	t.tween_property(node, "global_position", end_node.global_position, delay_s).from(begin_node.global_position)
+	t.chain().tween_callback(node.queue_free)
