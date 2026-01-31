@@ -3,7 +3,7 @@ extends Resource
 
 
 @export var notes: Array[Note]
-var length: float ## 1 unit == tact
+@export var length: float ## 1 unit == tact
 
 
 enum NoteType {
@@ -17,3 +17,7 @@ enum NoteType {
 class Note extends Resource:
 	@export var direction: NoteType
 	@export var timing: float ## 1 unit == tact
+	
+	func _init(dir = NoteType.NOTE_LEFT, t := 0.0) -> void:
+		direction = dir
+		timing = t
