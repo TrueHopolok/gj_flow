@@ -4,12 +4,11 @@ extends Node2D
 
 signal health_changed(new_health: int)
 
-
 ## Time between note spawn and getting in click range 
 const NOTE_SPAWN_OFFSET: float = 2.0 # sec
 
 ## Absolute error of player's clicking the note
-const TIMING_WINDOW: float = 2.0 # sec
+const TIMING_WINDOW: float = 0.25 # sec
 
 @export_group('Section')
 @export var sections: Array[LevelSection]
@@ -22,14 +21,15 @@ const TIMING_WINDOW: float = 2.0 # sec
 
 @onready var music_player: PartialAudioStreamPlayer = $MusicPlayer
 
-
 ## Current state
 
-var section_id: int
+var section_idx: int
 var section: LevelSection
+
 var notes: Array[LevelNote]
-var note_spawn_id: int
-var note_active_id: int
+var next_spawn_idx: int
+var next_destroy_idx: int
+
 var health: int = 100
 
 
@@ -45,40 +45,46 @@ func set_health(h: int) -> void:
 
 func beat_to_sec(beat: float, bpm: float) -> float:
 	assert(bpm > 0, "WTF BPM IS NEGATIVE OR ZERO, btw Rich's fault")
-	return beat / 60 * bpm
+	return beat * 60 / bpm
 
 
 func sec_to_beat(sec: float, bpm: float) -> float:
 	assert(bpm > 0, "WTF BPM IS NEGATIVE OR ZERO, btw Rich's fault")
-	return sec * 60 / bpm
+	return sec / 60 * bpm
 
 
 func start_game() -> void:
 	assert(len(sections) > 0, "FAILED TO FIND ANY SECTIONS")
 	set_health(LevelDamage.MAX_HEALTH)
-	section_id = -1
+	section_idx = -1
 	next_section()
 
 
 func next_section() -> void:
-	if len(sections) - 1 > section_id:
-		section_id += 1
-	section = sections[section_id].duplicate(true)
+	if len(sections) - 1 > section_idx:
+		section_idx += 1
+
+	section = sections[section_idx].duplicate(true)
 	section.parts.shuffle()
 	assert(section.bpm > 0, "ALLO BROTHA")
 
+	# construct sections
 	notes.clear()
 	music_player.stream_queue.clear()
-	var offset: float = section.intro_stream.get_length() if is_instance_of(section.intro_stream, AudioStreamPlayer) else 0.0
-	for part in section.parts:
-		for note in part.notes:
+
+	var offset: float = 0.0
+	if section.intro_stream != null:
+		offset = section.intro_stream.get_length()
+
+	for part: LevelPart in section.parts:
+		for note: LevelNote in part.notes:
 			notes.append(note)
-			notes[-1].timing += sec_to_beat(offset, section.bpm)
-			prints(notes[-1].timing, beat_to_sec(notes[-1].timing, section.bpm))
+			note.timing += sec_to_beat(offset, section.bpm)
 		music_player.stream_queue.append(part.stream)
 		offset += part.stream.get_length()
-	note_spawn_id = 0
-	note_active_id = 0
+
+	next_spawn_idx = 0
+	next_destroy_idx = 0
 
 	# maybe play some animation that next section starts
 	music_player.restart()
@@ -125,27 +131,43 @@ func damage(hp_change: int) -> void:
 		get_tree().quit(1)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&'low_left') || event.is_action_pressed(&'low_right') || event.is_action_pressed(&'top_left') || event.is_action_pressed(&'top_right'):
-		var note_id: int = note_active_id
-		var pressed_amount: int = 0
-		while note_id < len(notes) && music_player.get_song_pos() + TIMING_WINDOW > beat_to_sec(notes[note_active_id].timing, section.bpm):
-			prints(note_active_id, beat_to_sec(notes[note_active_id].timing, section.bpm))
-			if notes[note_id].activated && event.as_text() == notes[note_id].direction:
-				notes[note_id].activated = false
-				pressed_amount += 1
-			note_id += 1
-		if pressed_amount == 0: damage(LevelDamage.DAMAGE_PER_MISCLICK)
-		else: damage(LevelDamage.HEAL_PER_HIT)
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_pressed():
+		return
 
+	# TODO(HOPOLOK): replace with constants
+	if not (event.is_action_pressed(&"low_left") or event.is_action_pressed(&"low_right") or event.is_action_pressed(&"top_left") or event.is_action_pressed(&"top_right")):
+		return
+
+	get_viewport().set_input_as_handled()
+
+	var idx := next_destroy_idx
+	var note_hit := false
+	while idx < notes.size() and beat_to_sec(notes[idx].timing, section.bpm) - TIMING_WINDOW < music_player.get_song_pos():
+		if notes[idx].hittable and event.is_action_pressed(notes[idx].direction):
+			notes[idx].hittable = false
+			note_hit = true
+			break
+		idx += 1
+	
+	if note_hit:
+		damage(LevelDamage.HEAL_PER_HIT)
+	else:
+		damage(LevelDamage.DAMAGE_PER_MISCLICK)
+
+# FIXME: second section loop does not work
 
 func _physics_process(_delta: float) -> void:
-	$Tlabel.text = str(beat_to_sec(music_player.get_song_pos(), section.bpm))
+	# TODO: remove debug print
+	$Tlabel.text = str(beat_to_sec(music_player.get_song_pos(), section.bpm)) + " beats"
 
-	while note_spawn_id < len(notes) && music_player.get_song_pos() + NOTE_SPAWN_OFFSET > beat_to_sec(notes[note_active_id].timing, section.bpm):
-		spawn_note(notes[note_spawn_id])
-		note_spawn_id += 1
-
-	while note_active_id < len(notes) && music_player.get_song_pos() - TIMING_WINDOW > beat_to_sec(notes[note_active_id].timing, section.bpm):
-		if notes[note_active_id].activated: damage(LevelDamage.DAMAGE_PER_MISS[notes[note_active_id].type])
-		note_active_id += 1
+	# Spawn new notes (in advance)
+	while next_spawn_idx < notes.size() and beat_to_sec(notes[next_spawn_idx].timing, section.bpm) - NOTE_SPAWN_OFFSET < music_player.get_song_pos():
+		spawn_note(notes[next_spawn_idx])
+		next_spawn_idx += 1
+	
+	# Destroy overdue notes, possibly damaging the player
+	while next_destroy_idx < next_spawn_idx and beat_to_sec(notes[next_destroy_idx].timing, section.bpm) + TIMING_WINDOW < music_player.get_song_pos():
+		if notes[next_destroy_idx].hittable: # player did not hit it
+			damage(LevelDamage.DAMAGE_PER_MISS[notes[next_destroy_idx].type])
+		next_destroy_idx += 1
