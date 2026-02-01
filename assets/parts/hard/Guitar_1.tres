@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="LevelPart" format=3 uid="uid://dc4v3i2nukc8i"]
+
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_xrjmh"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_7p4kw"]
+[ext_resource type="AudioStream" uid="uid://x4j2cugh708x" path="res://audio/music/hard/Guitar_1.wav" id="3_7p4kw"]
+
+[sub_resource type="Resource" id="Resource_aduka"]
+script = ExtResource("1_xrjmh")
+timing = 4.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_j0hi0"]
+script = ExtResource("1_xrjmh")
+timing = 4.5
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_2io20"]
+script = ExtResource("1_xrjmh")
+timing = 5.5
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_u2gdx"]
+script = ExtResource("1_xrjmh")
+timing = 6.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_gpvm1"]
+script = ExtResource("1_xrjmh")
+timing = 7.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_k8upa"]
+script = ExtResource("1_xrjmh")
+timing = 8.5
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_p0uxi"]
+script = ExtResource("1_xrjmh")
+timing = 9.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_nwvhw"]
+script = ExtResource("1_xrjmh")
+timing = 10.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_d0whu"]
+script = ExtResource("1_xrjmh")
+timing = 11.5
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_yqii2"]
+script = ExtResource("1_xrjmh")
+timing = 12.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_uwie0"]
+script = ExtResource("1_xrjmh")
+timing = 12.5
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_yt1wm"]
+script = ExtResource("1_xrjmh")
+timing = 13.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_4hdpp"]
+script = ExtResource("1_xrjmh")
+timing = 13.5
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_hi1fr"]
+script = ExtResource("1_xrjmh")
+timing = 14.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_1pobm"]
+script = ExtResource("1_xrjmh")
+timing = 14.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_r1f51"]
+script = ExtResource("1_xrjmh")
+timing = 14.5
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_wwm62"]
+script = ExtResource("1_xrjmh")
+timing = 15.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_6cq7k"]
+script = ExtResource("1_xrjmh")
+timing = 15.500000000000002
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_q0uno"]
+script = ExtResource("1_xrjmh")
+timing = 16.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_qdy4y"]
+script = ExtResource("1_xrjmh")
+timing = 16.5
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_omj06"]
+script = ExtResource("1_xrjmh")
+timing = 17.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_hejqc"]
+script = ExtResource("1_xrjmh")
+timing = 17.5
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_xy3du"]
+script = ExtResource("1_xrjmh")
+timing = 18.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_h6f1t"]
+script = ExtResource("1_xrjmh")
+timing = 18.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_upq10"]
+script = ExtResource("1_xrjmh")
+timing = 18.5
+direction = "top_left"
+
+[resource]
+script = ExtResource("2_7p4kw")
+stream = ExtResource("3_7p4kw")
+notes = Array[ExtResource("1_xrjmh")]([SubResource("Resource_aduka"), SubResource("Resource_j0hi0"), SubResource("Resource_2io20"), SubResource("Resource_u2gdx"), SubResource("Resource_gpvm1"), SubResource("Resource_k8upa"), SubResource("Resource_p0uxi"), SubResource("Resource_nwvhw"), SubResource("Resource_d0whu"), SubResource("Resource_yqii2"), SubResource("Resource_uwie0"), SubResource("Resource_yt1wm"), SubResource("Resource_4hdpp"), SubResource("Resource_hi1fr"), SubResource("Resource_1pobm"), SubResource("Resource_r1f51"), SubResource("Resource_wwm62"), SubResource("Resource_6cq7k"), SubResource("Resource_q0uno"), SubResource("Resource_qdy4y"), SubResource("Resource_omj06"), SubResource("Resource_hejqc"), SubResource("Resource_xy3du"), SubResource("Resource_h6f1t"), SubResource("Resource_upq10")])
