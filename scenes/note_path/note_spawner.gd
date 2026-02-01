@@ -24,10 +24,26 @@ func spawn_note(delay_s: float) -> Callable:
 ## Returns destroy hook.
 func spawn_enemy(delay_s: float) -> Callable:
 	if direction == LevelNote.TOP_LEFT or direction == LevelNote.TOP_RIGHT:
-		return _spawn_internal(delay_s, ENEMY_DRAGON.instantiate())
+		return _spawn_delayed(delay_s / 2, delay_s / 2, ENEMY_DRAGON.instantiate())
 	else:
 		# TODO: add path EXCLUSIVE FOR FROG
-		return _spawn_internal(delay_s, ENEMY_FROG.instantiate())
+		return _spawn_delayed(delay_s / 2, delay_s / 2, ENEMY_FROG.instantiate())
+
+
+func _spawn_delayed(wait_s: float, delay_s: float, node: Node2D) -> Callable:
+	if wait_s <= 0: return _spawn_internal(delay_s, node)
+	add_child(node)
+	node.global_rotation = 0
+	node.global_position = begin_node.global_position
+	delay_s += delay_s / 9
+	get_tree().create_timer(wait_s).timeout.connect(
+		func() -> void:
+			if is_instance_valid(node):
+				var t := node.create_tween()
+				t.tween_property(node, "global_position", end_node.global_position, delay_s).from(begin_node.global_position)
+				t.chain().tween_callback(node.queue_free)
+	)
+	return node.queue_free
 
 
 func _spawn_internal(delay_s: float, node: Node2D) -> Callable:

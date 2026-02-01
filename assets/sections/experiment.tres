@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_bfdpq")
-bpm = 120.0
+bpm = 60.0
 parts = Array[ExtResource("1_85abv")]([ExtResource("3_qatc3")])
 intro_stream = ExtResource("1_ysrai")
 metadata/_custom_type_script = "uid://crkfqj4wv8qok"
