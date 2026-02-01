@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8u8xhts4e3bf"]
+
+[ext_resource type="Script" uid="uid://bgg0i6bplbcb5" path="res://scenes/feedback_renderer/feedback_renderer.gd" id="1_t6ten"]
+
+[node name="FeedbackRenderer" type="Node2D" unique_id=1988208857]
+script = ExtResource("1_t6ten")

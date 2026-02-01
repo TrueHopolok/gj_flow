@@ -5,6 +5,10 @@ extends Node2D
 signal health_changed(new_health: int)
 signal score_changed(new_score: int)
 
+# dir: -2, -1, 1, 2
+# val: "flow", "ok", "miss", "ouch"
+signal feedback(dir: int, val: String)
+
 const TIMING_MAX_SCORE: int = 100
 
 ## Absolute error of player's clicking the note
@@ -162,10 +166,11 @@ func damage(hp_change: int) -> void:
 
 
 ## handle_score should only be called with notes that were successfully hit, it always adds some points.
-func handle_score(note: LevelNote, current_time_sec: float) -> void:
+func handle_score(note: LevelNote, current_time_sec: float) -> bool:
 	var delta := absf(beat_to_sec(note.timing, section.bpm) - current_time_sec)
 	var score_delta := ceili(clampf(remap(delta, TIMING_PERFECT, TIMING_WINDOW, TIMING_MAX_SCORE, 0), 1, 100))
 	add_score(score_delta)
+	return score_delta == 100
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -175,37 +180,48 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not (event.is_action_pressed(LevelNote.LOW_LEFT) or event.is_action_pressed(LevelNote.LOW_RIGHT) or event.is_action_pressed(LevelNote.TOP_LEFT) or event.is_action_pressed(LevelNote.TOP_RIGHT)):
 		return
 
+	var dir_int := 1
 	if event.is_action_pressed(LevelNote.LOW_LEFT):
 		clap_player.play()
+		dir_int = -2
 	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
 		if randf() < 0.001:
 			funny_player.play()
 		else:
 			kick_player.play()
+		dir_int = +2
 	elif event.is_action_pressed(LevelNote.TOP_LEFT):
 		hi_hat_player.play()
+		dir_int = -1
 	elif event.is_action_pressed(LevelNote.TOP_RIGHT):
 		snare_player.play()
+		dir_int = +1
 
 	get_viewport().set_input_as_handled()
 	var now := music_player.get_song_pos()
 
 	var idx := next_destroy_idx
 	var note_hit := false
+	var is_perfect := false
 	while idx < notes.size() and beat_to_sec(notes[idx].timing, section.bpm) - TIMING_WINDOW < now:
 		if notes[idx].hittable and event.is_action_pressed(notes[idx].direction):
 			notes[idx].hittable = false
 			note_hit = true
-			handle_score(notes[idx], now)
+			is_perfect = handle_score(notes[idx], now)
 			if notes[idx].delete_hook.is_valid():
 				notes[idx].delete_hook.call()
 			break
 		idx += 1
 	
 	if note_hit:
+		if is_perfect:
+			feedback.emit(dir_int, "perfect")
+		else:
+			feedback.emit(dir_int, "ok")
 		damage(LevelDamage.HEAL_PER_HIT)
 	else:
 		damage(LevelDamage.DAMAGE_PER_MISCLICK)
+		feedback.emit(dir_int, "miss")
 
 
 func _physics_process(_delta: float) -> void:
@@ -222,5 +238,22 @@ func _physics_process(_delta: float) -> void:
 	# Destroy overdue notes, possibly damaging the player
 	while next_destroy_idx < next_spawn_idx and beat_to_sec(notes[next_destroy_idx].timing, section.bpm) + TIMING_WINDOW < now:
 		if notes[next_destroy_idx].hittable: # player did not hit it
+			feedback.emit(_direction_to_int(notes[next_destroy_idx].direction), "ouch")
 			damage(LevelDamage.DAMAGE_PER_MISS[notes[next_destroy_idx].type])
 		next_destroy_idx += 1
+
+
+
+func _direction_to_int(d: String) -> int:
+	match d:
+		LevelNote.LOW_LEFT:
+			return -2
+		LevelNote.TOP_LEFT:
+			return -1
+		LevelNote.TOP_RIGHT:
+			return +1
+		LevelNote.LOW_RIGHT:
+			return +2
+		_:
+			assert(false)
+			return -1
