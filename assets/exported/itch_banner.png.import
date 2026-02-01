@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tamecs405yee"
-path="res://.godot/imported/drum_tutorial.png-39b2c8f58f4fa86f1f2611cdf41479a3.ctex"
+uid="uid://c337rx70cdfix"
+path="res://.godot/imported/itch_banner.png-858dd92e84dd2ab15bcdb35467f5b218.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drum_tutorial.png"
-dest_files=["res://.godot/imported/drum_tutorial.png-39b2c8f58f4fa86f1f2611cdf41479a3.ctex"]
+source_file="res://assets/exported/itch_banner.png"
+dest_files=["res://.godot/imported/itch_banner.png-858dd92e84dd2ab15bcdb35467f5b218.ctex"]
 
 [params]
 
