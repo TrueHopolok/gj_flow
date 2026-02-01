@@ -76,6 +76,9 @@ _data = {
 &"idle": SubResource("Animation_td3fc")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_i6m2i"]
+font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lb4ud"]
 atlas = ExtResource("7_elju3")
 region = Rect2(0, 38, 115, 35)
@@ -164,11 +167,13 @@ text = "Health: 100%"
 script = ExtResource("5_0w2j2")
 
 [node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
-offset_left = 296.0
+offset_left = 440.0
 offset_top = 90.0
-offset_right = 350.0
-offset_bottom = 107.0
-text = "Score: 0"
+offset_right = 478.0
+offset_bottom = 108.0
+text = "0"
+label_settings = SubResource("LabelSettings_i6m2i")
+horizontal_alignment = 2
 script = ExtResource("7_pa1on")
 
 [node name="Central" type="Node2D" parent="Visuals" unique_id=1875061394]
