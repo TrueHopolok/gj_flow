@@ -9,6 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 [ext_resource type="Script" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
 
+[sub_resource type="Curve2D" id="Curve2D_pa1on"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 160, 24, 47.472813, 0, -47.472813, 0, 88, -24, 0, 0, 0, 0, 16, 6)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_elju3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 160, -24.000008, 52.230976, -0.21763362, -52.230976, 0.21763362, 104.00001, 39.999996, 0, 0, -8.004613, -15.798502, 16.000008, 0)
+}
+point_count = 3
+
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
@@ -26,12 +38,13 @@ position = Vector2(-160, -90)
 z_index = -1
 position = Vector2(320, 180)
 texture = ExtResource("7_gh441")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Visuals" unique_id=1035137764]
-offset_left = 376.0
-offset_top = 154.0
-offset_right = 443.0
-offset_bottom = 177.0
+offset_left = 352.0
+offset_top = 202.0
+offset_right = 419.0
+offset_bottom = 225.0
 text = "<- Player"
 
 [node name="Player" parent="Visuals" unique_id=1017047311 instance=ExtResource("5_gh441")]
@@ -57,6 +70,7 @@ script = ExtResource("7_pa1on")
 position = Vector2(184.00002, 80.00001)
 rotation = -0.7853982
 direction = "top_right"
+enemy_flip_h = true
 
 [node name="NoteSpawnerTL" parent="." unique_id=1389458643 instance=ExtResource("4_q64rj")]
 position = Vector2(136, 80.00001)
@@ -66,8 +80,17 @@ direction = "top_left"
 [node name="NoteSpawnerLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
 position = Vector2(192, 104)
 direction = "low_right"
+enemy_flip_v = true
+
+[node name="FrogPath" type="Path2D" parent="NoteSpawnerLR" unique_id=1094419934]
+position = Vector2(0, -8)
+scale = Vector2(1, 1.3333334)
+curve = SubResource("Curve2D_pa1on")
 
 [node name="NoteSpawnerLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
 position = Vector2(128, 104)
 rotation = 3.1415927
 direction = "low_left"
+
+[node name="FrogPath" type="Path2D" parent="NoteSpawnerLL" unique_id=1354014513]
+curve = SubResource("Curve2D_elju3")
