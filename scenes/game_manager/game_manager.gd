@@ -187,7 +187,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # FIXME: second section loop does not work
 func _physics_process(_delta: float) -> void:
 	# TODO: remove debug print
-	$Tlabel.text = "%.2f beats" % sec_to_beat(music_player.get_song_pos(), section.bpm)
+	$Tlabel.text = "%.4f beats" % sec_to_beat(music_player.get_song_pos(), section.bpm)
 
 	var now := music_player.get_song_pos()
 

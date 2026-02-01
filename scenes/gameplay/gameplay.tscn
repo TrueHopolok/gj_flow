@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 [ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
 
+[sub_resource type="Curve2D" id="Curve2D_pa1on"]
+_data = {
+"points": PackedVector2Array(27.124908, 46.776733, -27.124908, -46.776733, 517.3191, 159.49185, 37.256107, -29.979261, -37.256107, 29.979261, 366.35297, 84.3951)
+}
+point_count = 2
+
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
@@ -88,6 +94,10 @@ position = Vector2(521, 106)
 [node name="End" type="Node2D" parent="NoteSpawnerLR" unique_id=1800098628]
 position = Vector2(361, 106)
 
+[node name="FrogPath" type="Path2D" parent="NoteSpawnerLR" unique_id=1407113532]
+position = Vector2(0.007461548, 17.463707)
+curve = SubResource("Curve2D_pa1on")
+
 [node name="NoteSpawnerLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
 direction = "low_left"
@@ -97,3 +107,7 @@ position = Vector2(169, 106)
 
 [node name="End" type="Node2D" parent="NoteSpawnerLL" unique_id=549396061]
 position = Vector2(321, 106)
+
+[node name="FrogPath" type="Path2D" parent="NoteSpawnerLL" unique_id=2104275904]
+position = Vector2(0.007461548, 17.463707)
+curve = SubResource("Curve2D_pa1on")
