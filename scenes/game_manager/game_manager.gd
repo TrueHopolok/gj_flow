@@ -17,8 +17,8 @@ signal drum_hit(dir: int)
 const TIMING_MAX_SCORE: int = 100
 
 ## Absolute error of player's clicking the note
-const TIMING_WINDOW: float = 0.25 # sec
-const TIMING_PERFECT: float = 0.05 # sec
+const TIMING_WINDOW: float = 0.15 # sec
+const TIMING_PERFECT: float = 0.10 # sec
 
 ## Time between note spawn and getting in click range 
 var NOTE_SPAWN_OFFSET: float = 2.0 # sec
