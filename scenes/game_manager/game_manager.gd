@@ -112,10 +112,6 @@ func next_section() -> void:
 	next_spawn_idx = 0
 	next_destroy_idx = 0
 
-	print("BIG CHUNKY")
-	for note: LevelNote in notes:
-		print(note.timing)
-
 	# maybe play some animation that next section starts
 	music_player.restart()
 
