@@ -17,21 +17,30 @@ func _ready() -> void:
 	)
 
 
+func take_damage() -> void:
+	animation_player.play("damage")
+	animation_player.seek(0)
+
+
 func hit_snare_l() -> void:
 	snare_left.hit()
 	animation_player.play("snare_left")
+	animation_player.seek(0)
 
 
 func hit_snare_r() -> void:
 	snare_right.hit()
 	animation_player.play("snare_right")
+	animation_player.seek(0)
 
 
 func hit_kick() -> void:
 	kick.hit()
 	animation_player.play("kick")
+	animation_player.seek(0)
 
 
 func hit_hi_hat() -> void:
 	hat.hit()
 	animation_player.play("hit_hat")
+	animation_player.seek(0)

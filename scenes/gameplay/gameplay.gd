@@ -27,6 +27,7 @@ func _ready() -> void:
 	)
 
 
+
 func spawn_feedback(dir: int, text: String) -> void:
 	var fr: FeedbackRenderer
 	match dir:
@@ -34,6 +35,9 @@ func spawn_feedback(dir: int, text: String) -> void:
 		-1: fr = feedback_l
 		+1: fr = feedback_r
 		+2: fr = feedback_rr
+	
+	if text == "ouch":
+		player.take_damage()
 	
 	fr.spawn_feedback(text)
 

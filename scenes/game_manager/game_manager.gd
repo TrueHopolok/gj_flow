@@ -188,7 +188,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		dir_int = -2
 		drum_hit.emit(-2)
 	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
-		if randf() < 0.001:
+		var chance := 0.001
+		if OS.has_feature("rock"):
+			chance = 0.5
+		if randf() < chance:
 			funny_player.play()
 			secret_happened.emit()
 		else:

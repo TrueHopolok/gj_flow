@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://ddxyxo421fywp" path="res://scenes/budda/drum.gd" id="3_u5kt3"]
 [ext_resource type="Texture2D" uid="uid://bebiwlevtvvm4" path="res://assets/exported/drums.png" id="3_vk7wd"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_esj1o"]
+atlas = ExtResource("1_3taun")
+region = Rect2(96, 336, 96, 84)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yl3s4"]
 atlas = ExtResource("1_3taun")
 region = Rect2(0, 86, 96, 86)
@@ -43,6 +47,14 @@ region = Rect2(0, 344, 96, 86)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wi06"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esj1o")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yl3s4")
@@ -145,6 +157,33 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_824ne"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"damage"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -38)]
 }
 
 [sub_resource type="Animation" id="Animation_u5kt3"]
@@ -403,6 +442,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aeoxk"]
 _data = {
 &"RESET": SubResource("Animation_yl3s4"),
+&"damage": SubResource("Animation_824ne"),
 &"hit_hat": SubResource("Animation_u5kt3"),
 &"idle": SubResource("Animation_vk7wd"),
 &"kick": SubResource("Animation_aeoxk"),
