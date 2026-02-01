@@ -8,5 +8,6 @@ func _ready() -> void:
 
 
 func _pressed() -> void:
-	Persistance.cur_section = section_id - 1
-	Transition.change_scene_path('res://scenes/gameplay/gameplay.tscn')
+	if section_id > 0:
+		Persistance.cur_section = section_id - 1
+		Transition.change_scene_path('res://scenes/gameplay/gameplay.tscn')
