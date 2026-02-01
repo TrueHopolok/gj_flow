@@ -15,5 +15,4 @@ bpm = 120.0
 parts = Array[ExtResource("1_kislm")]([ExtResource("4_oo14y"), ExtResource("5_5l3mi"), ExtResource("6_6pibu"), ExtResource("7_e2yxc")])
 intro_part = ExtResource("1_bnd22")
 outro_part = ExtResource("2_wf6p2")
-enemy_chance = 0.1
 metadata/_custom_type_script = "uid://crkfqj4wv8qok"
