@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4q8luyciuacn" path="res://scenes/game_manager/game_manager.tscn" id="1_elxb5"]
 [ext_resource type="Script" uid="uid://dio0r5t4jjjgr" path="res://scenes/gameplay/gameplay.gd" id="1_td3fc"]
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
-[ext_resource type="Resource" path="res://assets/sections/tutorial.tres" id="3_elju3"]
+[ext_resource type="Resource" uid="uid://btpjbm7xe8aul" path="res://assets/sections/tutorial.tres" id="3_elju3"]
 [ext_resource type="Script" uid="uid://cjtmcjkgldor1" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]
@@ -136,6 +136,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4haps"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(30, 115, 22, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cr05"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(15, 80, 49, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxh0i"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(3, 41, 80, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6mtg"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(0, 1, 80, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0mho"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(133, 118, 23, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol8dy"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(117, 81, 50, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk6ut"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(103, 43, 80, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq854"]
+atlas = ExtResource("17_pimn4")
+region = Rect2(103, 0, 80, 22)
+
 [sub_resource type="Curve2D" id="Curve2D_pa1on"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 160, 24, 47.472813, 0, -47.472813, 0, 88, -24, 0, 0, 0, 0, 16, 6)
@@ -148,12 +180,12 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kq854"]
-atlas = ExtResource("17_pimn4")
-region = Rect2(0, 1, 80, 22)
-
-[node name="Gameplay" type="Node2D" unique_id=1973063514]
+[node name="Gameplay" type="Node2D" unique_id=1973063514 node_paths=PackedStringArray("feedback_ll", "feedback_l", "feedback_r", "feedback_rr")]
 script = ExtResource("1_td3fc")
+feedback_ll = NodePath("FeedbackRendererLL")
+feedback_l = NodePath("FeedbackRendererL")
+feedback_r = NodePath("FeedbackRendererR")
+feedback_rr = NodePath("FeedbackRendererRR")
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
 unique_name_in_owner = true
@@ -254,6 +286,34 @@ metadata/_edit_lock_ = true
 [node name="Sun" parent="Visuals" unique_id=1441731923 instance=ExtResource("12_td3fc")]
 position = Vector2(319.92493, 125.41139)
 
+[node name="FeedbackRendererRR" parent="." unique_id=1988208857 instance=ExtResource("16_2eo0c")]
+position = Vector2(284, 161)
+label_ok = SubResource("AtlasTexture_4haps")
+label_miss = SubResource("AtlasTexture_7cr05")
+label_ouch = SubResource("AtlasTexture_sxh0i")
+label_perfect = SubResource("AtlasTexture_c6mtg")
+
+[node name="FeedbackRendererR" parent="." unique_id=703023708 instance=ExtResource("16_2eo0c")]
+position = Vector2(277, 80)
+label_ok = SubResource("AtlasTexture_4haps")
+label_miss = SubResource("AtlasTexture_7cr05")
+label_ouch = SubResource("AtlasTexture_sxh0i")
+label_perfect = SubResource("AtlasTexture_c6mtg")
+
+[node name="FeedbackRendererLL" parent="." unique_id=1278254154 instance=ExtResource("16_2eo0c")]
+position = Vector2(26, 165)
+label_ok = SubResource("AtlasTexture_l0mho")
+label_miss = SubResource("AtlasTexture_ol8dy")
+label_ouch = SubResource("AtlasTexture_uk6ut")
+label_perfect = SubResource("AtlasTexture_kq854")
+
+[node name="FeedbackRendererL" parent="." unique_id=430476924 instance=ExtResource("16_2eo0c")]
+position = Vector2(40, 86)
+label_ok = SubResource("AtlasTexture_l0mho")
+label_miss = SubResource("AtlasTexture_ol8dy")
+label_ouch = SubResource("AtlasTexture_uk6ut")
+label_perfect = SubResource("AtlasTexture_kq854")
+
 [node name="NoteSpawnerTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
 position = Vector2(184.00002, 80.00001)
 rotation = -0.7853982
@@ -282,7 +342,3 @@ direction = "low_left"
 
 [node name="FrogPath" type="Path2D" parent="NoteSpawnerLL" unique_id=1354014513]
 curve = SubResource("Curve2D_elju3")
-
-[node name="FeedbackRenderer" parent="." unique_id=1988208857 instance=ExtResource("16_2eo0c")]
-position = Vector2(284, 161)
-label_ok = SubResource("AtlasTexture_kq854")
