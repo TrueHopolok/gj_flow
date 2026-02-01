@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bfy7ipsv3r2af"]
 
 [ext_resource type="Script" uid="uid://blfhl8lut35ky" path="res://scenes/note_path/note_spawner.gd" id="1_3vh7s"]
+[ext_resource type="Texture2D" uid="uid://e0t8qr1tvj5t" path="res://assets/exported/frame.png" id="2_5r57e"]
+[ext_resource type="Script" uid="uid://brlrup0nw6mlu" path="res://scenes/note_path/global_rotator.gd" id="3_honah"]
 
 [node name="NoteSpawner" type="Node2D" unique_id=178813084]
 script = ExtResource("1_3vh7s")
@@ -12,10 +14,9 @@ polygon = PackedVector2Array(0, -8, 0, 8, 160, 8, 160, 0, 160, -8)
 [node name="Perfect" type="Node2D" parent="." unique_id=1674715172]
 position = Vector2(16, 0)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Perfect" unique_id=1855203818]
-position = Vector2(-8, 0)
-color = Color(1, 0, 0, 0.23529412)
-polygon = PackedVector2Array(8, -8, 0, 0, 8, 8, 16, 0, 8, -8)
+[node name="Sprite2D" type="Sprite2D" parent="Perfect" unique_id=2086403666]
+texture = ExtResource("2_5r57e")
+script = ExtResource("3_honah")
 
 [node name="Begin" type="Node2D" parent="." unique_id=1377817177]
 position = Vector2(160, 0)
