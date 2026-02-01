@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_7x8wa"]
 [ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_n2b77"]
-[ext_resource type="AudioStream" uid="uid://cp2qdnq0rquv" path="res://audio/music/impossible/impossible_2.wav" id="3_n2b77"]
+[ext_resource type="AudioStream" uid="uid://bhfd550xhqs1h" path="res://audio/music/impossible/impossible_2.wav" id="3_n2b77"]
 
 [sub_resource type="Resource" id="Resource_ddqc1"]
 script = ExtResource("1_7x8wa")
