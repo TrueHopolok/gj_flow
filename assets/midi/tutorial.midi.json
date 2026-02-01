@@ -1,438 +1,438 @@
 {
   "header": {
-    "PPQ": 96,
-    "timeSignature": [
-      4,
-      4
-    ],
-    "bpm": 120,
-    "name": ""
+	"PPQ": 96,
+	"timeSignature": [
+	  4,
+	  4
+	],
+	"bpm": 120,
+	"name": ""
   },
   "tempo": [],
   "timeSignature": [
-    {
-      "absoluteTime": 0,
-      "seconds": 0,
-      "numerator": 4,
-      "denominator": 2,
-      "click": 36,
-      "notesQ": 8
-    },
-    {
-      "absoluteTime": 0,
-      "seconds": 0,
-      "numerator": 4,
-      "denominator": 2,
-      "click": 36,
-      "notesQ": 8
-    }
+	{
+	  "absoluteTime": 0,
+	  "seconds": 0,
+	  "numerator": 4,
+	  "denominator": 2,
+	  "click": 36,
+	  "notesQ": 8
+	},
+	{
+	  "absoluteTime": 0,
+	  "seconds": 0,
+	  "numerator": 4,
+	  "denominator": 2,
+	  "click": 36,
+	  "notesQ": 8
+	}
   ],
   "startTime": 11,
   "duration": 49.625,
   "tracks": [
-    {
-      "startTime": 11,
-      "duration": 49.625,
-      "length": 56,
-      "notes": [
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 11,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 13,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 14,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 15,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 17,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 18,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 19,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 21,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 22,
-          "velocity": 0.7874015748031497,
-          "duration": 0.25
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 22.5,
-          "velocity": 0.7874015748031497,
-          "duration": 0.25
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 23,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 24.5,
-          "velocity": 0.7874015748031497,
-          "duration": 0.25
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 25,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 26,
-          "velocity": 0.7874015748031497,
-          "duration": 0.25
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 26.5,
-          "velocity": 0.7874015748031497,
-          "duration": 0.25
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 27,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 27.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 28.25,
-          "velocity": 0.7874015748031497,
-          "duration": 0.25
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 29,
-          "velocity": 0.7874015748031497,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 29.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 33.25,
-          "velocity": 0.7874015748031497,
-          "duration": 0.1197916666666643
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 33.5,
-          "velocity": 0.7874015748031497,
-          "duration": 0.0572916666666643
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 33.625,
-          "velocity": 0.5433070866141733,
-          "duration": 0.0572916666666643
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 33.75,
-          "velocity": 0.7874015748031497,
-          "duration": 0.1197916666666643
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 34,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 34.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 35,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 35.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 36,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 36.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 37,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 37.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 38,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 38.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 39,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 39.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 40,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 40.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 41,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 41.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 42,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 42.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 43,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 43.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 44,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 44.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 45,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 45.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 46,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 46.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 47,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 47.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 48,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "C2",
-          "midi": 36,
-          "time": 48.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "D2",
-          "midi": 38,
-          "time": 49,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        },
-        {
-          "name": "F#2",
-          "midi": 42,
-          "time": 49.5,
-          "velocity": 0.7401574803149606,
-          "duration": 0.125
-        }
-      ],
-      "controlChanges": {},
-      "id": 0,
-      "name": "",
-      "channelNumber": 0,
-      "isPercussion": false
-    }
+	{
+	  "startTime": 11,
+	  "duration": 49.625,
+	  "length": 56,
+	  "notes": [
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 11,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 13,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 14,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 15,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 17,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 18,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 19,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 21,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 22,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.25
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 22.5,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.25
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 23,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 24.5,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.25
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 25,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 26,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.25
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 26.5,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.25
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 27,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 27.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 28.25,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.25
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 29,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 29.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 33.25,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.1197916666666643
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 33.5,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.0572916666666643
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 33.625,
+		  "velocity": 0.5433070866141733,
+		  "duration": 0.0572916666666643
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 33.75,
+		  "velocity": 0.7874015748031497,
+		  "duration": 0.1197916666666643
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 34,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 34.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 35,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 35.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 36,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 36.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 37,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 37.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 38,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 38.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 39,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 39.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 40,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 40.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 41,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 41.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 42,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 42.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 43,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 43.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 44,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 44.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 45,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 45.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 46,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 46.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 47,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 47.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 48,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "C2",
+		  "midi": 36,
+		  "time": 48.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "D2",
+		  "midi": 38,
+		  "time": 49,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		},
+		{
+		  "name": "F#2",
+		  "midi": 42,
+		  "time": 49.5,
+		  "velocity": 0.7401574803149606,
+		  "duration": 0.125
+		}
+	  ],
+	  "controlChanges": {},
+	  "id": 0,
+	  "name": "",
+	  "channelNumber": 0,
+	  "isPercussion": false
+	}
   ]
 }

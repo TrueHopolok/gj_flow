@@ -30,13 +30,10 @@ func spawn_enemy(delay_s: float) -> Callable:
 		return _spawn_internal(delay_s, ENEMY_FROG.instantiate())
 
 
-## Returns destroy hook.
-func spawn_dragon(delay_s: float) -> Callable:
-	return _spawn_internal(delay_s, ENEMY_DRAGON.instantiate())
-
-
 func _spawn_internal(delay_s: float, node: Node2D) -> Callable:
+	delay_s += delay_s / 9
 	add_child(node)
+	node.global_rotation = 0
 	var t := node.create_tween()
 	t.tween_property(node, "global_position", end_node.global_position, delay_s).from(begin_node.global_position)
 	t.chain().tween_callback(node.queue_free)

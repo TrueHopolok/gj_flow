@@ -5,14 +5,14 @@ extends Node2D
 signal health_changed(new_health: int)
 signal score_changed(new_score: int)
 
-## Time between note spawn and getting in click range 
-const NOTE_SPAWN_OFFSET: float = 2.0 # sec
+const TIMING_MAX_SCORE: int = 100
 
 ## Absolute error of player's clicking the note
 const TIMING_WINDOW: float = 0.25 # sec
-
 const TIMING_PERFECT: float = 0.05 # sec
-const TIMING_MAX_SCORE: int = 100
+
+## Time between note spawn and getting in click range 
+var NOTE_SPAWN_OFFSET: float = 2.0 # sec
 
 @export_group('Section')
 @export var sections: Array[LevelSection]
@@ -83,6 +83,7 @@ func next_section() -> void:
 	section = sections[section_idx].duplicate(true)
 	section.parts.shuffle()
 	assert(section.bpm > 0, "ALLO BROTHA")
+	NOTE_SPAWN_OFFSET = 120.0 / section.bpm
 
 	# construct sections
 	notes.clear()
@@ -184,10 +185,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		damage(LevelDamage.DAMAGE_PER_MISCLICK)
 
 
-# FIXME: second section loop does not work
 func _physics_process(_delta: float) -> void:
 	# TODO: remove debug print
-	$Tlabel.text = str(sec_to_beat(music_player.get_song_pos(), section.bpm)) + " beats"
+	$Tlabel.text = "#%0.1f beat" % sec_to_beat(music_player.get_song_pos(), section.bpm)
 
 	var now := music_player.get_song_pos()
 

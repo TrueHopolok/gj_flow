@@ -4,3 +4,20 @@
 
 [node name="NoteSpawner" type="Node2D" unique_id=178813084]
 script = ExtResource("1_3vh7s")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1241443629]
+color = Color(0, 0, 1, 0.23529412)
+polygon = PackedVector2Array(0, -8, 0, 8, 160, 8, 160, 0, 160, -8)
+
+[node name="Perfect" type="Node2D" parent="." unique_id=1674715172]
+position = Vector2(16, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Perfect" unique_id=1855203818]
+position = Vector2(-8, 0)
+color = Color(1, 0, 0, 0.23529412)
+polygon = PackedVector2Array(8, -8, 0, 0, 8, 8, 16, 0, 8, -8)
+
+[node name="Begin" type="Node2D" parent="." unique_id=1377817177]
+position = Vector2(160, 0)
+
+[node name="End" type="Node2D" parent="." unique_id=1921587343]

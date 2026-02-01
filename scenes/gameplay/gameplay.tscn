@@ -28,20 +28,14 @@ position = Vector2(320, 180)
 texture = ExtResource("7_gh441")
 
 [node name="Label" type="Label" parent="Visuals" unique_id=1035137764]
-offset_left = 360.0
-offset_top = 146.0
-offset_right = 427.0
-offset_bottom = 169.0
+offset_left = 376.0
+offset_top = 154.0
+offset_right = 443.0
+offset_bottom = 177.0
 text = "<- Player"
 
 [node name="Player" parent="Visuals" unique_id=1017047311 instance=ExtResource("5_gh441")]
-position = Vector2(320, 138)
-
-[node name="Polygon2D" type="Polygon2D" parent="Visuals" unique_id=660520905]
-position = Vector2(160, 80)
-scale = Vector2(0.5, 0.5)
-color = Color(0.90600294, 0.7644726, 0.15930474, 0.34117648)
-polygon = PackedVector2Array(260, 188, -16, 192, -23, 172, 299, 163, 295, 153, 188.85443, 76.539185, 59, -17, 70, -36, 303, 144, 325, 144, 489, -31, 514, -17, 338, 152, 334, 170, 663, 166, 662, 183, 319, 185)
+position = Vector2(320, 178)
 
 [node name="HealthLabel" type="Label" parent="Visuals" unique_id=582415041]
 offset_left = 288.0
@@ -52,48 +46,28 @@ text = "Health: 100%"
 script = ExtResource("5_0w2j2")
 
 [node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
-offset_left = 391.4446
-offset_top = 93.61987
-offset_right = 445.4446
-offset_bottom = 110.61987
+offset_left = 296.0
+offset_top = 90.0
+offset_right = 350.0
+offset_bottom = 107.0
 text = "Score: 0"
 script = ExtResource("7_pa1on")
 
 [node name="NoteSpawnerTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
+position = Vector2(184.00002, 80.00001)
+rotation = -0.7853982
 direction = "top_right"
 
-[node name="Begin" type="Node2D" parent="NoteSpawnerTR" unique_id=1653217776]
-position = Vector2(256, -24)
-
-[node name="End" type="Node2D" parent="NoteSpawnerTR" unique_id=1721330883]
-position = Vector2(176, 56)
-
 [node name="NoteSpawnerTL" parent="." unique_id=1389458643 instance=ExtResource("4_q64rj")]
-position = Vector2(-185, -26)
+position = Vector2(136, 80.00001)
+rotation = -2.3561945
 direction = "top_left"
 
-[node name="Begin" type="Node2D" parent="NoteSpawnerTL" unique_id=871013078]
-position = Vector2(217, 2)
-
-[node name="End" type="Node2D" parent="NoteSpawnerTL" unique_id=1551811618]
-position = Vector2(321, 82)
-
 [node name="NoteSpawnerLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
-position = Vector2(-185, -26)
+position = Vector2(192, 104)
 direction = "low_right"
 
-[node name="Begin" type="Node2D" parent="NoteSpawnerLR" unique_id=750047591]
-position = Vector2(521, 106)
-
-[node name="End" type="Node2D" parent="NoteSpawnerLR" unique_id=1800098628]
-position = Vector2(361, 106)
-
 [node name="NoteSpawnerLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
-position = Vector2(-185, -26)
+position = Vector2(128, 104)
+rotation = 3.1415927
 direction = "low_left"
-
-[node name="Begin" type="Node2D" parent="NoteSpawnerLL" unique_id=1322360622]
-position = Vector2(169, 106)
-
-[node name="End" type="Node2D" parent="NoteSpawnerLL" unique_id=549396061]
-position = Vector2(321, 106)
