@@ -12,7 +12,7 @@ script = ExtResource("2_0drbn")
 metadata/_custom_type_script = "uid://bq2xx0l5qy125"
 
 [node name="Tlabel" type="Label" parent="." unique_id=802774425]
-offset_left = 297.0
-offset_top = 232.0
-offset_right = 337.0
-offset_bottom = 246.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 48.0
+offset_bottom = 21.0
