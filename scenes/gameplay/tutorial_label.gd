@@ -1,14 +1,14 @@
 extends Label
 
 
-@export var section_idx: int = 0
+@export var expected_section_idx: int = 0
 @export var start_time: float = 3.0
 @export var stay_time: float = 2.0
 
 
-func _ready() -> void:
+func _on_game_manager_switched_section(section_idx: int) -> void:
 	get_tree().create_timer(start_time).timeout.connect(func() -> void:
-		if get_tree().get_first_node_in_group('GameManager').section_idx != section_idx: return
+		if section_idx != expected_section_idx: return
 		modulate = Color(1, 1, 1, 0)
 		global_position.y = -20
 		var tween: Tween = create_tween()

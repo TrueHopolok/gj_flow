@@ -2,6 +2,8 @@ class_name GameManager
 extends Node2D
 
 
+signal switched_section(section_idx: int)
+
 signal secret_happened
 
 signal health_changed(new_health: int)
@@ -93,6 +95,7 @@ func next_section() -> void:
 	if len(sections) - 1 > section_idx:
 		Persistance.set_completed(section_idx)
 		section_idx += 1
+	switched_section.emit(section_idx)
 
 	section = sections[section_idx].duplicate(true)
 	assert(section.bpm > 0, "ALLO BROTHA")

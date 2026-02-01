@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dio0r5t4jjjgr" path="res://scenes/gameplay/gameplay.gd" id="1_td3fc"]
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://btpjbm7xe8aul" path="res://assets/sections/tutorial.tres" id="3_elju3"]
-[ext_resource type="Script" uid="uid://cjtmcjkgldor1" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
+[ext_resource type="Script" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="Resource" uid="uid://dkpdgpxc2oajc" path="res://assets/sections/normal.tres" id="5_2eo0c"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ck8iyyj8cjwxb" path="res://assets/exported/lights.png" id="17_r4rys"]
 [ext_resource type="Texture2D" uid="uid://dn3k7y6wfw4w3" path="res://assets/exported/rock2.png" id="18_kq854"]
 [ext_resource type="Script" uid="uid://dnyiro7r18fuv" path="res://scenes/gameplay/escpare_label.gd" id="22_4haps"]
-[ext_resource type="Script" path="res://scenes/gameplay/tutorial_label.gd" id="23_7cr05"]
+[ext_resource type="Script" uid="uid://dy2l4negsav1x" path="res://scenes/gameplay/tutorial_label.gd" id="23_7cr05"]
 
 [sub_resource type="Animation" id="Animation_i6m2i"]
 length = 0.001
@@ -450,7 +450,7 @@ offset_bottom = -19.0
 text = "You may encoutner enemies"
 horizontal_alignment = 1
 script = ExtResource("23_7cr05")
-section_idx = 1
+expected_section_idx = 1
 
 [node name="TutorialLabel_1_2" type="Label" parent="." unique_id=694205515]
 offset_left = 68.0
@@ -460,5 +460,10 @@ offset_bottom = -45.0
 text = "They are just harder notes"
 horizontal_alignment = 1
 script = ExtResource("23_7cr05")
-section_idx = 1
+expected_section_idx = 1
 start_time = 7.0
+
+[connection signal="switched_section" from="GameManager" to="TutorialLabel_0_1" method="_on_game_manager_switched_section"]
+[connection signal="switched_section" from="GameManager" to="TutorialLabel_0_2" method="_on_game_manager_switched_section"]
+[connection signal="switched_section" from="GameManager" to="TutorialLabel_1_1" method="_on_game_manager_switched_section"]
+[connection signal="switched_section" from="GameManager" to="TutorialLabel_1_2" method="_on_game_manager_switched_section"]
