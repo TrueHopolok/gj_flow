@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b15kc1jk8rnwi"]
+
+[ext_resource type="Script" uid="uid://dvdfk4yqowgd3" path="res://scenes/sun/sun.gd" id="1_cb028"]
+[ext_resource type="Texture2D" uid="uid://ddnacpdwu1vbe" path="res://assets/exported/sun.png" id="1_p4yo0"]
+
+[sub_resource type="Curve" id="Curve_cb028"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.1531818, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb028"]
+atlas = ExtResource("1_p4yo0")
+region = Rect2(0, 0, 43, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4yo0"]
+atlas = ExtResource("1_p4yo0")
+region = Rect2(46, 4, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfnh2"]
+atlas = ExtResource("1_p4yo0")
+region = Rect2(84, 8, 27, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5h7p"]
+atlas = ExtResource("1_p4yo0")
+region = Rect2(114, 12, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vwo3"]
+atlas = ExtResource("1_p4yo0")
+region = Rect2(136, 16, 11, 11)
+
+[node name="Sun" type="Node2D" unique_id=1441731923]
+script = ExtResource("1_cb028")
+module_curve = SubResource("Curve_cb028")
+
+[node name="Ring1" type="Sprite2D" parent="." unique_id=7907361]
+texture = SubResource("AtlasTexture_cb028")
+
+[node name="Ring2" type="Sprite2D" parent="." unique_id=574961719]
+texture = SubResource("AtlasTexture_p4yo0")
+
+[node name="Ring3" type="Sprite2D" parent="." unique_id=895769119]
+texture = SubResource("AtlasTexture_kfnh2")
+
+[node name="Ring4" type="Sprite2D" parent="." unique_id=428169965]
+texture = SubResource("AtlasTexture_x5h7p")
+
+[node name="Ring5" type="Sprite2D" parent="." unique_id=1561161746]
+texture = SubResource("AtlasTexture_6vwo3")

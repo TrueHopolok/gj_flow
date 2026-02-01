@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://d16orrk0chqod"]
 
 [ext_resource type="PackedScene" uid="uid://b4q8luyciuacn" path="res://scenes/game_manager/game_manager.tscn" id="1_elxb5"]
+[ext_resource type="Script" uid="uid://dio0r5t4jjjgr" path="res://scenes/gameplay/gameplay.gd" id="1_td3fc"]
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://c5xhu8a0xuks7" path="res://assets/sections/experiment.tres" id="4_gh441"]
 [ext_resource type="Script" uid="uid://cjtmcjkgldor1" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
-[ext_resource type="Script" uid="uid://dxjjwbgw4rjjb" path="res://scenes/gameplay/health_label.gd" id="5_0w2j2"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]
 [ext_resource type="Texture2D" uid="uid://m3bhgapaa1iw" path="res://assets/exported/boat.png" id="7_elju3"]
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 [ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
 [ext_resource type="Texture2D" uid="uid://c6dvh2wexp6fl" path="res://assets/exported/drums.png" id="9_lb4ud"]
 [ext_resource type="Texture2D" uid="uid://cuh43r8pm2hmb" path="res://assets/exported/wave.png" id="10_bhb63"]
+[ext_resource type="PackedScene" uid="uid://b15kc1jk8rnwi" path="res://scenes/sun/sun.tscn" id="12_td3fc"]
 
 [sub_resource type="Animation" id="Animation_i6m2i"]
 length = 0.001
@@ -136,6 +137,7 @@ _data = {
 point_count = 3
 
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
+script = ExtResource("1_td3fc")
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
 unique_name_in_owner = true
@@ -158,16 +160,8 @@ position = Vector2(320, 180)
 texture = ExtResource("7_gh441")
 metadata/_edit_lock_ = true
 
-[node name="HealthLabel" type="Label" parent="Visuals" unique_id=582415041]
-offset_left = 288.0
-offset_top = 250.0
-offset_right = 347.0
-offset_bottom = 264.0
-text = "Health: 100%"
-script = ExtResource("5_0w2j2")
-
 [node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
-offset_left = 440.0
+offset_left = 435.0
 offset_top = 90.0
 offset_right = 478.0
 offset_bottom = 108.0
@@ -199,6 +193,9 @@ texture = SubResource("AtlasTexture_bhb63")
 position = Vector2(299, 241)
 sprite_frames = SubResource("SpriteFrames_uqtxl")
 speed_scale = 0.0
+
+[node name="Sun" parent="Visuals" unique_id=1441731923 instance=ExtResource("12_td3fc")]
+position = Vector2(319.92493, 125.41139)
 
 [node name="NoteSpawnerTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
 position = Vector2(184.00002, 80.00001)
