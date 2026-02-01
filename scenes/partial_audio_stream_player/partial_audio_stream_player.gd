@@ -14,14 +14,15 @@ func _ready() -> void:
 	finished.connect(_switch)
 
 
-func restart() -> void:
+func restart(rep_factor: float = 1.0) -> void:
+	pitch_scale = rep_factor
 	stream_id = -1
 	current_offset = 0
 	_switch()
 
 
 func get_song_pos() -> float:
-	return current_offset + get_playback_position() 
+	return (current_offset + get_playback_position()) / pitch_scale
 
 
 func _switch() -> void:

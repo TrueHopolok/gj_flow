@@ -10,6 +10,7 @@
 
 [node name="GameManager" type="Node2D" unique_id=679855574 groups=["GameManager"]]
 script = ExtResource("1_lycnq")
+sections = null
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1724744444]
 bus = &"Music"

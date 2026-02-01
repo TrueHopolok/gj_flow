@@ -20,7 +20,7 @@ func _ready() -> void:
 	)
 	game_manager.feedback.connect(spawn_feedback)
 	game_manager.drum_hit.connect(drum_feedback)
-	
+
 	game_manager.secret_happened.connect(func() -> void:
 		var t := the_rock.create_tween()
 		t.tween_property(the_rock, "modulate:a", 0.0, 0.5).from(1.0)
@@ -35,10 +35,10 @@ func spawn_feedback(dir: int, text: String) -> void:
 		-1: fr = feedback_l
 		+1: fr = feedback_r
 		+2: fr = feedback_rr
-	
+
 	if text == "ouch":
 		player.take_damage()
-	
+
 	fr.spawn_feedback(text)
 
 
