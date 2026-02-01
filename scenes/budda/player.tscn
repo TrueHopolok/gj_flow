@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cixmrooxvc2bv"]
+
+[ext_resource type="Texture2D" uid="uid://cv0h6o2m5wmsa" path="res://assets/exported/Budda.png" id="1_3taun"]
+
+[node name="Player" type="Node2D" unique_id=1017047311]
+
+[node name="Budda" type="Sprite2D" parent="." unique_id=1536813985]
+texture = ExtResource("1_3taun")
