@@ -131,11 +131,14 @@ func spawn_note(note: LevelNote) -> void:
 		printerr("Trying to spawn node on unknown node path")
 		return
 
+	var hook: Callable
 	match note.type:
 		LevelNote.NoteType.ENEMY:
-			spawner.spawn_enemy(NOTE_SPAWN_OFFSET)
+			hook = spawner.spawn_enemy(NOTE_SPAWN_OFFSET)
 		_:
-			spawner.spawn_note(NOTE_SPAWN_OFFSET)
+			hook = spawner.spawn_note(NOTE_SPAWN_OFFSET)
+	
+	note.delete_hook = hook
 
 
 func damage(hp_change: int) -> void:
@@ -173,6 +176,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			notes[idx].hittable = false
 			note_hit = true
 			handle_score(notes[idx], now)
+			if notes[idx].delete_hook.is_valid():
+				notes[idx].delete_hook.call()
 			break
 		idx += 1
 	

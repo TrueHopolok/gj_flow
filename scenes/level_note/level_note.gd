@@ -7,12 +7,12 @@ const TOP_LEFT: String = 'top_left'
 const TOP_RIGHT: String = 'top_right'
 const LOW_RIGHT: String = 'low_right'
 
-
 @export var type: NoteType
 @export var timing: float ## 1 unit == tact
 @export var direction: String
-var hittable: bool = true
 
+var hittable: bool = true
+var delete_hook: Callable
 
 enum NoteType {
 	REGULAR,
