@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bebiwlevtvvm4"
-path="res://.godot/imported/drums.png-1a4937435c0abb19ec5c5f76f40e0f49.ctex"
+uid="uid://bfbba4nq5cnb2"
+path="res://.godot/imported/rock.png-e746a5afaa832923de384d7abc93e594.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/exported/drums.png"
-dest_files=["res://.godot/imported/drums.png-1a4937435c0abb19ec5c5f76f40e0f49.ctex"]
+source_file="res://assets/exported/rock.png"
+dest_files=["res://.godot/imported/rock.png-e746a5afaa832923de384d7abc93e594.ctex"]
 
 [params]
 

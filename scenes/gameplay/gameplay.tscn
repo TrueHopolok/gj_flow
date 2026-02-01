@@ -12,14 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://m3bhgapaa1iw" path="res://assets/exported/boat.png" id="7_elju3"]
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 [ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
-[ext_resource type="Texture2D" uid="uid://c6dvh2wexp6fl" path="res://assets/exported/drums.png" id="9_lb4ud"]
 [ext_resource type="Texture2D" uid="uid://cuh43r8pm2hmb" path="res://assets/exported/wave.png" id="10_bhb63"]
 [ext_resource type="PackedScene" uid="uid://b15kc1jk8rnwi" path="res://scenes/sun/sun.tscn" id="12_td3fc"]
 [ext_resource type="Texture2D" uid="uid://piejrrc8sexp" path="res://assets/exported/clouds.png" id="13_216mg"]
 [ext_resource type="Texture2D" uid="uid://cey4kll5uegqq" path="res://assets/exported/gradient.png" id="13_krs01"]
-[ext_resource type="Texture2D" uid="uid://buicl3ox5c5t7" path="res://assets/exported/keys.png" id="15_moho6"]
 [ext_resource type="PackedScene" uid="uid://b8u8xhts4e3bf" path="res://scenes/feedback_renderer/feedback_renderer.tscn" id="16_2eo0c"]
+[ext_resource type="PackedScene" uid="uid://ceh44sstsring" path="res://scenes/gameplay/waves.tscn" id="17_kq854"]
 [ext_resource type="Texture2D" uid="uid://p4ift1mvkhag" path="res://assets/exported/labels.png" id="17_pimn4"]
+[ext_resource type="Texture2D" uid="uid://ck8iyyj8cjwxb" path="res://assets/exported/lights.png" id="17_r4rys"]
+[ext_resource type="Texture2D" uid="uid://dn3k7y6wfw4w3" path="res://assets/exported/rock2.png" id="18_kq854"]
 
 [sub_resource type="Animation" id="Animation_i6m2i"]
 length = 0.001
@@ -152,11 +153,11 @@ font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lb4ud"]
 atlas = ExtResource("7_elju3")
-region = Rect2(0, 38, 115, 35)
+region = Rect2(0, 49, 115, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhb63"]
 atlas = ExtResource("7_elju3")
-region = Rect2(0, 0, 115, 35)
+region = Rect2(0, 0, 118, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krs01"]
 atlas = ExtResource("10_bhb63")
@@ -193,22 +194,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2aaaq"]
-atlas = ExtResource("15_moho6")
-region = Rect2(0, 0, 6, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5rhx"]
-atlas = ExtResource("15_moho6")
-region = Rect2(27, 0, 6, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xy201"]
-atlas = ExtResource("15_moho6")
-region = Rect2(18, 0, 6, 7)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sa0aj"]
-atlas = ExtResource("15_moho6")
-region = Rect2(9, 0, 6, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4haps"]
 atlas = ExtResource("17_pimn4")
@@ -280,6 +265,7 @@ script = ExtResource("4_i6m2i")
 z_index = -1
 position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_2aaaq")
+autoplay = "default"
 frame_progress = 0.43907347
 metadata/_edit_lock_ = true
 
@@ -308,11 +294,6 @@ texture = SubResource("AtlasTexture_3maud")
 position = Vector2(382, 161)
 texture = SubResource("AtlasTexture_a3v0j")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Visuals" unique_id=1974934154]
-repeat_size = Vector2(300, 0)
-autoscroll = Vector2(-14.236, 0)
-repeat_times = 2
-
 [node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
 offset_left = 435.0
 offset_top = 90.0
@@ -322,6 +303,10 @@ text = "0"
 label_settings = SubResource("LabelSettings_i6m2i")
 horizontal_alignment = 2
 script = ExtResource("7_pa1on")
+
+[node name="Lights" type="Sprite2D" parent="Visuals" unique_id=470196083]
+position = Vector2(348, 81)
+texture = ExtResource("17_r4rys")
 
 [node name="Central" type="Node2D" parent="Visuals" unique_id=1875061394]
 position = Vector2(323.4799, 223.01404)
@@ -333,15 +318,20 @@ position = Vector2(-1.37323, -19.524994)
 texture = SubResource("AtlasTexture_lb4ud")
 
 [node name="Player" parent="Visuals/Central" unique_id=1017047311 instance=ExtResource("5_gh441")]
-position = Vector2(0.06213379, -42.459732)
-
-[node name="Drums" type="Sprite2D" parent="Visuals/Central" unique_id=1339118238]
-position = Vector2(-3, -32)
-texture = ExtResource("9_lb4ud")
+unique_name_in_owner = true
+position = Vector2(1.5201111, -7.014038)
 
 [node name="BoatFront" type="Sprite2D" parent="Visuals/Central" unique_id=448187826]
-position = Vector2(-0.79486084, -19.41278)
+position = Vector2(1.2051392, -22.41278)
 texture = SubResource("AtlasTexture_bhb63")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Visuals" unique_id=1454542765]
+scroll_offset = Vector2(-4, 270)
+repeat_size = Vector2(343.568, 0)
+autoscroll = Vector2(-23.464, 0)
+repeat_times = 3
+
+[node name="Waves" parent="Visuals/Parallax2D2" unique_id=573333013 instance=ExtResource("17_kq854")]
 
 [node name="Wave" type="AnimatedSprite2D" parent="Visuals" unique_id=1990328881]
 position = Vector2(299, 241)
@@ -359,21 +349,12 @@ metadata/_edit_lock_ = true
 [node name="Sun" parent="Visuals" unique_id=1441731923 instance=ExtResource("12_td3fc")]
 position = Vector2(319.92493, 125.41139)
 
-[node name="D" type="Sprite2D" parent="Visuals" unique_id=58617869]
-position = Vector2(272, 180)
-texture = SubResource("AtlasTexture_2aaaq")
-
-[node name="F" type="Sprite2D" parent="Visuals" unique_id=106801475]
-position = Vector2(286, 143)
-texture = SubResource("AtlasTexture_x5rhx")
-
-[node name="J" type="Sprite2D" parent="Visuals" unique_id=810708006]
-position = Vector2(354, 143)
-texture = SubResource("AtlasTexture_xy201")
-
-[node name="K" type="Sprite2D" parent="Visuals" unique_id=148914641]
-position = Vector2(368, 179)
-texture = SubResource("AtlasTexture_sa0aj")
+[node name="TheRock" type="Sprite2D" parent="Visuals" unique_id=2932708]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 90)
+texture = ExtResource("18_kq854")
+centered = false
 
 [node name="FeedbackRendererRR" parent="." unique_id=1988208857 instance=ExtResource("16_2eo0c")]
 position = Vector2(280, 139)
