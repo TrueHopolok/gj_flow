@@ -36,4 +36,3 @@ func _switch() -> void:
 	else:
 		stream = stream_queue[stream_id]
 		play()
-		print(stream)
