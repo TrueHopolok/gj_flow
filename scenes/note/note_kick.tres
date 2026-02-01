@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://duqvdni5pr6pw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fy6tf"]
+load_path = "res://.godot/imported/drum_icons.png-b71499ca33fc2307d7b0712d65bd27be.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_fy6tf")
+region = Rect2(6, 4, 10, 10)

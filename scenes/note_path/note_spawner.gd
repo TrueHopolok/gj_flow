@@ -23,7 +23,19 @@ var direction: String
 ## Returns destroy hook.
 func spawn_note(delay_s: float) -> Callable:
 	# TODO: depending on position spawn different note
-	return _spawn_internal(delay_s, NOTE.instantiate())
+	var inst := NOTE.instantiate() as Sprite2D
+	match direction:
+		LevelNote.LOW_LEFT:
+			inst.texture = preload("res://scenes/note/note_clap.tres")
+		LevelNote.TOP_LEFT:
+			inst.texture = preload("res://scenes/note/note_hihat.tres")
+		LevelNote.TOP_RIGHT:
+			inst.texture = preload("res://scenes/note/note_snare.tres")
+		LevelNote.LOW_RIGHT:
+			inst.texture = preload("res://scenes/note/note_kick.tres")
+		_:
+			printerr("bad direction %s" % direction)
+	return _spawn_internal(delay_s, inst)
 
 
 ## Returns destroy hook.
