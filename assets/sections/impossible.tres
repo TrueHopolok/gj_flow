@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="LevelSection" format=3 uid="uid://4ng4d7x28kdo"]
+
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="1_d0j8e"]
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_k3yvs"]
+[ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="2_2wiwu"]
+[ext_resource type="AudioStream" uid="uid://dodb6i3ebinc1" path="res://audio/music/impossible/impossible_intro.wav" id="3_im2tc"]
+[ext_resource type="AudioStream" uid="uid://j7au16ysingk" path="res://audio/music/impossible/impossible_outro.wav" id="4_7qg7p"]
+[ext_resource type="Resource" uid="uid://cvgst5g3v2oe8" path="res://assets/parts/impossible/part1.tres" id="5_elh8f"]
+[ext_resource type="Resource" uid="uid://4vwqhbxq52n2" path="res://assets/parts/impossible/part2.tres" id="6_xi15v"]
+
+[sub_resource type="Resource" id="Resource_7kgyx"]
+script = ExtResource("1_d0j8e")
+stream = ExtResource("3_im2tc")
+metadata/_custom_type_script = "uid://b7nb4e42hny50"
+
+[sub_resource type="Resource" id="Resource_bjlgm"]
+script = ExtResource("1_d0j8e")
+stream = ExtResource("4_7qg7p")
+metadata/_custom_type_script = "uid://b7nb4e42hny50"
+
+[resource]
+script = ExtResource("2_2wiwu")
+bpm = 160.0
+parts = Array[ExtResource("1_d0j8e")]([ExtResource("5_elh8f"), ExtResource("6_xi15v")])
+intro_part = SubResource("Resource_7kgyx")
+outro_part = SubResource("Resource_bjlgm")
+metadata/_custom_type_script = "uid://crkfqj4wv8qok"

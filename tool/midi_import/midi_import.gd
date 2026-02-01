@@ -15,8 +15,8 @@ const NOTE_DIRS: Dictionary[String, String] = {
 	"E2": LevelNote.LOW_LEFT,
 }
 
-const INPUT_DIR: String = "res://assets/midi/hard"
-const OUTPUT_DIR: String = "res://assets/parts/hard"
+const INPUT_DIR: String = "res://assets/midi/impossible"
+const OUTPUT_DIR: String = "res://assets/parts/impossible"
 
 func _run() -> void:
 	print(" ===== RUNNING  : midi_import.gd ===== ")
@@ -45,7 +45,7 @@ func convert_to_levelparts(path: String = INPUT_DIR, output_path: String = OUTPU
 		if file_name == "." or file_name == "..": continue
 		var full_path := path.path_join(file_name)
 		if dir.current_is_dir():
-			if level < 2: 
+			if level < 2:
 				DirAccess.make_dir_absolute(output_path.path_join(file_name))
 				convert_to_levelparts(full_path, output_path.path_join(file_name), level + 1)
 			continue
