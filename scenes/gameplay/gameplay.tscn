@@ -6,6 +6,12 @@
 [ext_resource type="Resource" uid="uid://c5xhu8a0xuks7" path="res://assets/sections/experiment.tres" id="4_gh441"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_path.tscn" id="4_q64rj"]
 [ext_resource type="Script" uid="uid://dxjjwbgw4rjjb" path="res://scenes/gameplay/health_label.gd" id="5_0w2j2"]
+[ext_resource type="FontFile" uid="uid://dfq2ensxjw317" path="res://assets/fonts/MedievalKnife-Regular.ttf" id="7_gh441"]
+[ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pa1on"]
+font = ExtResource("7_gh441")
+font_size = 12
 
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 
@@ -42,6 +48,15 @@ offset_right = 342.0
 offset_bottom = 319.0
 text = "Health: 100%"
 script = ExtResource("5_0w2j2")
+
+[node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
+offset_left = 275.0
+offset_top = 333.0
+offset_right = 394.0
+offset_bottom = 350.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_pa1on")
+script = ExtResource("7_pa1on")
 
 [node name="NotePathTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
 
