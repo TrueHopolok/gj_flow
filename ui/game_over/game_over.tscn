@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bttoutqpkdxln" path="res://ui/game_over/game_over.gd" id="1_4cp6t"]
 [ext_resource type="Texture2D" uid="uid://clky3v7ghvr7a" path="res://assets/exported/menu_background.png" id="1_pofhi"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="3_ktka2"]
+[ext_resource type="AudioStream" uid="uid://bo0yjesygr7mo" path="res://audio/music/death.wav" id="4_6lpyu"]
 
 [node name="GameOver" type="Control" unique_id=269609482]
 layout_mode = 3
@@ -44,5 +45,10 @@ theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
 text = "Score
 12345"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=481989716]
+stream = ExtResource("4_6lpyu")
+autoplay = true
+bus = &"SFX"
 
 [editable path="Hard"]
