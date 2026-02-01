@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dio0r5t4jjjgr" path="res://scenes/gameplay/gameplay.gd" id="1_td3fc"]
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://btpjbm7xe8aul" path="res://assets/sections/tutorial.tres" id="3_elju3"]
-[ext_resource type="Script" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
+[ext_resource type="Script" uid="uid://cjtmcjkgldor1" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
 [ext_resource type="Resource" uid="uid://r4gm7sdhr5no" path="res://assets/sections/hard.tres" id="4_pimn4"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="Resource" uid="uid://dkpdgpxc2oajc" path="res://assets/sections/normal.tres" id="5_2eo0c"]
@@ -133,7 +133,19 @@ region = Rect2(0, 0, 108, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4rys"]
 atlas = ExtResource("13_216mg")
-region = Rect2(13, 39, 17, 6)
+region = Rect2(127, 1, 91, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjii2"]
+atlas = ExtResource("13_216mg")
+region = Rect2(5, 70, 92, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3maud"]
+atlas = ExtResource("13_216mg")
+region = Rect2(140, 78, 27, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3v0j"]
+atlas = ExtResource("13_216mg")
+region = Rect2(194, 79, 17, 6)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6m2i"]
 font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
@@ -272,36 +284,34 @@ frame_progress = 0.43907347
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="Visuals" unique_id=239167642]
-repeat_size = Vector2(300, 0)
+repeat_size = Vector2(336.093, 0)
 autoscroll = Vector2(-10, 0)
 repeat_times = 2
 
-[node name="Big" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=225253365]
-position = Vector2(413, 150)
+[node name="Cloud" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=225253365]
+position = Vector2(214, 144)
 texture = SubResource("AtlasTexture_uqtxl")
 
-[node name="Big2" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=1961672692]
-position = Vector2(221, 166)
-texture = SubResource("AtlasTexture_uqtxl")
-flip_h = true
-
-[node name="Small" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=2076324434]
-position = Vector2(425, 178)
+[node name="Cloud2" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=2076324434]
+position = Vector2(424, 148)
 texture = SubResource("AtlasTexture_r4rys")
+
+[node name="Cloud3" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=1518373584]
+position = Vector2(648, 159)
+texture = SubResource("AtlasTexture_fjii2")
+
+[node name="Cloud4" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=1070937307]
+position = Vector2(491, 163)
+texture = SubResource("AtlasTexture_3maud")
+
+[node name="Cloud5" type="Sprite2D" parent="Visuals/Parallax2D" unique_id=1618331270]
+position = Vector2(382, 161)
+texture = SubResource("AtlasTexture_a3v0j")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Visuals" unique_id=1974934154]
 repeat_size = Vector2(300, 0)
 autoscroll = Vector2(-14.236, 0)
 repeat_times = 2
-
-[node name="Small2" type="Sprite2D" parent="Visuals/Parallax2D2" unique_id=1651126040]
-position = Vector2(304, 163)
-texture = SubResource("AtlasTexture_r4rys")
-
-[node name="Small3" type="Sprite2D" parent="Visuals/Parallax2D2" unique_id=1427253355]
-position = Vector2(201, 142)
-texture = SubResource("AtlasTexture_r4rys")
-flip_h = true
 
 [node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
 offset_left = 435.0
