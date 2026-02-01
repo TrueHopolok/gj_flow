@@ -20,7 +20,7 @@ const TIMING_MAX_SCORE: int = 100
 const TIMING_WINDOW: float = 0.15 # sec
 const TIMING_PERFECT: float = 0.10 # sec
 
-## Time between note spawn and getting in click range 
+## Time between note spawn and getting in click range
 var NOTE_SPAWN_OFFSET: float = 2.0 # sec
 
 @export_group('Section')
@@ -97,7 +97,7 @@ func next_section() -> void:
 		section_idx += 1
 	switched_section.emit(section_idx)
 
-	section = sections[section_idx].duplicate(true)
+	section = sections[section_idx].our_deep_clone()
 	assert(section.bpm > 0, "ALLO BROTHA")
 	NOTE_SPAWN_OFFSET = 120.0 / section.bpm
 	section.parts.shuffle()
@@ -181,7 +181,7 @@ func handle_score(note: LevelNote, current_time_sec: float) -> bool:
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_pressed():
 		return
-	
+
 	if event.is_action_pressed("the_rock"):
 		funny_player.play()
 		secret_happened.emit()
@@ -230,7 +230,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				notes[idx].delete_hook.call()
 			break
 		idx += 1
-	
+
 	if note_hit:
 		if is_perfect:
 			feedback.emit(dir_int, "perfect")
@@ -249,7 +249,7 @@ func _physics_process(_delta: float) -> void:
 	while next_spawn_idx < notes.size() and beat_to_sec(notes[next_spawn_idx].timing, section.bpm) - NOTE_SPAWN_OFFSET < now:
 		spawn_note(notes[next_spawn_idx])
 		next_spawn_idx += 1
-	
+
 	# Destroy overdue notes, possibly damaging the player
 	while next_destroy_idx < next_spawn_idx and beat_to_sec(notes[next_destroy_idx].timing, section.bpm) + TIMING_WINDOW < now:
 		if notes[next_destroy_idx].hittable: # player did not hit it
