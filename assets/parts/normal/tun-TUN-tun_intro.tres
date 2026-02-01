@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelPart" format=3 uid="uid://ce0fgjeuqbkfo"]
+
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_7r8as"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_8hv7i"]
+[ext_resource type="AudioStream" uid="uid://c12ynserwt0lb" path="res://audio/music/normal/tun-TUN-tun_intro.wav" id="3_8hv7i"]
+
+[resource]
+script = ExtResource("2_8hv7i")
+stream = ExtResource("3_8hv7i")
+metadata/_custom_type_script = "uid://b7nb4e42hny50"

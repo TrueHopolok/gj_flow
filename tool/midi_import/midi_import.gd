@@ -22,8 +22,8 @@ const NOTE_TYPES: Dictionary[String, LevelNote.NoteType] = {
 	"D2": LevelNote.NoteType.REGULAR,
 }
 
-const INPUT_DIR: String = "res://assets/midi"
-const OUTPUT_DIR: String = "res://assets/parts"
+const INPUT_DIR: String = "res://assets/midi/normal"
+const OUTPUT_DIR: String = "res://assets/parts/normal"
 
 func _run() -> void:
 	print(" ===== RUNNING  : midi_import.gd ===== ")

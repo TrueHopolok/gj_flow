@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelSection" format=3 uid="uid://dkpdgpxc2oajc"]
+
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="1_12ykr"]
+[ext_resource type="Resource" uid="uid://ce0fgjeuqbkfo" path="res://assets/parts/normal/tun-TUN-tun_intro.tres" id="1_dixmo"]
+[ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="2_fl6xj"]
+[ext_resource type="Resource" uid="uid://cx0v8gqmibrfa" path="res://assets/parts/normal/tun-TUN-tun_outro.tres" id="2_nittb"]
+[ext_resource type="Resource" uid="uid://1msmx7mr1vy4" path="res://assets/parts/normal/tun-TUN-tun_1.tres" id="4_glsat"]
+[ext_resource type="Resource" uid="uid://d2nhpj4urqq2n" path="res://assets/parts/normal/tun-TUN-tun_2.tres" id="5_h8pt4"]
+[ext_resource type="Resource" uid="uid://o7jp2364hspk" path="res://assets/parts/normal/tun-TUN-tun_3.tres" id="6_nplvj"]
+[ext_resource type="Resource" uid="uid://d0rte5uw5qc78" path="res://assets/parts/normal/tun-TUN-tun_4.tres" id="7_l4ugi"]
+
+[resource]
+script = ExtResource("2_fl6xj")
+bpm = 90.0
+parts = Array[ExtResource("1_12ykr")]([ExtResource("4_glsat"), ExtResource("5_h8pt4"), ExtResource("6_nplvj"), ExtResource("7_l4ugi")])
+intro_part = ExtResource("1_dixmo")
+outro_part = ExtResource("2_nittb")
+metadata/_custom_type_script = "uid://crkfqj4wv8qok"
