@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="LevelPart" format=3 uid="uid://bpxdreumm2dgm"]
+
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_qbp5v"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_8v7hu"]
+[ext_resource type="AudioStream" uid="uid://biyycay1b3yfw" path="res://audio/music/tutorial/tutorial_3.wav" id="3_8v7hu"]
+
+[sub_resource type="Resource" id="Resource_8lysm"]
+script = ExtResource("1_qbp5v")
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_kjtix"]
+script = ExtResource("1_qbp5v")
+timing = 1.0
+direction = "top_right"
+
+[sub_resource type="Resource" id="Resource_1w5cd"]
+script = ExtResource("1_qbp5v")
+timing = 2.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_q054a"]
+script = ExtResource("1_qbp5v")
+timing = 3.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_e74lk"]
+script = ExtResource("1_qbp5v")
+timing = 4.0
+direction = "top_right"
+
+[sub_resource type="Resource" id="Resource_32ls8"]
+script = ExtResource("1_qbp5v")
+timing = 5.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_rdnfu"]
+script = ExtResource("1_qbp5v")
+timing = 6.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_18f8s"]
+script = ExtResource("1_qbp5v")
+timing = 7.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_uxhsn"]
+script = ExtResource("1_qbp5v")
+timing = 8.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_rxwpb"]
+script = ExtResource("1_qbp5v")
+timing = 9.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_8ac6l"]
+script = ExtResource("1_qbp5v")
+timing = 10.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_gmsyu"]
+script = ExtResource("1_qbp5v")
+timing = 11.0
+direction = "top_right"
+
+[sub_resource type="Resource" id="Resource_5qg6q"]
+script = ExtResource("1_qbp5v")
+timing = 12.0
+direction = "top_right"
+
+[sub_resource type="Resource" id="Resource_c3aww"]
+script = ExtResource("1_qbp5v")
+timing = 13.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_j2o8p"]
+script = ExtResource("1_qbp5v")
+timing = 14.0
+direction = "low_left"
+
+[resource]
+script = ExtResource("2_8v7hu")
+stream = ExtResource("3_8v7hu")
+notes = Array[ExtResource("1_qbp5v")]([SubResource("Resource_8lysm"), SubResource("Resource_kjtix"), SubResource("Resource_1w5cd"), SubResource("Resource_q054a"), SubResource("Resource_e74lk"), SubResource("Resource_32ls8"), SubResource("Resource_rdnfu"), SubResource("Resource_18f8s"), SubResource("Resource_uxhsn"), SubResource("Resource_rxwpb"), SubResource("Resource_8ac6l"), SubResource("Resource_gmsyu"), SubResource("Resource_5qg6q"), SubResource("Resource_c3aww"), SubResource("Resource_j2o8p")])

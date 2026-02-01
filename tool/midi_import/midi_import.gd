@@ -22,48 +22,77 @@ const NOTE_TYPES: Dictionary[String, LevelNote.NoteType] = {
 	"D2": LevelNote.NoteType.REGULAR,
 }
 
-const INPUT_FILE: String = "res://assets/midi/tutorial.midi.json"
-const OUTPUT_RESOURCE: String = "res://assets/tutorial.tres"
+const INPUT_DIR: String = "res://assets/midi"
+const OUTPUT_DIR: String = "res://assets/parts"
 
 func _run() -> void:
-	var content := FileAccess.get_file_as_string(INPUT_FILE)
-	if content == "":
-		var err := FileAccess.get_open_error()
-		printerr("Failed to open %s: %s" % [INPUT_FILE, error_string(err)])
-		return
-	
-	var tracks := JSON.parse_string(content).tracks as Array
-	if tracks.size() != 1:
-		printerr("tracks: %d, want 1" % tracks.size())
+	print(" ===== RUNNING  : midi_import.gd ===== ")
+	convert_to_levelparts()
+	print(" ===== FINISHED : midi_import.gd ===== ")
+
+func convert_to_levelparts(path: String = INPUT_DIR, output_path: String = OUTPUT_DIR, level: int = 0) -> void:
+	print("[DIR] %s" % path)
+
+	var err: Error
+
+	var dir := DirAccess.open(path)
+	if !dir:
+		err = DirAccess.get_open_error()
+		printerr("Failed to open %s: %s" % [path, error_string(err)])
 		return
 
-	var min_time: float = 0.0
-	var max_time: float = 0.0
-	
-	var notes: Array[LevelNote] = []
+	err = dir.list_dir_begin()
+	if err != Error.OK:
+		printerr("Failed to open %s: %s" % [path, error_string(err)])
+		return
 
-	for note in tracks[0].notes:
-		min_time = minf(min_time, note.time)
-		max_time = maxf(max_time, note.time)
-		
-		var dir: Variant = NOTE_DIRS.get(note.name, null)
-		if dir == null:
-			printerr("Unknown note: %s" % note.name)
+	while true:
+		var file_name := dir.get_next()
+		if file_name == "": break
+		if file_name == "." or file_name == "..": continue
+		var full_path := path.path_join(file_name)
+		if dir.current_is_dir():
+			if level < 2: 
+				DirAccess.make_dir_absolute(output_path.path_join(file_name))
+				convert_to_levelparts(full_path, output_path.path_join(file_name), level + 1)
+			continue
+		if file_name.get_extension() != 'json':
+			continue
+		print("[read] %s" % file_name)
+
+		var content := FileAccess.get_file_as_string(full_path)
+		if content == "":
+			err = FileAccess.get_open_error()
+			printerr("Failed to read %s: %s" % [full_path, error_string(err)])
 			continue
 
-		var ln := LevelNote.new()
-		ln.type = NOTE_TYPES.get(note.name, DEFAULT_NOTE_TYPE)
-		ln.direction = dir
-		ln.timing = note.time
-		notes.append(ln)
-	
-	max_time -= min_time
-	for note in notes:
-		note.timing -= min_time
-	
-	var lp := LevelPart.new()
-	lp.length = max_time
-	lp.notes = notes
-	ResourceSaver.save(lp, OUTPUT_RESOURCE)
+		var full := JSON.parse_string(content) as Dictionary
+		var tracks := full.tracks as Array
+		if tracks.size() != 1:
+			printerr("Failed tracks: %d, want 1" % tracks.size())
+			continue
+		var bpm: float = full.header.bpm
 
-	print("DONE! Written to %s" % OUTPUT_RESOURCE)
+		var notes: Array[LevelNote] = []
+		for note in tracks[0].notes:
+			var note_dir: Variant = NOTE_DIRS.get(note.name, null)
+			if note_dir == null:
+				printerr("Unknown note: %s" % note.name)
+				continue
+			var ln := LevelNote.new()
+			ln.type = NOTE_TYPES.get(note.name, DEFAULT_NOTE_TYPE)
+			ln.timing = note.time / 60.0 * bpm
+			ln.direction = note_dir
+			notes.append(ln)
+
+		var lp := LevelPart.new()
+		lp.notes = notes.duplicate(true)
+		for note in lp.notes:
+			print(note.timing)
+		err = ResourceSaver.save(lp, output_path.path_join(file_name.get_basename() + '.tres'))
+		if err == Error.OK:
+			print("[save] %s" % output_path.path_join(file_name.get_basename() + '.tres'))
+		else:
+			printerr("Failed saving %s: %s" % [output_path.path_join(file_name.get_basename() + '.tres'), error_string(err)])
+
+	dir.list_dir_end()

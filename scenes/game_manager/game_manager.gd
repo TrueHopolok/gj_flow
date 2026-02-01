@@ -99,15 +99,22 @@ func next_section() -> void:
 
 	var offset: float = 0.0
 	for part: LevelPart in section.parts:
-		if part.stream != null:
-			for note: LevelNote in part.notes:
-				notes.append(note)
-				note.timing += sec_to_beat(offset, section.bpm)
-			music_player.stream_queue.append(part.stream)
-			offset += part.stream.get_length()
+		assert(part.stream != null, "WTF")
+		for note: LevelNote in part.notes:
+			note.timing += sec_to_beat(offset, section.bpm)
+			notes.append(note)
+		music_player.stream_queue.append(part.stream)
+		offset += part.stream.get_length()
 
+	notes.sort_custom(func(ln: LevelNote, rn: LevelNote) -> bool:
+		return ln.timing < rn.timing
+	)
 	next_spawn_idx = 0
 	next_destroy_idx = 0
+
+	print("BIG CHUNKY")
+	for note: LevelNote in notes:
+		print(note.timing)
 
 	# maybe play some animation that next section starts
 	music_player.restart()

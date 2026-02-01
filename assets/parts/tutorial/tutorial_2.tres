@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="LevelPart" format=3 uid="uid://cyjfj41mekt3l"]
+
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_ig4ho"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_6cslm"]
+[ext_resource type="AudioStream" uid="uid://b06oamepg3thb" path="res://audio/music/tutorial/tutorial_2.wav" id="3_6cslm"]
+
+[sub_resource type="Resource" id="Resource_wje4d"]
+script = ExtResource("1_ig4ho")
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_onywt"]
+script = ExtResource("1_ig4ho")
+timing = 1.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_dw86l"]
+script = ExtResource("1_ig4ho")
+timing = 2.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_fevv4"]
+script = ExtResource("1_ig4ho")
+timing = 3.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_okrma"]
+script = ExtResource("1_ig4ho")
+timing = 5.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_u2gv2"]
+script = ExtResource("1_ig4ho")
+timing = 6.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_uc1ik"]
+script = ExtResource("1_ig4ho")
+timing = 7.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_d6rme"]
+script = ExtResource("1_ig4ho")
+timing = 8.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_qcf66"]
+script = ExtResource("1_ig4ho")
+timing = 9.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_ypf1b"]
+script = ExtResource("1_ig4ho")
+timing = 10.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_b1c8l"]
+script = ExtResource("1_ig4ho")
+timing = 11.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_x23to"]
+script = ExtResource("1_ig4ho")
+timing = 13.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_ih30o"]
+script = ExtResource("1_ig4ho")
+timing = 14.0
+direction = "low_left"
+
+[resource]
+script = ExtResource("2_6cslm")
+stream = ExtResource("3_6cslm")
+notes = Array[ExtResource("1_ig4ho")]([SubResource("Resource_wje4d"), SubResource("Resource_onywt"), SubResource("Resource_dw86l"), SubResource("Resource_fevv4"), SubResource("Resource_okrma"), SubResource("Resource_u2gv2"), SubResource("Resource_uc1ik"), SubResource("Resource_d6rme"), SubResource("Resource_qcf66"), SubResource("Resource_ypf1b"), SubResource("Resource_b1c8l"), SubResource("Resource_x23to"), SubResource("Resource_ih30o")])

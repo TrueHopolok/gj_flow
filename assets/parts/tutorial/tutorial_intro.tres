@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="LevelPart" format=3 uid="uid://barxp50oxsrdw"]
+
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_q4ydh"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_gsj1l"]
+[ext_resource type="AudioStream" uid="uid://c18vx0a0vytyw" path="res://audio/music/tutorial/tutorial_intro.wav" id="3_gsj1l"]
+
+[sub_resource type="Resource" id="Resource_43b4e"]
+script = ExtResource("1_q4ydh")
+timing = 22.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_edhtf"]
+script = ExtResource("1_q4ydh")
+timing = 26.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_guhyj"]
+script = ExtResource("1_q4ydh")
+timing = 28.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_5l7ly"]
+script = ExtResource("1_q4ydh")
+timing = 30.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_tn866"]
+script = ExtResource("1_q4ydh")
+timing = 34.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_a4vdt"]
+script = ExtResource("1_q4ydh")
+timing = 36.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_rbt1e"]
+script = ExtResource("1_q4ydh")
+timing = 38.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_qrxtw"]
+script = ExtResource("1_q4ydh")
+timing = 42.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_3nt83"]
+script = ExtResource("1_q4ydh")
+timing = 44.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_xffeb"]
+script = ExtResource("1_q4ydh")
+timing = 45.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_mmf24"]
+script = ExtResource("1_q4ydh")
+timing = 46.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_71i00"]
+script = ExtResource("1_q4ydh")
+timing = 49.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_mf8ro"]
+script = ExtResource("1_q4ydh")
+timing = 50.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_nyn8w"]
+script = ExtResource("1_q4ydh")
+timing = 52.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_ee0f7"]
+script = ExtResource("1_q4ydh")
+timing = 53.0
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_c8t33"]
+script = ExtResource("1_q4ydh")
+timing = 54.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_nm5j2"]
+script = ExtResource("1_q4ydh")
+timing = 55.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_283pi"]
+script = ExtResource("1_q4ydh")
+timing = 56.5
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_c8edd"]
+script = ExtResource("1_q4ydh")
+timing = 58.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_jvhp0"]
+script = ExtResource("1_q4ydh")
+timing = 59.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_miphw"]
+script = ExtResource("1_q4ydh")
+timing = 66.5
+direction = "low_right"
+
+[sub_resource type="Resource" id="Resource_lr0bw"]
+script = ExtResource("1_q4ydh")
+timing = 67.0
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_t0410"]
+script = ExtResource("1_q4ydh")
+timing = 67.25
+direction = "low_left"
+
+[sub_resource type="Resource" id="Resource_g2axe"]
+script = ExtResource("1_q4ydh")
+timing = 67.5
+direction = "low_right"
+
+[resource]
+script = ExtResource("2_gsj1l")
+stream = ExtResource("3_gsj1l")
+notes = Array[ExtResource("1_q4ydh")]([SubResource("Resource_43b4e"), SubResource("Resource_edhtf"), SubResource("Resource_guhyj"), SubResource("Resource_5l7ly"), SubResource("Resource_tn866"), SubResource("Resource_a4vdt"), SubResource("Resource_rbt1e"), SubResource("Resource_qrxtw"), SubResource("Resource_3nt83"), SubResource("Resource_xffeb"), SubResource("Resource_mmf24"), SubResource("Resource_71i00"), SubResource("Resource_mf8ro"), SubResource("Resource_nyn8w"), SubResource("Resource_ee0f7"), SubResource("Resource_c8t33"), SubResource("Resource_nm5j2"), SubResource("Resource_283pi"), SubResource("Resource_c8edd"), SubResource("Resource_jvhp0"), SubResource("Resource_miphw"), SubResource("Resource_lr0bw"), SubResource("Resource_t0410"), SubResource("Resource_g2axe")])

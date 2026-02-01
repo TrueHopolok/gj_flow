@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LevelSection" format=3 uid="uid://btpjbm7xe8aul"]
+
+[ext_resource type="Resource" uid="uid://barxp50oxsrdw" path="res://assets/parts/tutorial/tutorial_intro.tres" id="1_culsk"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="1_fopnn"]
+[ext_resource type="Resource" uid="uid://cu0jde0mrtyje" path="res://assets/parts/tutorial/tutorial_outro.tres" id="2_i5cab"]
+[ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="2_w37dn"]
+[ext_resource type="Resource" uid="uid://dxdhswysn3fxx" path="res://assets/parts/tutorial/tutorial_1.tres" id="3_i5cab"]
+[ext_resource type="Resource" uid="uid://cyjfj41mekt3l" path="res://assets/parts/tutorial/tutorial_2.tres" id="4_p58u2"]
+[ext_resource type="Resource" uid="uid://bpxdreumm2dgm" path="res://assets/parts/tutorial/tutorial_3.tres" id="5_ooqjy"]
+
+[resource]
+script = ExtResource("2_w37dn")
+bpm = 60.0
+parts = Array[ExtResource("1_fopnn")]([ExtResource("3_i5cab"), ExtResource("4_p58u2"), ExtResource("5_ooqjy")])
+intro_part = ExtResource("1_culsk")
+outro_part = ExtResource("2_i5cab")
+metadata/_custom_type_script = "uid://crkfqj4wv8qok"
