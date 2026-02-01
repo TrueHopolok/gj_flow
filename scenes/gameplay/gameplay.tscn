@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://m3bhgapaa1iw" path="res://assets/exported/boat.png" id="7_elju3"]
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 [ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
+[ext_resource type="Resource" uid="uid://4ng4d7x28kdo" path="res://assets/sections/impossible.tres" id="7_sxh0i"]
 [ext_resource type="Texture2D" uid="uid://cuh43r8pm2hmb" path="res://assets/exported/wave.png" id="10_bhb63"]
 [ext_resource type="PackedScene" uid="uid://b15kc1jk8rnwi" path="res://scenes/sun/sun.tscn" id="12_td3fc"]
 [ext_resource type="Texture2D" uid="uid://piejrrc8sexp" path="res://assets/exported/clouds.png" id="13_216mg"]
@@ -250,7 +251,7 @@ feedback_rr = NodePath("FeedbackRendererRR")
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
 unique_name_in_owner = true
-sections = Array[ExtResource("3_0w2j2")]([ExtResource("3_elju3"), ExtResource("5_2eo0c"), ExtResource("6_r4rys")])
+sections = Array[ExtResource("3_0w2j2")]([ExtResource("3_elju3"), ExtResource("5_2eo0c"), ExtResource("6_r4rys"), ExtResource("7_sxh0i")])
 note_spawner_ll = NodePath("../NoteSpawnerLL")
 note_spawner_tl = NodePath("../NoteSpawnerTL")
 note_spawner_tr = NodePath("../NoteSpawnerTR")

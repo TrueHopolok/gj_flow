@@ -161,6 +161,10 @@ func damage(hp_change: int) -> void:
 	if hp_change >= 0:
 		set_health(min(LevelDamage.MAX_HEALTH, health + hp_change))
 		return
+
+	if OS.has_feature("invincible"):
+		return
+
 	var min_health: int = 1 if health >= LevelDamage.SAVING_HEALTH_THRESHOLD else 0
 	set_health(max(min_health, health + hp_change))
 	if health == 0:
