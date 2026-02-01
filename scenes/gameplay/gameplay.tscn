@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c5xhu8a0xuks7" path="res://assets/sections/experiment.tres" id="4_gh441"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_path.tscn" id="4_q64rj"]
 [ext_resource type="Script" uid="uid://dxjjwbgw4rjjb" path="res://scenes/gameplay/health_label.gd" id="5_0w2j2"]
+[ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 
@@ -77,3 +78,9 @@ position = Vector2(161.84787, 204.19125)
 
 [node name="End" type="Node2D" parent="NotePathLL" unique_id=549396061]
 position = Vector2(488.23175, 200.99448)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1892762597]
+z_index = -1
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("7_gh441")
