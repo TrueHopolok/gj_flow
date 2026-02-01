@@ -18,10 +18,10 @@ const TIMING_MAX_SCORE: int = 100
 @export var sections: Array[LevelSection]
 
 @export_group('Spawners')
-@export var note_spawner_ll: NotePath = null
-@export var note_spawner_tl: NotePath = null
-@export var note_spawner_tr: NotePath = null
-@export var note_spawner_lr: NotePath = null
+@export var note_spawner_ll: NoteSpawner = null
+@export var note_spawner_tl: NoteSpawner = null
+@export var note_spawner_tr: NoteSpawner = null
+@export var note_spawner_lr: NoteSpawner = null
 
 ## Current state
 
@@ -109,23 +109,18 @@ func next_section() -> void:
 
 
 func spawn_note(note: LevelNote) -> void:
-	var spawner: NotePath
-	match note.type:
-		LevelNote.NoteType.REGULAR:
-			match note.direction:
-				LevelNote.LOW_LEFT:
-					spawner = note_spawner_ll
-				LevelNote.TOP_LEFT:
-					spawner = note_spawner_tl
-				LevelNote.TOP_RIGHT:
-					spawner = note_spawner_tr
-				LevelNote.LOW_RIGHT:
-					spawner = note_spawner_lr
-				_:
-					printerr("Trying to spawn regular note in unknown direction: %s" % note.type)
+	var spawner: NoteSpawner
+	match note.direction:
+		LevelNote.LOW_LEFT:
+			spawner = note_spawner_ll
+		LevelNote.TOP_LEFT:
+			spawner = note_spawner_tl
+		LevelNote.TOP_RIGHT:
+			spawner = note_spawner_tr
+		LevelNote.LOW_RIGHT:
+			spawner = note_spawner_lr
 		_:
-			printerr("Trying to spawn unknown note type: %s" % LevelNote.NoteType.keys()[note.type])
-			return
+			printerr("Trying to spawn note in unknown direction: %s" % note.direction)
 
 	if spawner == null:
 		printerr("Trying to spawn node on unknown node path")
@@ -135,9 +130,11 @@ func spawn_note(note: LevelNote) -> void:
 	match note.type:
 		LevelNote.NoteType.ENEMY:
 			hook = spawner.spawn_enemy(NOTE_SPAWN_OFFSET)
-		_:
+		LevelNote.NoteType.REGULAR:
 			hook = spawner.spawn_note(NOTE_SPAWN_OFFSET)
-	
+		_:
+			printerr("Trying to spawn unknown typed note: %s" % note.type)
+
 	note.delete_hook = hook
 
 

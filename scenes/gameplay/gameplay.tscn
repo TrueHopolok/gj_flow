@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4q8luyciuacn" path="res://scenes/game_manager/game_manager.tscn" id="1_elxb5"]
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://c5xhu8a0xuks7" path="res://assets/sections/experiment.tres" id="4_gh441"]
-[ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_path.tscn" id="4_q64rj"]
+[ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="Script" uid="uid://dxjjwbgw4rjjb" path="res://scenes/gameplay/health_label.gd" id="5_0w2j2"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
@@ -17,10 +17,18 @@ font_size = 12
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
 unique_name_in_owner = true
 sections = Array[ExtResource("3_0w2j2")]([ExtResource("4_gh441")])
-note_spawner_ll = NodePath("../NotePathLL")
-note_spawner_tl = NodePath("../NotePathTL")
-note_spawner_tr = NodePath("../NotePathTR")
-note_spawner_lr = NodePath("../NotePathLR")
+note_spawner_ll = NodePath("../NoteSpawnerLL")
+note_spawner_tl = NodePath("../NoteSpawnerTL")
+note_spawner_tr = NodePath("../NoteSpawnerTR")
+note_spawner_lr = NodePath("../NoteSpawnerLR")
+
+[node name="GameManager2" parent="." unique_id=291999521 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
+unique_name_in_owner = true
+sections = Array[ExtResource("3_0w2j2")]([ExtResource("4_gh441")])
+note_spawner_ll = NodePath("../NoteSpawnerLL")
+note_spawner_tl = NodePath("../NoteSpawnerTL")
+note_spawner_tr = NodePath("../NoteSpawnerTR")
+note_spawner_lr = NodePath("../NoteSpawnerLR")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=10818863]
 position = Vector2(-160, -90)
@@ -63,37 +71,41 @@ text = "Score: 0"
 label_settings = SubResource("LabelSettings_pa1on")
 script = ExtResource("7_pa1on")
 
-[node name="NotePathTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
+[node name="NoteSpawnerTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
+direction = "top_right"
 
-[node name="Begin" type="Node2D" parent="NotePathTR" unique_id=1653217776]
+[node name="Begin" type="Node2D" parent="NoteSpawnerTR" unique_id=1653217776]
 position = Vector2(256, -24)
 
-[node name="End" type="Node2D" parent="NotePathTR" unique_id=1721330883]
+[node name="End" type="Node2D" parent="NoteSpawnerTR" unique_id=1721330883]
 position = Vector2(176, 56)
 
-[node name="NotePathTL" parent="." unique_id=1389458643 instance=ExtResource("4_q64rj")]
+[node name="NoteSpawnerTL" parent="." unique_id=1389458643 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
+direction = "top_left"
 
-[node name="Begin" type="Node2D" parent="NotePathTL" unique_id=871013078]
+[node name="Begin" type="Node2D" parent="NoteSpawnerTL" unique_id=871013078]
 position = Vector2(217, 2)
 
-[node name="End" type="Node2D" parent="NotePathTL" unique_id=1551811618]
+[node name="End" type="Node2D" parent="NoteSpawnerTL" unique_id=1551811618]
 position = Vector2(321, 82)
 
-[node name="NotePathLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
+[node name="NoteSpawnerLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
+direction = "low_right"
 
-[node name="Begin" type="Node2D" parent="NotePathLR" unique_id=750047591]
+[node name="Begin" type="Node2D" parent="NoteSpawnerLR" unique_id=750047591]
 position = Vector2(521, 106)
 
-[node name="End" type="Node2D" parent="NotePathLR" unique_id=1800098628]
+[node name="End" type="Node2D" parent="NoteSpawnerLR" unique_id=1800098628]
 position = Vector2(361, 106)
 
-[node name="NotePathLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
+[node name="NoteSpawnerLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
+direction = "low_left"
 
-[node name="Begin" type="Node2D" parent="NotePathLL" unique_id=1322360622]
+[node name="Begin" type="Node2D" parent="NoteSpawnerLL" unique_id=1322360622]
 position = Vector2(169, 106)
 
-[node name="End" type="Node2D" parent="NotePathLL" unique_id=549396061]
+[node name="End" type="Node2D" parent="NoteSpawnerLL" unique_id=549396061]
 position = Vector2(321, 106)

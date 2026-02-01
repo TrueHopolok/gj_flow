@@ -10,4 +10,5 @@ const DAMAGE_PER_MISCLICK: int = -5
 
 const DAMAGE_PER_MISS: Dictionary = {
 	LevelNote.NoteType.REGULAR: -20,
+	LevelNote.NoteType.ENEMY: -80,
 }

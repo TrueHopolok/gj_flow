@@ -6,21 +6,25 @@
 
 [sub_resource type="Resource" id="Resource_grlfu"]
 script = ExtResource("1_grlfu")
+type = 1
 timing = 11.0
-direction = "low_left"
+direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_lqjgx"]
 script = ExtResource("1_grlfu")
+type = 1
 timing = 13.0
-direction = "low_left"
+direction = "top_right"
 
 [sub_resource type="Resource" id="Resource_4iuy7"]
 script = ExtResource("1_grlfu")
+type = 1
 timing = 14.0
 direction = "low_right"
 
 [sub_resource type="Resource" id="Resource_0dxrt"]
 script = ExtResource("1_grlfu")
+type = 1
 timing = 15.0
 direction = "low_left"
 
