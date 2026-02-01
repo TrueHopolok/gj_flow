@@ -81,6 +81,49 @@ _data = {
 &"idle": SubResource("Animation_td3fc")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_llpom"]
+atlas = ExtResource("7_gh441")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asbid"]
+atlas = ExtResource("7_gh441")
+region = Rect2(0, 180, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n60wt"]
+atlas = ExtResource("7_gh441")
+region = Rect2(0, 360, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxqw2"]
+atlas = ExtResource("7_gh441")
+region = Rect2(0, 540, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwhvl"]
+atlas = ExtResource("7_gh441")
+region = Rect2(0, 720, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2aaaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llpom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asbid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n60wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxqw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwhvl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqtxl"]
 atlas = ExtResource("13_216mg")
 region = Rect2(0, 0, 108, 31)
@@ -202,10 +245,11 @@ position = Vector2(-160, -90)
 libraries/ = SubResource("AnimationLibrary_216mg")
 script = ExtResource("4_i6m2i")
 
-[node name="Background" type="Sprite2D" parent="Visuals" unique_id=1892762597]
+[node name="Background" type="AnimatedSprite2D" parent="Visuals" unique_id=1309277988]
 z_index = -1
 position = Vector2(320, 180)
-texture = ExtResource("7_gh441")
+sprite_frames = SubResource("SpriteFrames_2aaaq")
+frame_progress = 0.057700504
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="Visuals" unique_id=239167642]
