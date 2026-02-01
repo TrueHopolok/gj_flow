@@ -7,19 +7,11 @@
 [ext_resource type="Script" uid="uid://dxjjwbgw4rjjb" path="res://scenes/gameplay/health_label.gd" id="5_0w2j2"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
-[ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
+[ext_resource type="Script" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
 
 [node name="Gameplay" type="Node2D" unique_id=1973063514]
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
-unique_name_in_owner = true
-sections = Array[ExtResource("3_0w2j2")]([ExtResource("4_gh441")])
-note_spawner_ll = NodePath("../NoteSpawnerLL")
-note_spawner_tl = NodePath("../NoteSpawnerTL")
-note_spawner_tr = NodePath("../NoteSpawnerTR")
-note_spawner_lr = NodePath("../NoteSpawnerLR")
-
-[node name="GameManager2" parent="." unique_id=291999521 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
 unique_name_in_owner = true
 sections = Array[ExtResource("3_0w2j2")]([ExtResource("4_gh441")])
 note_spawner_ll = NodePath("../NoteSpawnerLL")
