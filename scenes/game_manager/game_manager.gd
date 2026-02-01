@@ -135,14 +135,10 @@ func spawn_note(note: LevelNote) -> void:
 		return
 
 	var hook: Callable
-	match note.type:
-		LevelNote.NoteType.ENEMY:
-			hook = spawner.spawn_enemy(NOTE_SPAWN_OFFSET)
-		LevelNote.NoteType.REGULAR:
-			hook = spawner.spawn_note(NOTE_SPAWN_OFFSET)
-		_:
-			printerr("Trying to spawn unknown typed note: %s" % note.type)
-
+	if randf() <= section.enemy_chance:
+		hook = spawner.spawn_enemy(NOTE_SPAWN_OFFSET)
+	else:
+		hook = spawner.spawn_note(NOTE_SPAWN_OFFSET)
 	note.delete_hook = hook
 
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelPart" format=3 uid="uid://xs1q34jec6ik"]
+
+[ext_resource type="Script" uid="uid://dycblsh47dsye" path="res://scenes/level_note/level_note.gd" id="1_upxfy"]
+[ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_ip2ib"]
+[ext_resource type="AudioStream" uid="uid://cqt5ajncd4sj4" path="res://audio/music/hard/Guitar_4.wav" id="3_1278w"]
+
+[resource]
+script = ExtResource("2_ip2ib")
+stream = ExtResource("3_1278w")
+metadata/_custom_type_script = "uid://b7nb4e42hny50"

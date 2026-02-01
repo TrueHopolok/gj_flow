@@ -5,25 +5,18 @@ extends EditorScript
 # C2 - kick
 # C#2 - snare
 # F#2 - hi hat
-# D2 - clap/snare
+# D2 and E2 - clap/snare
 
 const NOTE_DIRS: Dictionary[String, String] = {
 	"C2": LevelNote.LOW_RIGHT,
 	"C#2": LevelNote.TOP_RIGHT,
 	"F#2": LevelNote.TOP_LEFT,
 	"D2": LevelNote.LOW_LEFT,
+	"E2": LevelNote.LOW_LEFT,
 }
 
-const DEFAULT_NOTE_TYPE := LevelNote.NoteType.REGULAR
-const NOTE_TYPES: Dictionary[String, LevelNote.NoteType] = {
-	"C2": LevelNote.NoteType.REGULAR,
-	"C#2": LevelNote.NoteType.REGULAR,
-	"F#2": LevelNote.NoteType.REGULAR,
-	"D2": LevelNote.NoteType.REGULAR,
-}
-
-const INPUT_DIR: String = "res://assets/midi/normal"
-const OUTPUT_DIR: String = "res://assets/parts/normal"
+const INPUT_DIR: String = "res://assets/midi/hard"
+const OUTPUT_DIR: String = "res://assets/parts/hard"
 
 func _run() -> void:
 	print(" ===== RUNNING  : midi_import.gd ===== ")
@@ -80,15 +73,13 @@ func convert_to_levelparts(path: String = INPUT_DIR, output_path: String = OUTPU
 				printerr("Unknown note: %s" % note.name)
 				continue
 			var ln := LevelNote.new()
-			ln.type = NOTE_TYPES.get(note.name, DEFAULT_NOTE_TYPE)
+			ln.type = LevelNote.NoteType.REGULAR
 			ln.timing = note.time / 60.0 * bpm
 			ln.direction = note_dir
 			notes.append(ln)
 
 		var lp := LevelPart.new()
 		lp.notes = notes.duplicate(true)
-		for note in lp.notes:
-			print(note.timing)
 		err = ResourceSaver.save(lp, output_path.path_join(file_name.get_basename() + '.tres'))
 		if err == Error.OK:
 			print("[save] %s" % output_path.path_join(file_name.get_basename() + '.tres'))

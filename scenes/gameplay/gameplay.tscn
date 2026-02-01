@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://btpjbm7xe8aul" path="res://assets/sections/tutorial.tres" id="3_elju3"]
 [ext_resource type="Script" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
+[ext_resource type="Resource" uid="uid://r4gm7sdhr5no" path="res://assets/sections/hard.tres" id="4_pimn4"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="Resource" uid="uid://dkpdgpxc2oajc" path="res://assets/sections/normal.tres" id="5_2eo0c"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]
@@ -152,7 +153,7 @@ script = ExtResource("1_td3fc")
 
 [node name="GameManager" parent="." unique_id=679855574 node_paths=PackedStringArray("note_spawner_ll", "note_spawner_tl", "note_spawner_tr", "note_spawner_lr") instance=ExtResource("1_elxb5")]
 unique_name_in_owner = true
-sections = Array[ExtResource("3_0w2j2")]([ExtResource("3_elju3"), ExtResource("5_2eo0c")])
+sections = Array[ExtResource("3_0w2j2")]([ExtResource("3_elju3"), ExtResource("5_2eo0c"), ExtResource("4_pimn4")])
 note_spawner_ll = NodePath("../NoteSpawnerLL")
 note_spawner_tl = NodePath("../NoteSpawnerTL")
 note_spawner_tr = NodePath("../NoteSpawnerTR")

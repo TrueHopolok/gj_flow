@@ -32,7 +32,7 @@ func spawn_enemy(delay_s: float) -> Callable:
 		var inst := ENEMY_DRAGON.instantiate() as Sprite2D
 		inst.flip_h = enemy_flip_h
 		inst.flip_v = enemy_flip_v
-		return _spawn_delayed(delay_s / 2, delay_s / 2, inst)
+		return _spawn_delayed(delay_s / 4, delay_s - delay_s / 4, inst)
 	else:
 		var inst := ENEMY_FROG.instantiate() as Sprite2D
 		inst.flip_h = enemy_flip_h
