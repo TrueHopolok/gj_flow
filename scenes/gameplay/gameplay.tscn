@@ -379,7 +379,7 @@ label_ouch = SubResource("AtlasTexture_sxh0i")
 label_perfect = SubResource("AtlasTexture_c6mtg")
 
 [node name="FeedbackRendererLL" parent="." unique_id=1278254154 instance=ExtResource("16_2eo0c")]
-position = Vector2(22, 143)
+position = Vector2(30, 144)
 label_ok = SubResource("AtlasTexture_l0mho")
 label_miss = SubResource("AtlasTexture_ol8dy")
 label_ouch = SubResource("AtlasTexture_uk6ut")
