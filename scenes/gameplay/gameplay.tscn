@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b15kc1jk8rnwi" path="res://scenes/sun/sun.tscn" id="12_td3fc"]
 [ext_resource type="Texture2D" uid="uid://piejrrc8sexp" path="res://assets/exported/clouds.png" id="13_216mg"]
 [ext_resource type="Texture2D" uid="uid://cey4kll5uegqq" path="res://assets/exported/gradient.png" id="13_krs01"]
+[ext_resource type="Texture2D" uid="uid://buicl3ox5c5t7" path="res://assets/exported/keys.png" id="15_moho6"]
 [ext_resource type="PackedScene" uid="uid://b8u8xhts4e3bf" path="res://scenes/feedback_renderer/feedback_renderer.tscn" id="16_2eo0c"]
 [ext_resource type="Texture2D" uid="uid://p4ift1mvkhag" path="res://assets/exported/labels.png" id="17_pimn4"]
 
@@ -179,6 +180,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aaaq"]
+atlas = ExtResource("15_moho6")
+region = Rect2(0, 0, 6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5rhx"]
+atlas = ExtResource("15_moho6")
+region = Rect2(27, 0, 6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy201"]
+atlas = ExtResource("15_moho6")
+region = Rect2(18, 0, 6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa0aj"]
+atlas = ExtResource("15_moho6")
+region = Rect2(9, 0, 6, 7)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4haps"]
 atlas = ExtResource("17_pimn4")
 region = Rect2(30, 115, 22, 13)
@@ -249,7 +266,7 @@ script = ExtResource("4_i6m2i")
 z_index = -1
 position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_2aaaq")
-frame_progress = 0.057700504
+frame_progress = 0.43907347
 metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="Visuals" unique_id=239167642]
@@ -330,29 +347,45 @@ metadata/_edit_lock_ = true
 [node name="Sun" parent="Visuals" unique_id=1441731923 instance=ExtResource("12_td3fc")]
 position = Vector2(319.92493, 125.41139)
 
+[node name="D" type="Sprite2D" parent="Visuals" unique_id=58617869]
+position = Vector2(272, 180)
+texture = SubResource("AtlasTexture_2aaaq")
+
+[node name="F" type="Sprite2D" parent="Visuals" unique_id=106801475]
+position = Vector2(286, 143)
+texture = SubResource("AtlasTexture_x5rhx")
+
+[node name="J" type="Sprite2D" parent="Visuals" unique_id=810708006]
+position = Vector2(354, 143)
+texture = SubResource("AtlasTexture_xy201")
+
+[node name="K" type="Sprite2D" parent="Visuals" unique_id=148914641]
+position = Vector2(368, 179)
+texture = SubResource("AtlasTexture_sa0aj")
+
 [node name="FeedbackRendererRR" parent="." unique_id=1988208857 instance=ExtResource("16_2eo0c")]
-position = Vector2(284, 161)
+position = Vector2(280, 139)
 label_ok = SubResource("AtlasTexture_4haps")
 label_miss = SubResource("AtlasTexture_7cr05")
 label_ouch = SubResource("AtlasTexture_sxh0i")
 label_perfect = SubResource("AtlasTexture_c6mtg")
 
 [node name="FeedbackRendererR" parent="." unique_id=703023708 instance=ExtResource("16_2eo0c")]
-position = Vector2(277, 80)
+position = Vector2(273, 58)
 label_ok = SubResource("AtlasTexture_4haps")
 label_miss = SubResource("AtlasTexture_7cr05")
 label_ouch = SubResource("AtlasTexture_sxh0i")
 label_perfect = SubResource("AtlasTexture_c6mtg")
 
 [node name="FeedbackRendererLL" parent="." unique_id=1278254154 instance=ExtResource("16_2eo0c")]
-position = Vector2(26, 165)
+position = Vector2(22, 143)
 label_ok = SubResource("AtlasTexture_l0mho")
 label_miss = SubResource("AtlasTexture_ol8dy")
 label_ouch = SubResource("AtlasTexture_uk6ut")
 label_perfect = SubResource("AtlasTexture_kq854")
 
 [node name="FeedbackRendererL" parent="." unique_id=430476924 instance=ExtResource("16_2eo0c")]
-position = Vector2(40, 86)
+position = Vector2(36, 64)
 label_ok = SubResource("AtlasTexture_l0mho")
 label_miss = SubResource("AtlasTexture_ol8dy")
 label_ouch = SubResource("AtlasTexture_uk6ut")
