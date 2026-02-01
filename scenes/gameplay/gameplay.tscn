@@ -263,6 +263,7 @@ script = ExtResource("4_i6m2i")
 z_index = -1
 position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_2aaaq")
+autoplay = "default"
 frame_progress = 0.43907347
 metadata/_edit_lock_ = true
 
