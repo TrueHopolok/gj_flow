@@ -41,7 +41,7 @@ func spawn_note(delay_s: float) -> Callable:
 ## Returns destroy hook.
 func spawn_enemy(delay_s: float) -> Callable:
 	if direction == LevelNote.TOP_LEFT or direction == LevelNote.TOP_RIGHT:
-		var inst := ENEMY_DRAGON.instantiate() as Sprite2D
+		var inst := ENEMY_DRAGON.instantiate() 
 		inst.flip_h = enemy_flip_h
 		inst.flip_v = enemy_flip_v
 		return _spawn_delayed(delay_s / 4, delay_s - delay_s / 4, inst)
