@@ -14,10 +14,15 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="gj_flow"
+config/name="Drum Wave"
 run/main_scene="uid://dxdpjofmm22gi"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="uid://6kokviu1djnn"
+boot_splash/bg_color=Color(0.9254902, 0.8235294, 0.6745098, 1)
+boot_splash/stretch_mode=4
+boot_splash/use_filter=false
+boot_splash/image="uid://cwsgdsypclrb2"
+config/icon="uid://cwsgdsypclrb2"
+boot_splash/minimum_display_time=100
 
 [audio]
 
