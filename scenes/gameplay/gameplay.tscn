@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dio0r5t4jjjgr" path="res://scenes/gameplay/gameplay.gd" id="1_td3fc"]
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://btpjbm7xe8aul" path="res://assets/sections/tutorial.tres" id="3_elju3"]
-[ext_resource type="Script" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
+[ext_resource type="Script" uid="uid://cjtmcjkgldor1" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="Resource" uid="uid://dkpdgpxc2oajc" path="res://assets/sections/normal.tres" id="5_2eo0c"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="5_gh441"]

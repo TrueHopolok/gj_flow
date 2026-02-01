@@ -157,8 +157,14 @@ func damage(hp_change: int) -> void:
 	var min_health: int = 1 if health >= LevelDamage.SAVING_HEALTH_THRESHOLD else 0
 	set_health(max(min_health, health + hp_change))
 	if health == 0:
-		print("DEAD")
-		get_tree().quit(1)
+		ded()
+
+
+func ded() -> void:
+	get_parent().queue_free()
+	var inst := preload("res://ui/game_over/game_over.tscn").instantiate()
+	inst.score = score
+	Transition.change_scene_inst(inst)
 
 
 ## handle_score should only be called with notes that were successfully hit, it always adds some points.
