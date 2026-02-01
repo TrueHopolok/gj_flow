@@ -1,21 +1,23 @@
 [gd_scene format=3 uid="uid://5yjqhshguwce"]
 
-[ext_resource type="Script" uid="uid://b852hm83ot2py" path="res://scenes/enemies/dragon/dragon.gd" id="1_fjga5"]
-[ext_resource type="Script" uid="uid://bx5uwd70g8sa0" path="res://scenes/enemies/random_sprite_picker.gd" id="1_ris0d"]
+[ext_resource type="Script" path="res://scenes/enemies/dragon/dragon.gd" id="1_fjga5"]
+[ext_resource type="Script" path="res://scenes/enemies/random_sprite_picker.gd" id="1_ris0d"]
 [ext_resource type="Texture2D" uid="uid://bs6qqv4j2bw6n" path="res://assets/exported/enemies.png" id="2_0qdhg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjga5"]
-atlas = ExtResource("2_0qdhg")
-region = Rect2(63, 0, 112, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0may4"]
 atlas = ExtResource("2_0qdhg")
 region = Rect2(65, 41, 112, 38)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjga5"]
+atlas = ExtResource("2_0qdhg")
+region = Rect2(63, 0, 112, 38)
+
 [node name="Dragon" type="Node2D" unique_id=592645478]
 script = ExtResource("1_fjga5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217473480]
+position = Vector2(-20.999996, -27)
 rotation = 0.7853982
+texture = SubResource("AtlasTexture_0may4")
 script = ExtResource("1_ris0d")
 sprites = Array[Texture2D]([SubResource("AtlasTexture_fjga5"), SubResource("AtlasTexture_0may4")])
