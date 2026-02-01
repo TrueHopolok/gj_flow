@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://ceh44sstsring"]
+
+[ext_resource type="Script" uid="uid://ddqtenkh4aqkw" path="res://scenes/gameplay/waves.gd" id="1_ha4ny"]
+[ext_resource type="Texture2D" uid="uid://d0ojcrjoxbfjh" path="res://assets/exported/wave_small.png" id="1_lmbg3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aaaq"]
+atlas = ExtResource("1_lmbg3")
+region = Rect2(0, 0, 96, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5rhx"]
+atlas = ExtResource("1_lmbg3")
+region = Rect2(96, 0, 96, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy201"]
+atlas = ExtResource("1_lmbg3")
+region = Rect2(192, 0, 96, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa0aj"]
+atlas = ExtResource("1_lmbg3")
+region = Rect2(288, 0, 96, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws4do"]
+atlas = ExtResource("1_lmbg3")
+region = Rect2(384, 0, 96, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_johl0"]
+atlas = ExtResource("1_lmbg3")
+region = Rect2(480, 0, 96, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3n2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aaaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5rhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy201")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa0aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws4do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_johl0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Waves" type="Node2D" unique_id=573333013]
+script = ExtResource("1_ha4ny")
+
+[node name="Row1" type="Node2D" parent="." unique_id=847845389]
+position = Vector2(14, -23)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Row1" unique_id=1356699089 groups=["Wave"]]
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Row1" unique_id=92572321 groups=["Wave"]]
+position = Vector2(81, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Row1" unique_id=155529875 groups=["Wave"]]
+position = Vector2(164, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Row1" unique_id=220903265 groups=["Wave"]]
+position = Vector2(254, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="Row2" type="Node2D" parent="." unique_id=137234786]
+position = Vector2(44, -16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Row2" unique_id=1425182017 groups=["Wave"]]
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Row2" unique_id=1860870370 groups=["Wave"]]
+position = Vector2(81, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Row2" unique_id=661958113 groups=["Wave"]]
+position = Vector2(164, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Row2" unique_id=1831798932 groups=["Wave"]]
+position = Vector2(254, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="Row3" type="Node2D" parent="." unique_id=1028388776]
+position = Vector2(72, -5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Row3" unique_id=1269955318 groups=["Wave"]]
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Row3" unique_id=1005087340 groups=["Wave"]]
+position = Vector2(81, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Row3" unique_id=1775914841 groups=["Wave"]]
+position = Vector2(164, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Row3" unique_id=854835816 groups=["Wave"]]
+position = Vector2(254, 0)
+sprite_frames = SubResource("SpriteFrames_s3n2m")
+autoplay = "default"
+frame_progress = 0.5025525

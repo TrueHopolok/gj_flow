@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://piejrrc8sexp" path="res://assets/exported/clouds.png" id="13_216mg"]
 [ext_resource type="Texture2D" uid="uid://cey4kll5uegqq" path="res://assets/exported/gradient.png" id="13_krs01"]
 [ext_resource type="PackedScene" uid="uid://b8u8xhts4e3bf" path="res://scenes/feedback_renderer/feedback_renderer.tscn" id="16_2eo0c"]
+[ext_resource type="PackedScene" uid="uid://ceh44sstsring" path="res://scenes/gameplay/waves.tscn" id="17_kq854"]
 [ext_resource type="Texture2D" uid="uid://p4ift1mvkhag" path="res://assets/exported/labels.png" id="17_pimn4"]
 [ext_resource type="Texture2D" uid="uid://ck8iyyj8cjwxb" path="res://assets/exported/lights.png" id="17_r4rys"]
 
@@ -292,11 +293,6 @@ texture = SubResource("AtlasTexture_3maud")
 position = Vector2(382, 161)
 texture = SubResource("AtlasTexture_a3v0j")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Visuals" unique_id=1974934154]
-repeat_size = Vector2(300, 0)
-autoscroll = Vector2(-14.236, 0)
-repeat_times = 2
-
 [node name="ScoreLabel" type="Label" parent="Visuals" unique_id=939227658]
 offset_left = 435.0
 offset_top = 90.0
@@ -327,6 +323,14 @@ position = Vector2(1.5201111, -7.014038)
 [node name="BoatFront" type="Sprite2D" parent="Visuals/Central" unique_id=448187826]
 position = Vector2(1.2051392, -22.41278)
 texture = SubResource("AtlasTexture_bhb63")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Visuals" unique_id=1454542765]
+scroll_offset = Vector2(-4, 270)
+repeat_size = Vector2(343.568, 0)
+autoscroll = Vector2(-23.464, 0)
+repeat_times = 3
+
+[node name="Waves" parent="Visuals/Parallax2D2" unique_id=573333013 instance=ExtResource("17_kq854")]
 
 [node name="Wave" type="AnimatedSprite2D" parent="Visuals" unique_id=1990328881]
 position = Vector2(299, 241)
