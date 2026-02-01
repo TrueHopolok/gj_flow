@@ -178,6 +178,11 @@ func handle_score(note: LevelNote, current_time_sec: float) -> bool:
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_pressed():
 		return
+	
+	if event.is_action_pressed("the_rock"):
+		funny_player.play()
+		secret_happened.emit()
+
 
 	if not (event.is_action_pressed(LevelNote.LOW_LEFT) or event.is_action_pressed(LevelNote.LOW_RIGHT) or event.is_action_pressed(LevelNote.TOP_LEFT) or event.is_action_pressed(LevelNote.TOP_RIGHT)):
 		return
