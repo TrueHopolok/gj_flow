@@ -11,6 +11,9 @@ const ENEMY_DRAGON := preload("res://scenes/enemies/dragon/dragon.tscn")
 @export_enum(LevelNote.LOW_LEFT, LevelNote.TOP_LEFT, LevelNote.TOP_RIGHT, LevelNote.LOW_RIGHT) 
 var direction: String
 
+@export var enemy_flip_h: bool = false
+@export var enemy_flip_v: bool = false
+
 @onready var begin_node: Node2D = $Begin
 @onready var end_node: Node2D = $End
 
@@ -26,9 +29,15 @@ func spawn_note(delay_s: float) -> Callable:
 ## Returns destroy hook.
 func spawn_enemy(delay_s: float) -> Callable:
 	if direction == LevelNote.TOP_LEFT or direction == LevelNote.TOP_RIGHT:
-		return _spawn_internal(delay_s, ENEMY_DRAGON.instantiate())
+		var inst := ENEMY_DRAGON.instantiate() as Sprite2D
+		inst.flip_h = enemy_flip_h
+		inst.flip_v = enemy_flip_v
+		return _spawn_internal(delay_s, inst)
 	else:
-		return _spawn_on_path(delay_s, ENEMY_FROG.instantiate())
+		var inst := ENEMY_FROG.instantiate() as Sprite2D
+		inst.flip_h = enemy_flip_h
+		inst.flip_v = enemy_flip_v
+		return _spawn_on_path(delay_s, inst)
 
 
 func _spawn_internal(delay_s: float, node: Node2D) -> Callable:

@@ -11,7 +11,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_pa1on"]
 _data = {
-"points": PackedVector2Array(27.124908, 46.776733, -27.124908, -46.776733, 517.3191, 159.49185, 37.256107, -29.979261, -37.256107, 29.979261, 366.35297, 84.3951)
+"points": PackedVector2Array(10.205732, 31.16133, -10.205732, -31.16133, 531.5164, 154.88605, 60.689163, -74.97171, -60.689163, 74.97171, 366.35297, 84.3951)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_elju3"]
+_data = {
+"points": PackedVector2Array(-18.724014, 48.579147, 18.724014, -48.579147, 157.60152, 168.80008, -62.59237, -56.998917, 62.59237, 56.998917, 329.3312, 64.05463)
 }
 point_count = 2
 
@@ -67,6 +73,7 @@ script = ExtResource("7_pa1on")
 
 [node name="NoteSpawnerTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
 direction = "top_right"
+enemy_flip_h = true
 
 [node name="Begin" type="Node2D" parent="NoteSpawnerTR" unique_id=1653217776]
 position = Vector2(256, -24)
@@ -87,6 +94,7 @@ position = Vector2(321, 82)
 [node name="NoteSpawnerLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
 position = Vector2(-185, -26)
 direction = "low_right"
+enemy_flip_v = true
 
 [node name="Begin" type="Node2D" parent="NoteSpawnerLR" unique_id=750047591]
 position = Vector2(521, 106)
@@ -110,4 +118,4 @@ position = Vector2(321, 106)
 
 [node name="FrogPath" type="Path2D" parent="NoteSpawnerLL" unique_id=2104275904]
 position = Vector2(0.007461548, 17.463707)
-curve = SubResource("Curve2D_pa1on")
+curve = SubResource("Curve2D_elju3")
