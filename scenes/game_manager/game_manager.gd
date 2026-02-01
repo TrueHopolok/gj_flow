@@ -2,6 +2,8 @@ class_name GameManager
 extends Node2D
 
 
+signal secret_happened
+
 signal health_changed(new_health: int)
 signal score_changed(new_score: int)
 
@@ -181,6 +183,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
 		if randf() < 0.001:
 			funny_player.play()
+			secret_happened.emit()
 		else:
 			kick_player.play()
 		dir_int = +2

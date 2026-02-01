@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ceh44sstsring" path="res://scenes/gameplay/waves.tscn" id="17_kq854"]
 [ext_resource type="Texture2D" uid="uid://p4ift1mvkhag" path="res://assets/exported/labels.png" id="17_pimn4"]
 [ext_resource type="Texture2D" uid="uid://ck8iyyj8cjwxb" path="res://assets/exported/lights.png" id="17_r4rys"]
+[ext_resource type="Texture2D" uid="uid://dn3k7y6wfw4w3" path="res://assets/exported/rock2.png" id="18_kq854"]
 
 [sub_resource type="Animation" id="Animation_i6m2i"]
 length = 0.001
@@ -347,6 +348,13 @@ metadata/_edit_lock_ = true
 
 [node name="Sun" parent="Visuals" unique_id=1441731923 instance=ExtResource("12_td3fc")]
 position = Vector2(319.92493, 125.41139)
+
+[node name="TheRock" type="Sprite2D" parent="Visuals" unique_id=2932708]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 90)
+texture = ExtResource("18_kq854")
+centered = false
 
 [node name="FeedbackRendererRR" parent="." unique_id=1988208857 instance=ExtResource("16_2eo0c")]
 position = Vector2(280, 139)
