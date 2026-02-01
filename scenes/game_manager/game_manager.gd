@@ -74,14 +74,16 @@ func next_section() -> void:
 
 	var offset: float = 0.0
 	if section.intro_stream != null:
+		music_player.stream_queue.append(section.intro_stream)
 		offset = section.intro_stream.get_length()
 
 	for part: LevelPart in section.parts:
-		for note: LevelNote in part.notes:
-			notes.append(note)
-			note.timing += sec_to_beat(offset, section.bpm)
-		music_player.stream_queue.append(part.stream)
-		offset += part.stream.get_length()
+		if part.stream != null:
+			for note: LevelNote in part.notes:
+				notes.append(note)
+				note.timing += sec_to_beat(offset, section.bpm)
+			music_player.stream_queue.append(part.stream)
+			offset += part.stream.get_length()
 
 	next_spawn_idx = 0
 	next_destroy_idx = 0
@@ -135,8 +137,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_pressed():
 		return
 
-	# TODO(HOPOLOK): replace with constants
-	if not (event.is_action_pressed(&"low_left") or event.is_action_pressed(&"low_right") or event.is_action_pressed(&"top_left") or event.is_action_pressed(&"top_right")):
+	if not (event.is_action_pressed(LevelNote.LOW_LEFT) or event.is_action_pressed(LevelNote.LOW_RIGHT) or event.is_action_pressed(LevelNote.TOP_LEFT) or event.is_action_pressed(LevelNote.TOP_RIGHT)):
 		return
 
 	get_viewport().set_input_as_handled()
@@ -155,11 +156,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		damage(LevelDamage.DAMAGE_PER_MISCLICK)
 
-# FIXME: second section loop does not work
 
 func _physics_process(_delta: float) -> void:
 	# TODO: remove debug print
-	$Tlabel.text = str(beat_to_sec(music_player.get_song_pos(), section.bpm)) + " beats"
+	$Tlabel.text = str(sec_to_beat(music_player.get_song_pos(), section.bpm)) + " beats"
 
 	# Spawn new notes (in advance)
 	while next_spawn_idx < notes.size() and beat_to_sec(notes[next_spawn_idx].timing, section.bpm) - NOTE_SPAWN_OFFSET < music_player.get_song_pos():
