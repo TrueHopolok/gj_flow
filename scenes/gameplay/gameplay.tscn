@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://p4ift1mvkhag" path="res://assets/exported/labels.png" id="17_pimn4"]
 [ext_resource type="Texture2D" uid="uid://ck8iyyj8cjwxb" path="res://assets/exported/lights.png" id="17_r4rys"]
 [ext_resource type="Texture2D" uid="uid://dn3k7y6wfw4w3" path="res://assets/exported/rock2.png" id="18_kq854"]
+[ext_resource type="Script" uid="uid://dnyiro7r18fuv" path="res://scenes/gameplay/escpare_label.gd" id="22_4haps"]
 
 [sub_resource type="Animation" id="Animation_i6m2i"]
 length = 0.001
@@ -229,13 +230,13 @@ region = Rect2(103, 0, 80, 22)
 
 [sub_resource type="Curve2D" id="Curve2D_pa1on"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 160, 24, 47.472813, 0, -47.472813, 0, 88, -24, 0, 0, 0, 0, 16, 6)
+"points": PackedVector2Array(0, 0, 0, 0, 152, 36, 47.472813, 0, -47.472813, 0, 104, -30, 0, 0, 0, 0, 11, -17.25)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_elju3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 160, -24.000008, 52.230976, -0.21763362, -52.230976, 0.21763362, 104.00001, 39.999996, 0, 0, -8.004613, -15.798502, 16.000008, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 160, -24.000008, 52.230976, -0.21763362, -52.230976, 0.21763362, 104.00001, 39.999996, 0, 0, -8.004613, -15.798502, 12, 23)
 }
 point_count = 3
 
@@ -385,30 +386,37 @@ label_ouch = SubResource("AtlasTexture_uk6ut")
 label_perfect = SubResource("AtlasTexture_kq854")
 
 [node name="NoteSpawnerTR" parent="." unique_id=178813084 instance=ExtResource("4_q64rj")]
-position = Vector2(184.00002, 80.00001)
+position = Vector2(190, 76)
 rotation = -0.7853982
 direction = "top_right"
 enemy_flip_h = true
 
 [node name="NoteSpawnerTL" parent="." unique_id=1389458643 instance=ExtResource("4_q64rj")]
-position = Vector2(136, 80.00001)
+position = Vector2(140, 76.00001)
 rotation = -2.3561945
 direction = "top_left"
 
 [node name="NoteSpawnerLR" parent="." unique_id=1396859580 instance=ExtResource("4_q64rj")]
-position = Vector2(192, 104)
+position = Vector2(221, 101)
 direction = "low_right"
 enemy_flip_v = true
 
 [node name="FrogPath" type="Path2D" parent="NoteSpawnerLR" unique_id=1094419934]
-position = Vector2(0, -8)
+position = Vector2(0, 26)
 scale = Vector2(1, 1.3333334)
 curve = SubResource("Curve2D_pa1on")
 
 [node name="NoteSpawnerLL" parent="." unique_id=263513390 instance=ExtResource("4_q64rj")]
-position = Vector2(128, 104)
+position = Vector2(108, 101)
 rotation = 3.1415927
 direction = "low_left"
 
 [node name="FrogPath" type="Path2D" parent="NoteSpawnerLL" unique_id=1354014513]
+position = Vector2(-1.3987644e-06, -26)
 curve = SubResource("Curve2D_elju3")
+
+[node name="Label" type="Label" parent="." unique_id=1227827752]
+offset_top = -17.0
+offset_right = 119.0
+text = "Press 'esc' to exit"
+script = ExtResource("22_4haps")
