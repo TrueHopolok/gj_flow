@@ -14,9 +14,9 @@ func our_deep_clone() -> LevelSection:
 	var res := LevelSection.new()
 	res.bpm = bpm
 	res.enemy_chance = enemy_chance
-	if res.intro_part != null:
+	if intro_part != null:
 		res.intro_part = intro_part.our_deep_clone()
-	if res.outro_part != null:
+	if outro_part != null:
 		res.outro_part = outro_part.our_deep_clone()
 
 	var res_parts: Array[LevelPart] = []
