@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://clky3v7ghvr7a" path="res://assets/exported/menu_background.png" id="1_uhj5c"]
 [ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_mu8pm"]
 [ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="2_omy8q"]
+[ext_resource type="AudioStream" uid="uid://dxd1swnl2mm21" path="res://audio/music/main_menu/main menu_intro.wav" id="4_3c04x"]
+[ext_resource type="Script" uid="uid://dh1aw8e8kxv8d" path="res://ui/main_menu/audio_stream_player.gd" id="4_i5wg5"]
 
 [node name="MainMenu" type="Control" unique_id=269609482]
 layout_mode = 3
@@ -88,6 +90,22 @@ offset_right = 294.0
 offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
 text = "Audio Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=770495007]
+stream = ExtResource("4_3c04x")
+autoplay = true
+bus = &"Music"
+script = ExtResource("4_i5wg5")
+
+[node name="Label2" type="Label" parent="." unique_id=1084470427]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 320.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
+text = "Headphones recomended"
 horizontal_alignment = 1
 vertical_alignment = 1
 
