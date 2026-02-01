@@ -40,9 +40,3 @@ bus = &"SFX"
 stream = ExtResource("7_80y8o")
 max_polyphony = 32
 bus = &"SFX"
-
-[node name="Tlabel" type="Label" parent="." unique_id=802774425]
-offset_left = 8.0
-offset_top = 7.0
-offset_right = 48.0
-offset_bottom = 21.0

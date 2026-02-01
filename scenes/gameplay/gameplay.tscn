@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://crkfqj4wv8qok" path="res://scenes/level_section/level_section.gd" id="3_0w2j2"]
 [ext_resource type="Resource" uid="uid://btpjbm7xe8aul" path="res://assets/sections/tutorial.tres" id="3_elju3"]
 [ext_resource type="Script" uid="uid://cjtmcjkgldor1" path="res://scenes/gameplay/animation_player_autostart.gd" id="4_i6m2i"]
-[ext_resource type="Resource" uid="uid://r4gm7sdhr5no" path="res://assets/sections/hard.tres" id="4_pimn4"]
 [ext_resource type="PackedScene" uid="uid://bfy7ipsv3r2af" path="res://scenes/note_path/note_spawner.tscn" id="4_q64rj"]
 [ext_resource type="Resource" uid="uid://r4gm7sdhr5no" path="res://assets/sections/hard.tres" id="4_r4rys"]
 [ext_resource type="Resource" uid="uid://dkpdgpxc2oajc" path="res://assets/sections/normal.tres" id="5_2eo0c"]
@@ -13,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://m3bhgapaa1iw" path="res://assets/exported/boat.png" id="7_elju3"]
 [ext_resource type="Texture2D" uid="uid://bojv52x4nkmoq" path="res://assets/exported/background.png" id="7_gh441"]
 [ext_resource type="Script" uid="uid://dsblux1i6dwd" path="res://scenes/gameplay/score_label.gd" id="7_pa1on"]
-[ext_resource type="Texture2D" uid="uid://c6dvh2wexp6fl" path="res://assets/exported/drums.png" id="9_lb4ud"]
 [ext_resource type="Texture2D" uid="uid://cuh43r8pm2hmb" path="res://assets/exported/wave.png" id="10_bhb63"]
 [ext_resource type="PackedScene" uid="uid://b15kc1jk8rnwi" path="res://scenes/sun/sun.tscn" id="12_td3fc"]
 [ext_resource type="Texture2D" uid="uid://piejrrc8sexp" path="res://assets/exported/clouds.png" id="13_216mg"]
@@ -153,11 +151,11 @@ font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lb4ud"]
 atlas = ExtResource("7_elju3")
-region = Rect2(0, 38, 115, 35)
+region = Rect2(0, 49, 115, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhb63"]
 atlas = ExtResource("7_elju3")
-region = Rect2(0, 0, 115, 35)
+region = Rect2(0, 0, 118, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krs01"]
 atlas = ExtResource("10_bhb63")
@@ -334,14 +332,11 @@ position = Vector2(-1.37323, -19.524994)
 texture = SubResource("AtlasTexture_lb4ud")
 
 [node name="Player" parent="Visuals/Central" unique_id=1017047311 instance=ExtResource("5_gh441")]
-position = Vector2(0.06213379, -42.459732)
-
-[node name="Drums" type="Sprite2D" parent="Visuals/Central" unique_id=1339118238]
-position = Vector2(-3, -32)
-texture = ExtResource("9_lb4ud")
+unique_name_in_owner = true
+position = Vector2(1.5201111, -7.014038)
 
 [node name="BoatFront" type="Sprite2D" parent="Visuals/Central" unique_id=448187826]
-position = Vector2(-0.79486084, -19.41278)
+position = Vector2(1.2051392, -22.41278)
 texture = SubResource("AtlasTexture_bhb63")
 
 [node name="Wave" type="AnimatedSprite2D" parent="Visuals" unique_id=1990328881]

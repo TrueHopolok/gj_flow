@@ -8,6 +8,7 @@ signal score_changed(new_score: int)
 # dir: -2, -1, 1, 2
 # val: "flow", "ok", "miss", "ouch"
 signal feedback(dir: int, val: String)
+signal drum_hit(dir: int)
 
 const TIMING_MAX_SCORE: int = 100
 
@@ -176,18 +177,22 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(LevelNote.LOW_LEFT):
 		clap_player.play()
 		dir_int = -2
+		drum_hit.emit(-2)
 	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
 		if randf() < 0.001:
 			funny_player.play()
 		else:
 			kick_player.play()
 		dir_int = +2
+		drum_hit.emit(+2)
 	elif event.is_action_pressed(LevelNote.TOP_LEFT):
 		hi_hat_player.play()
 		dir_int = -1
+		drum_hit.emit(-1)
 	elif event.is_action_pressed(LevelNote.TOP_RIGHT):
 		snare_player.play()
 		dir_int = +1
+		drum_hit.emit(+1)
 
 	get_viewport().set_input_as_handled()
 	var now := music_player.get_song_pos()
@@ -217,9 +222,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	# TODO: remove debug print
-	$Tlabel.text = "#%0.1f beat" % sec_to_beat(music_player.get_song_pos(), section.bpm)
-
 	var now := music_player.get_song_pos()
 
 	# Spawn new notes (in advance)
