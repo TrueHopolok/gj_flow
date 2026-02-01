@@ -6,5 +6,5 @@ extends Label
 
 func _ready() -> void:
 	game_manager.score_changed.connect(func (score: int) -> void:
-		text = "Score: %d" % score
+		text = str(score)
 	)

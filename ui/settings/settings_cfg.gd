@@ -10,4 +10,4 @@ func _init() -> void:
 	config = ConfigFile.new()
 	var err: Error = config.load(CFG_PATH)
 	if err != Error.OK and err != Error.ERR_FILE_NOT_FOUND:
-		print("Error reading settings config: ", error_string(err))
+		printerr("Error reading settings config: ", error_string(err))
