@@ -4,4 +4,5 @@ extends Resource
 
 @export var bpm: float
 @export var parts: Array[LevelPart]
-@export var intro_stream: AudioStream
+@export var intro_part: LevelPart
+@export var outro_part: LevelPart

@@ -81,19 +81,17 @@ func next_section() -> void:
 		section_idx += 1
 
 	section = sections[section_idx].duplicate(true)
-	section.parts.shuffle()
 	assert(section.bpm > 0, "ALLO BROTHA")
 	NOTE_SPAWN_OFFSET = 120.0 / section.bpm
+	section.parts.shuffle()
+	if section.intro_part != null: section.parts.push_front(section.intro_part)
+	if section.outro_part != null: section.parts.push_back(section.outro_part)
 
 	# construct sections
 	notes.clear()
 	music_player.stream_queue.clear()
 
 	var offset: float = 0.0
-	if section.intro_stream != null:
-		music_player.stream_queue.append(section.intro_stream)
-		offset = section.intro_stream.get_length()
-
 	for part: LevelPart in section.parts:
 		if part.stream != null:
 			for note: LevelNote in part.notes:
