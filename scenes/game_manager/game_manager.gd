@@ -37,6 +37,12 @@ var score: int = 0
 
 @onready var music_player: PartialAudioStreamPlayer = $MusicPlayer
 
+@onready var kick_player: AudioStreamPlayer = $Kick
+@onready var snare_player: AudioStreamPlayer = $Snare
+@onready var clap_player: AudioStreamPlayer = $Clap
+@onready var hi_hat_player: AudioStreamPlayer = $HiHat
+@onready var funny_player: AudioStreamPlayer = $Funny
+
 
 func _ready() -> void:
 	music_player.fully_finished.connect(next_section)
@@ -161,6 +167,18 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if not (event.is_action_pressed(LevelNote.LOW_LEFT) or event.is_action_pressed(LevelNote.LOW_RIGHT) or event.is_action_pressed(LevelNote.TOP_LEFT) or event.is_action_pressed(LevelNote.TOP_RIGHT)):
 		return
+
+	if event.is_action_pressed(LevelNote.LOW_LEFT):
+		clap_player.play()
+	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
+		if randf() < 0.001:
+			funny_player.play()
+		else:
+			kick_player.play()
+	elif event.is_action_pressed(LevelNote.TOP_LEFT):
+		hi_hat_player.play()
+	elif event.is_action_pressed(LevelNote.TOP_RIGHT):
+		snare_player.play()
 
 	get_viewport().set_input_as_handled()
 	var now := music_player.get_song_pos()

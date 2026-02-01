@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dnsdctno3btid" path="res://scenes/game_manager/game_manager.gd" id="1_lycnq"]
 [ext_resource type="Script" uid="uid://bq2xx0l5qy125" path="res://scenes/partial_audio_stream_player/partial_audio_stream_player.gd" id="2_0drbn"]
+[ext_resource type="AudioStream" uid="uid://c5a0dfcvfxo7r" path="res://audio/sfx/kick.wav" id="3_kc0kb"]
+[ext_resource type="AudioStream" uid="uid://bdjahkf05tgi8" path="res://audio/sfx/snare.wav" id="4_w6g1p"]
+[ext_resource type="AudioStream" uid="uid://38b5monq2aus" path="res://audio/sfx/snare-clap.wav" id="5_80y8o"]
+[ext_resource type="AudioStream" uid="uid://dth7m1e7cil4l" path="res://audio/sfx/hihat.wav" id="6_kge46"]
+[ext_resource type="AudioStream" uid="uid://b0uvs6lfn3dad" path="res://audio/temporary/vine-boom.mp3" id="7_80y8o"]
 
 [node name="GameManager" type="Node2D" unique_id=679855574 groups=["GameManager"]]
 script = ExtResource("1_lycnq")
@@ -10,6 +15,31 @@ script = ExtResource("1_lycnq")
 bus = &"Music"
 script = ExtResource("2_0drbn")
 metadata/_custom_type_script = "uid://bq2xx0l5qy125"
+
+[node name="Kick" type="AudioStreamPlayer" parent="." unique_id=1872116114]
+stream = ExtResource("3_kc0kb")
+max_polyphony = 32
+bus = &"SFX"
+
+[node name="Snare" type="AudioStreamPlayer" parent="." unique_id=416268201]
+stream = ExtResource("4_w6g1p")
+max_polyphony = 32
+bus = &"SFX"
+
+[node name="Clap" type="AudioStreamPlayer" parent="." unique_id=663568963]
+stream = ExtResource("5_80y8o")
+max_polyphony = 32
+bus = &"SFX"
+
+[node name="HiHat" type="AudioStreamPlayer" parent="." unique_id=630906758]
+stream = ExtResource("6_kge46")
+max_polyphony = 32
+bus = &"SFX"
+
+[node name="Funny" type="AudioStreamPlayer" parent="." unique_id=532359702]
+stream = ExtResource("7_80y8o")
+max_polyphony = 32
+bus = &"SFX"
 
 [node name="Tlabel" type="Label" parent="." unique_id=802774425]
 offset_left = 8.0
