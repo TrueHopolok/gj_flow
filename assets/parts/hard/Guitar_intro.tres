@@ -4,127 +4,127 @@
 [ext_resource type="Script" uid="uid://b7nb4e42hny50" path="res://scenes/level_part/level_part.gd" id="2_ufbl3"]
 [ext_resource type="AudioStream" uid="uid://do7vasd0k3x7o" path="res://audio/music/hard/Guitar_intro.wav" id="3_ufbl3"]
 
-[sub_resource type="Resource" id="Resource_flii8"]
+[sub_resource type="Resource" id="Resource_ks1fn"]
 script = ExtResource("1_flii8")
 timing = 4.0
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_ufbl3"]
+[sub_resource type="Resource" id="Resource_0bstk"]
 script = ExtResource("1_flii8")
 timing = 4.5
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_ks1fn"]
+[sub_resource type="Resource" id="Resource_n6rjm"]
 script = ExtResource("1_flii8")
 timing = 5.5
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_0bstk"]
+[sub_resource type="Resource" id="Resource_mhcc2"]
 script = ExtResource("1_flii8")
 timing = 6.0
 direction = "low_left"
 
-[sub_resource type="Resource" id="Resource_n6rjm"]
+[sub_resource type="Resource" id="Resource_ywdqi"]
 script = ExtResource("1_flii8")
 timing = 7.0
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_mhcc2"]
+[sub_resource type="Resource" id="Resource_m5hyl"]
 script = ExtResource("1_flii8")
 timing = 8.5
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_ywdqi"]
+[sub_resource type="Resource" id="Resource_fsekb"]
 script = ExtResource("1_flii8")
 timing = 9.0
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_m5hyl"]
+[sub_resource type="Resource" id="Resource_n635g"]
 script = ExtResource("1_flii8")
 timing = 10.0
 direction = "low_left"
 
-[sub_resource type="Resource" id="Resource_fsekb"]
+[sub_resource type="Resource" id="Resource_t4bxv"]
 script = ExtResource("1_flii8")
 timing = 11.5
 direction = "low_right"
 
-[sub_resource type="Resource" id="Resource_n635g"]
+[sub_resource type="Resource" id="Resource_u88xq"]
 script = ExtResource("1_flii8")
 timing = 12.0
 direction = "top_left"
 
-[sub_resource type="Resource" id="Resource_t4bxv"]
+[sub_resource type="Resource" id="Resource_skwhd"]
 script = ExtResource("1_flii8")
 timing = 12.5
 direction = "top_left"
 
-[sub_resource type="Resource" id="Resource_u88xq"]
+[sub_resource type="Resource" id="Resource_wigqa"]
 script = ExtResource("1_flii8")
 timing = 13.0
 direction = "top_left"
 
-[sub_resource type="Resource" id="Resource_skwhd"]
+[sub_resource type="Resource" id="Resource_tgdf1"]
 script = ExtResource("1_flii8")
 timing = 13.5
 direction = "top_left"
 
-[sub_resource type="Resource" id="Resource_wigqa"]
+[sub_resource type="Resource" id="Resource_wmhq8"]
 script = ExtResource("1_flii8")
 timing = 14.0
 direction = "low_left"
 
-[sub_resource type="Resource" id="Resource_tgdf1"]
-script = ExtResource("1_flii8")
-timing = 14.0
-direction = "top_left"
-
-[sub_resource type="Resource" id="Resource_wmhq8"]
-script = ExtResource("1_flii8")
-timing = 14.5
-direction = "top_left"
-
 [sub_resource type="Resource" id="Resource_81v4c"]
 script = ExtResource("1_flii8")
-timing = 15.0
+timing = 14.0
 direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_ptasq"]
 script = ExtResource("1_flii8")
-timing = 15.500000000000002
+timing = 14.5
 direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_1k2to"]
 script = ExtResource("1_flii8")
-timing = 16.0
+timing = 15.0
 direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_wngdm"]
 script = ExtResource("1_flii8")
-timing = 16.5
+timing = 15.500000000000002
 direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_doqnl"]
 script = ExtResource("1_flii8")
-timing = 17.0
+timing = 16.0
 direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_nd1f0"]
 script = ExtResource("1_flii8")
-timing = 17.5
+timing = 16.5
 direction = "top_left"
 
 [sub_resource type="Resource" id="Resource_gbqge"]
 script = ExtResource("1_flii8")
+timing = 17.0
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_xb0v2"]
+script = ExtResource("1_flii8")
+timing = 17.5
+direction = "top_left"
+
+[sub_resource type="Resource" id="Resource_uca18"]
+script = ExtResource("1_flii8")
 timing = 18.0
 direction = "low_left"
 
-[sub_resource type="Resource" id="Resource_xb0v2"]
+[sub_resource type="Resource" id="Resource_weqem"]
 script = ExtResource("1_flii8")
 timing = 18.0
 direction = "top_left"
 
-[sub_resource type="Resource" id="Resource_uca18"]
+[sub_resource type="Resource" id="Resource_dqsy1"]
 script = ExtResource("1_flii8")
 timing = 18.5
 direction = "top_left"
@@ -132,4 +132,4 @@ direction = "top_left"
 [resource]
 script = ExtResource("2_ufbl3")
 stream = ExtResource("3_ufbl3")
-notes = Array[ExtResource("1_flii8")]([SubResource("Resource_flii8"), SubResource("Resource_ufbl3"), SubResource("Resource_ks1fn"), SubResource("Resource_0bstk"), SubResource("Resource_n6rjm"), SubResource("Resource_mhcc2"), SubResource("Resource_ywdqi"), SubResource("Resource_m5hyl"), SubResource("Resource_fsekb"), SubResource("Resource_n635g"), SubResource("Resource_t4bxv"), SubResource("Resource_u88xq"), SubResource("Resource_skwhd"), SubResource("Resource_wigqa"), SubResource("Resource_tgdf1"), SubResource("Resource_wmhq8"), SubResource("Resource_81v4c"), SubResource("Resource_ptasq"), SubResource("Resource_1k2to"), SubResource("Resource_wngdm"), SubResource("Resource_doqnl"), SubResource("Resource_nd1f0"), SubResource("Resource_gbqge"), SubResource("Resource_xb0v2"), SubResource("Resource_uca18")])
+notes = Array[ExtResource("1_flii8")]([SubResource("Resource_ks1fn"), SubResource("Resource_0bstk"), SubResource("Resource_n6rjm"), SubResource("Resource_mhcc2"), SubResource("Resource_ywdqi"), SubResource("Resource_m5hyl"), SubResource("Resource_fsekb"), SubResource("Resource_n635g"), SubResource("Resource_t4bxv"), SubResource("Resource_u88xq"), SubResource("Resource_skwhd"), SubResource("Resource_wigqa"), SubResource("Resource_tgdf1"), SubResource("Resource_wmhq8"), SubResource("Resource_81v4c"), SubResource("Resource_ptasq"), SubResource("Resource_1k2to"), SubResource("Resource_wngdm"), SubResource("Resource_doqnl"), SubResource("Resource_nd1f0"), SubResource("Resource_gbqge"), SubResource("Resource_xb0v2"), SubResource("Resource_uca18"), SubResource("Resource_weqem"), SubResource("Resource_dqsy1")])

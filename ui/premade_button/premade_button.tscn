@@ -1,26 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4cbgi0tgwths"]
+[gd_scene format=3 uid="uid://c4cbgi0tgwths"]
 
-[ext_resource type="Texture2D" uid="uid://bb8o81ao1k5eg" path="res://assets/temperary/button_normal.png" id="1_qihkd"]
-[ext_resource type="Texture2D" uid="uid://cip27x0vv7ae8" path="res://assets/temperary/button_pushed.png" id="2_wj5ij"]
-[ext_resource type="Texture2D" uid="uid://bn5em7yl11u5c" path="res://assets/temperary/button_hovered.png" id="3_1givc"]
+[ext_resource type="Texture2D" uid="uid://c57ch763fwv17" path="res://assets/exported/knopki_normal.png" id="1_teri1"]
+[ext_resource type="Texture2D" uid="uid://djfxa1wkicrqk" path="res://assets/exported/knopki_pressed.png" id="2_fwg2x"]
+[ext_resource type="Texture2D" uid="uid://df5e1x6o5srkf" path="res://assets/exported/knopki_hover.png" id="2_u8lij"]
+[ext_resource type="Script" uid="uid://dgpdppvgah823" path="res://ui/premade_button/premade_button.gd" id="4_fwg2x"]
 
-[node name="PremadeButton" type="TextureButton"]
+[node name="PremadeButton" type="TextureButton" unique_id=2065563752]
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("1_qihkd")
-texture_pressed = ExtResource("2_wj5ij")
-texture_hover = ExtResource("3_1givc")
+texture_normal = ExtResource("1_teri1")
+texture_pressed = ExtResource("2_fwg2x")
+texture_hover = ExtResource("2_u8lij")
 stretch_mode = 0
+script = ExtResource("4_fwg2x")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=641766512]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1

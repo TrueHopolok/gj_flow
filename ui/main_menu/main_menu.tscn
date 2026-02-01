@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dxdpjofmm22gi"]
+
+[ext_resource type="Texture2D" uid="uid://clky3v7ghvr7a" path="res://assets/exported/menu_background.png" id="1_uhj5c"]
+[ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_mu8pm"]
+[ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="2_omy8q"]
+
+[node name="MainMenu" type="Control" unique_id=269609482]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1464566952]
+position = Vector2(160, 90)
+texture = ExtResource("1_uhj5c")
+metadata/_edit_lock_ = true
+
+[node name="AudioSettings" parent="." unique_id=1091221570 instance=ExtResource("2_mu8pm")]
+layout_mode = 1
+offset_left = 172.0
+offset_top = 73.0
+offset_right = -4.0
+offset_bottom = -48.0
+
+[node name="Tutorial" parent="." unique_id=2065563752 instance=ExtResource("2_omy8q")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 61.0
+offset_right = 89.0
+offset_bottom = 93.0
+
+[node name="Label" parent="Tutorial" index="0" unique_id=641766512]
+theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+text = "Tutorial"
+
+[node name="Easy" parent="." unique_id=855220485 instance=ExtResource("2_omy8q")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 70.0
+offset_right = 173.0
+offset_bottom = 102.0
+section_id = 1
+
+[node name="Label" parent="Easy" index="0" unique_id=641766512]
+theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+text = "Easy"
+
+[node name="Normal" parent="." unique_id=636260412 instance=ExtResource("2_omy8q")]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 89.0
+offset_right = 86.0
+offset_bottom = 121.0
+section_id = 2
+
+[node name="Label" parent="Normal" index="0" unique_id=641766512]
+theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+text = "Normal"
+
+[node name="Hard" parent="." unique_id=489703305 instance=ExtResource("2_omy8q")]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 99.0
+offset_right = 170.0
+offset_bottom = 131.0
+section_id = 3
+
+[node name="Label" parent="Hard" index="0" unique_id=641766512]
+theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+text = "Hard"
+
+[node name="Label" type="Label" parent="." unique_id=1843822029]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 52.0
+offset_right = 115.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+text = "Play from"
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1551344849]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 55.0
+offset_right = 294.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+text = "Audio Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="Tutorial"]
+[editable path="Easy"]
+[editable path="Normal"]
+[editable path="Hard"]

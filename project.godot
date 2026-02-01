@@ -15,6 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="gj_flow"
+run/main_scene="uid://dxdpjofmm22gi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://6kokviu1djnn"
 
@@ -26,6 +27,7 @@ buses/default_bus_layout="uid://dlptv1a5o3dwc"
 
 Transition="*res://ui/transition/transition.tscn"
 SettingsCfg="*res://ui/settings/settings_cfg.gd"
+Persistance="*uid://y2l63el345my"
 
 [display]
 

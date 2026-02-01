@@ -1,7 +1,29 @@
 [gd_resource type="Theme" format=3 uid="uid://b8ecc687tvf12"]
 
 [ext_resource type="FontFile" uid="uid://dfq2ensxjw317" path="res://assets/fonts/MedievalKnife-Regular.ttf" id="1_6tjce"]
+[ext_resource type="Texture2D" uid="uid://dc7dvjpc1j1b3" path="res://assets/exported/slider.png" id="1_l84ts"]
+[ext_resource type="Texture2D" uid="uid://bv0wmjmf61x7g" path="res://assets/exported/slider_fill.png" id="2_jkqby"]
+[ext_resource type="Texture2D" uid="uid://b8k7j08allv6o" path="res://assets/exported/slider_bg.png" id="3_g30mv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qsqt6"]
+texture = ExtResource("2_jkqby")
+region_rect = Rect2(12, 5, 24, 6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e7i0c"]
+texture = ExtResource("3_g30mv")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 5.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(7, 5, 34, 6)
 
 [resource]
 default_font = ExtResource("1_6tjce")
 default_font_size = 17
+HSlider/icons/grabber = ExtResource("1_l84ts")
+HSlider/icons/grabber_disabled = ExtResource("1_l84ts")
+HSlider/icons/grabber_highlight = ExtResource("1_l84ts")
+HSlider/icons/tick = ExtResource("1_l84ts")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_qsqt6")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_qsqt6")
+HSlider/styles/slider = SubResource("StyleBoxTexture_e7i0c")

@@ -82,12 +82,13 @@ func start_game() -> void:
 	assert(len(sections) > 0, "FAILED TO FIND ANY SECTIONS")
 	set_health(LevelDamage.MAX_HEALTH)
 	set_score(0)
-	section_idx = -1
+	section_idx = clampi(Persistance.cur_section, -1, len(sections)-1)
 	next_section()
 
 
 func next_section() -> void:
 	if len(sections) - 1 > section_idx:
+		Persistance.set_completed(section_idx)
 		section_idx += 1
 
 	section = sections[section_idx].duplicate(true)
