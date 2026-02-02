@@ -22,5 +22,5 @@
 <hr>
 <p>Almost all assets were made by the team during game jam.
  </p>
-<p>Source code and all assets are available on <a href="https://github.com/TrueHopolok/gj_flow">Github</a>.</p>
+<p>All builds are available <a href="https://hopolok.itch.io/drumwave">itch.io</a>.</p>
 <p>Made for <a href="https://itch.io/jam/mini-jam-203-flow" target="_blank">Mini Jam 203: Flow</a>.</p>
