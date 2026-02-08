@@ -12,12 +12,14 @@ var hit_count: int = 0
 @onready var player: Player = %Player
 @onready var offset_label: Label = $Visuals/OffsetLabel
 @onready var exit_label: Label = $Visuals/ExitLabel
+@onready var animation_player: AnimationPlayer = $Visuals/SubViewport/Central/AnimationPlayer
 
 
 func _ready() -> void:
 	reference_player.play()
 	reference_player.finished.connect(func() -> void:
 		reference_player.play())
+	animation_player.play("idle")
 
 
 func _unhandled_input(event: InputEvent) -> void:
