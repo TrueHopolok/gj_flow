@@ -54,9 +54,15 @@ var rep_factor: float = 1.0
 @onready var hi_hat_player: AudioStreamPlayer = $HiHat
 @onready var funny_player: AudioStreamPlayer = $Funny
 
+## correction in seconds, signed duration from perfect note timing to perfect player input.
+## > 0: player is late
+## < 0: player is early
+@onready var correction: float = SettingsCfg.config.get_value("calibration", "offset", 0.0)
+
 
 func _ready() -> void:
 	music_player.fully_finished.connect(next_section)
+	music_player.correction = correction
 	start_game()
 
 
