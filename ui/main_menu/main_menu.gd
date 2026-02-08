@@ -4,9 +4,9 @@ extends Control
 @onready var main: Control = $Main
 @onready var settings: Control = $Settings
 
-@onready var settings_transition: TextureButton = %SettingsTransition
-@onready var main_transition: TextureButton = %MainTransition
-@onready var calibration: TextureButton = %Calibration
+@onready var settings_transition: Button = %SettingsTransition
+@onready var main_transition: Button = %MainTransition
+@onready var calibration: Button = %Calibration
 
 
 func _ready() -> void:

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bttoutqpkdxln" path="res://ui/game_over/game_over.gd" id="1_4cp6t"]
 [ext_resource type="Texture2D" uid="uid://clky3v7ghvr7a" path="res://assets/exported/menu_background.png" id="1_pofhi"]
-[ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="3_ktka2"]
 [ext_resource type="AudioStream" uid="uid://bo0yjesygr7mo" path="res://audio/music/death.wav" id="4_6lpyu"]
 
 [node name="GameOver" type="Control" unique_id=269609482]
@@ -18,18 +17,6 @@ script = ExtResource("1_4cp6t")
 position = Vector2(160, 90)
 texture = ExtResource("1_pofhi")
 metadata/_edit_lock_ = true
-
-[node name="Hard" parent="." unique_id=489703305 instance=ExtResource("3_ktka2")]
-layout_mode = 0
-offset_left = 105.0
-offset_top = 95.0
-offset_right = 211.0
-offset_bottom = 127.0
-section_id = -1
-
-[node name="Label" parent="Hard" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
-text = "Main Menu"
 
 [node name="Label" type="Label" parent="." unique_id=1843822029]
 layout_mode = 1
@@ -51,4 +38,10 @@ stream = ExtResource("4_6lpyu")
 autoplay = true
 bus = &"SFX"
 
-[editable path="Hard"]
+[node name="Button" type="Button" parent="." unique_id=1905757074]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 101.0
+offset_right = 208.0
+offset_bottom = 126.0
+text = "Main Menu"

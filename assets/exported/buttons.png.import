@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df5e1x6o5srkf"
-path="res://.godot/imported/knopki_hover.png-966c5897a26794197de69f978503177a.ctex"
+uid="uid://d01odta1ydwwj"
+path="res://.godot/imported/buttons.png-0c23d49f14b50d147afcb1b51f102c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/exported/knopki_hover.png"
-dest_files=["res://.godot/imported/knopki_hover.png-966c5897a26794197de69f978503177a.ctex"]
+source_file="res://assets/exported/buttons.png"
+dest_files=["res://.godot/imported/buttons.png-0c23d49f14b50d147afcb1b51f102c96.ctex"]
 
 [params]
 

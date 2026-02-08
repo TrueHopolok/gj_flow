@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dao5bnl24v0cr" path="res://ui/main_menu/main_menu.gd" id="1_joh67"]
 [ext_resource type="Texture2D" uid="uid://clky3v7ghvr7a" path="res://assets/exported/menu_background.png" id="1_uhj5c"]
 [ext_resource type="PackedScene" uid="uid://i0n7cjiw24yl" path="res://ui/settings/audio_settings/audio_settings.tscn" id="2_mu8pm"]
-[ext_resource type="PackedScene" uid="uid://c4cbgi0tgwths" path="res://ui/premade_button/premade_button.tscn" id="2_omy8q"]
 [ext_resource type="AudioStream" uid="uid://dxd1swnl2mm21" path="res://audio/music/main_menu/main menu_intro.wav" id="4_3c04x"]
 [ext_resource type="Script" uid="uid://dh1aw8e8kxv8d" path="res://ui/main_menu/audio_stream_player.gd" id="4_i5wg5"]
+[ext_resource type="Script" uid="uid://dgpdppvgah823" path="res://ui/main_menu/level_button.gd" id="5_joh67"]
 
 [node name="MainMenu" type="Control" unique_id=269609482]
 layout_mode = 3
@@ -28,7 +28,6 @@ texture = ExtResource("1_uhj5c")
 metadata/_edit_lock_ = true
 
 [node name="Main" type="Control" parent="." unique_id=196594521]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,67 +35,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Tutorial" parent="Main" unique_id=2065563752 instance=ExtResource("2_omy8q")]
+[node name="Tutorial" type="Button" parent="Main" unique_id=1344542321]
 layout_mode = 0
-offset_left = 70.0
-offset_top = 95.0
-offset_right = 158.0
-offset_bottom = 127.0
-
-[node name="Label" parent="Main/Tutorial" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+offset_left = 9.0
+offset_top = 55.0
+offset_right = 93.0
+offset_bottom = 80.0
 text = "Tutorial"
+script = ExtResource("5_joh67")
 
-[node name="Easy" parent="Main" unique_id=855220485 instance=ExtResource("2_omy8q")]
+[node name="Easy" type="Button" parent="Main" unique_id=2015959323]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 61.0
-offset_right = 101.0
-offset_bottom = 93.0
+offset_left = 9.0
+offset_top = 83.0
+offset_right = 65.0
+offset_bottom = 108.0
+text = "Easy"
+script = ExtResource("5_joh67")
 section_id = 1
 
-[node name="Label" parent="Main/Easy" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
-text = "Easy"
-
-[node name="Normal" parent="Main" unique_id=636260412 instance=ExtResource("2_omy8q")]
+[node name="Medium" type="Button" parent="Main" unique_id=1312006118]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 61.0
-offset_right = 204.0
-offset_bottom = 93.0
+offset_left = 69.0
+offset_top = 83.0
+offset_right = 144.0
+offset_bottom = 108.0
+text = "Medium"
+script = ExtResource("5_joh67")
 section_id = 2
 
-[node name="Label" parent="Main/Normal" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
-text = "Normal"
-
-[node name="Hard" parent="Main" unique_id=489703305 instance=ExtResource("2_omy8q")]
+[node name="Hard" type="Button" parent="Main" unique_id=1054618557]
 layout_mode = 0
-offset_left = 219.0
-offset_top = 61.0
-offset_right = 307.0
-offset_bottom = 93.0
+offset_left = 148.0
+offset_top = 83.0
+offset_right = 205.0
+offset_bottom = 108.0
+text = "Hard"
+script = ExtResource("5_joh67")
 section_id = 3
 
-[node name="Label" parent="Main/Hard" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
-text = "Hard"
-
-[node name="SettingsTransition" parent="Main" unique_id=609014861 instance=ExtResource("2_omy8q")]
+[node name="SettingsTransition" type="Button" parent="Main" unique_id=1761249081]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 168.0
-offset_top = 96.0
-offset_right = 256.0
-offset_bottom = 128.0
-section_id = -1
-
-[node name="Label" parent="Main/SettingsTransition" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
+offset_left = 227.0
+offset_top = 85.0
+offset_right = 305.0
+offset_bottom = 110.0
 text = "Settings"
 
 [node name="Settings" type="Control" parent="." unique_id=329770465]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,31 +110,24 @@ offset_top = 71.0
 offset_right = -172.0
 offset_bottom = -50.0
 
-[node name="Calibration" parent="Settings" unique_id=1536337571 instance=ExtResource("2_omy8q")]
+[node name="MainTransition" type="Button" parent="Settings" unique_id=1919479903]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 180.0
-offset_top = 69.0
-offset_right = 271.0
-offset_bottom = 101.0
-section_id = -1
+offset_left = 230.0
+offset_top = 100.0
+offset_right = 288.0
+offset_bottom = 125.0
+text = "Back
+"
 
-[node name="Label" parent="Settings/Calibration" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
-text = "Calibrate"
-
-[node name="MainTransition" parent="Settings" unique_id=487490518 instance=ExtResource("2_omy8q")]
+[node name="Calibration" type="Button" parent="Settings" unique_id=164191330]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 210.0
-offset_top = 94.0
-offset_right = 298.0
-offset_bottom = 126.0
-section_id = -1
-
-[node name="Label" parent="Settings/MainTransition" index="0" unique_id=641766512]
-theme_override_colors/font_color = Color(0.6862745, 0.5294118, 0.3529412, 1)
-text = "Back"
+offset_left = 184.0
+offset_top = 75.0
+offset_right = 297.0
+offset_bottom = 100.0
+text = "Calibration"
 
 [node name="Headphones" type="Label" parent="." unique_id=1084470427]
 layout_mode = 0
@@ -157,11 +138,3 @@ theme_override_colors/font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
 text = "Headphones recomended"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[editable path="Main/Tutorial"]
-[editable path="Main/Easy"]
-[editable path="Main/Normal"]
-[editable path="Main/Hard"]
-[editable path="Main/SettingsTransition"]
-[editable path="Settings/Calibration"]
-[editable path="Settings/MainTransition"]
