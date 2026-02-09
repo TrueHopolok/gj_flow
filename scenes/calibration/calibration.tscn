@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://kdnwxdqb2w7y" path="res://audio/temporary/calibration.wav" id="2_m8c00"]
 [ext_resource type="Texture2D" uid="uid://m3bhgapaa1iw" path="res://assets/exported/boat.png" id="2_x1duk"]
 [ext_resource type="PackedScene" uid="uid://cixmrooxvc2bv" path="res://scenes/budda/player.tscn" id="3_m8c00"]
-[ext_resource type="Texture2D" uid="uid://baav6hrkatwdd" path="res://assets/exported/crane.png" id="4_h1pmo"]
-[ext_resource type="Script" uid="uid://cqq4wjfkqxfn7" path="res://scenes/calibration/crane.gd" id="6_m8c00"]
+[ext_resource type="Texture2D" uid="uid://dj0pm7prbdo5o" path="res://assets/exported/gates.png" id="6_x1duk"]
+[ext_resource type="PackedScene" uid="uid://ceh44sstsring" path="res://scenes/gameplay/waves.tscn" id="7_m8c00"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_llpom"]
 atlas = ExtResource("1_bp2rx")
@@ -51,42 +51,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_m8c00"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Boat:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_bp2rx"]
+font_color = Color(0.7176471, 0.36078432, 0.32156864, 1)
 
-[sub_resource type="Animation" id="Animation_h1pmo"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Boat:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(2, 0)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_h1pmo"]
+font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sw7wb"]
-_data = {
-&"RESET": SubResource("Animation_m8c00"),
-&"idle": SubResource("Animation_h1pmo")
-}
+[sub_resource type="LabelSettings" id="LabelSettings_sw7wb"]
+font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x1duk"]
+font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x51t2"]
 atlas = ExtResource("2_x1duk")
@@ -96,17 +71,23 @@ region = Rect2(0, 49, 115, 35)
 atlas = ExtResource("2_x1duk")
 region = Rect2(0, 0, 118, 40)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m8c00"]
-viewport_path = NodePath("Visuals/SubViewport")
-
-[sub_resource type="LabelSettings" id="LabelSettings_bp2rx"]
-font_color = Color(0.7176471, 0.36078432, 0.32156864, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_x1duk"]
-font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8c00"]
+bg_color = Color(0.21176471, 0.42745098, 0.5058824, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9137255, 0.9529412, 0.9647059, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+expand_margin_right = 1.0
+anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_m8c00"]
-font_color = Color(0.9254902, 0.8235294, 0.6745098, 1)
+font_color = Color(0.9137255, 0.9529412, 0.9647059, 1)
 
 [node name="Calibration" type="Node2D" unique_id=354567550]
 script = ExtResource("1_x1duk")
@@ -139,88 +120,48 @@ offset_bottom = -72.132675
 color = Color(0.7176471, 0.36078432, 0.32156864, 1)
 metadata/_edit_lock_ = true
 
-[node name="SubViewport" type="SubViewport" parent="Visuals" unique_id=1626199396]
-disable_3d = true
-transparent_bg = true
-snap_2d_transforms_to_pixel = true
-snap_2d_vertices_to_pixel = true
-size = Vector2i(315, 98)
-
-[node name="Central" type="Node2D" parent="Visuals/SubViewport" unique_id=2078082325]
-position = Vector2(160, 90)
-metadata/_edit_group_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals/SubViewport/Central" unique_id=1279938520]
-libraries/ = SubResource("AnimationLibrary_sw7wb")
-
-[node name="Boat" type="Node2D" parent="Visuals/SubViewport/Central" unique_id=509184819]
-
-[node name="BoatBack" type="Sprite2D" parent="Visuals/SubViewport/Central/Boat" unique_id=1231721570]
-position = Vector2(-1.37323, -19.524994)
-texture = SubResource("AtlasTexture_x51t2")
-
-[node name="Player" parent="Visuals/SubViewport/Central/Boat" unique_id=1017047311 instance=ExtResource("3_m8c00")]
-unique_name_in_owner = true
-position = Vector2(1.5201111, -7.014038)
-
-[node name="BoatFront" type="Sprite2D" parent="Visuals/SubViewport/Central/Boat" unique_id=369302973]
-position = Vector2(1.2051392, -22.41278)
-texture = SubResource("AtlasTexture_2aq7w")
-
-[node name="RopeTargetL" type="Marker2D" parent="Visuals/SubViewport/Central/Boat" unique_id=278004983]
-position = Vector2(-57, -36)
-
-[node name="RopeTargetR" type="Marker2D" parent="Visuals/SubViewport/Central/Boat" unique_id=1739309302]
-position = Vector2(54, -36)
-
-[node name="Crane" type="Node2D" parent="Visuals/SubViewport/Central" unique_id=2053239332 node_paths=PackedStringArray("end")]
-modulate = Color(0.7176471, 0.36078432, 0.32156864, 1)
-position = Vector2(97.52011, -51.014038)
-script = ExtResource("6_m8c00")
-end = NodePath("../Boat/RopeTargetL")
-metadata/_edit_group_ = true
-
-[node name="RopeStart" type="Marker2D" parent="Visuals/SubViewport/Central/Crane" unique_id=1337079008]
-position = Vector2(-165.52014, -16.985962)
-
-[node name="Sprite2D" type="Sprite2D" parent="Visuals/SubViewport/Central/Crane" unique_id=1992699480]
-position = Vector2(6.486267, 1.997818)
-texture = ExtResource("4_h1pmo")
-
-[node name="Crane2" type="Node2D" parent="Visuals/SubViewport/Central" unique_id=1273549637 node_paths=PackedStringArray("end")]
-modulate = Color(0.7176471, 0.36078432, 0.32156864, 1)
-position = Vector2(-99.47989, -51.014038)
-rotation = 3.1415927
-scale = Vector2(1, -1)
-script = ExtResource("6_m8c00")
-end = NodePath("../Boat/RopeTargetR")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Visuals/SubViewport/Central/Crane2" unique_id=729470429]
-position = Vector2(6.486267, 1.997818)
-texture = ExtResource("4_h1pmo")
-
-[node name="RopeStart" type="Marker2D" parent="Visuals/SubViewport/Central/Crane2" unique_id=1356558770]
-position = Vector2(-165.52014, -16.985962)
-
-[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=271233688]
-position = Vector2(159, 108)
-texture = SubResource("ViewportTexture_m8c00")
-
 [node name="Label" type="Label" parent="Visuals" unique_id=2059939766]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = 39.0
-offset_right = 319.0
-offset_bottom = 76.0
+offset_left = 1.0
+offset_top = 22.0
+offset_right = 321.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press [F] to the beat!
-[R] to reset"
+text = "[F]"
 label_settings = SubResource("LabelSettings_bp2rx")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Visuals" unique_id=1366239831]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -1.0
+offset_right = 201.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[R] Restart"
+label_settings = SubResource("LabelSettings_h1pmo")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Visuals" unique_id=2043201604]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 122.0
+offset_right = 442.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit [ESC]"
+label_settings = SubResource("LabelSettings_sw7wb")
 horizontal_alignment = 1
 
 [node name="ExitLabel" type="Label" parent="Visuals" unique_id=2030340241]
@@ -238,15 +179,77 @@ grow_vertical = 2
 text = "[ESC] to exit"
 label_settings = SubResource("LabelSettings_x1duk")
 
-[node name="OffsetLabel" type="Label" parent="Visuals" unique_id=801456844]
-anchors_preset = 14
-anchor_top = 0.5
+[node name="Central" type="Node2D" parent="Visuals" unique_id=2078082325]
+position = Vector2(163, 152)
+metadata/_edit_group_ = true
+
+[node name="Boat" type="Node2D" parent="Visuals/Central" unique_id=509184819]
+
+[node name="BoatBack" type="Sprite2D" parent="Visuals/Central/Boat" unique_id=1231721570]
+position = Vector2(-5, -25.112213)
+texture = SubResource("AtlasTexture_x51t2")
+
+[node name="Player" parent="Visuals/Central/Boat" unique_id=1017047311 instance=ExtResource("3_m8c00")]
+unique_name_in_owner = true
+position = Vector2(-2.106659, -12.601257)
+
+[node name="BoatFront" type="Sprite2D" parent="Visuals/Central/Boat" unique_id=369302973]
+position = Vector2(-2.4216309, -28)
+texture = SubResource("AtlasTexture_2aq7w")
+
+[node name="RopeTargetL" type="Marker2D" parent="Visuals/Central/Boat" unique_id=278004983]
+position = Vector2(-57, -36)
+
+[node name="RopeTargetR" type="Marker2D" parent="Visuals/Central/Boat" unique_id=1739309302]
+position = Vector2(54, -36)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/Central/Boat" unique_id=2037816862]
+position = Vector2(-3, -43)
+texture = ExtResource("6_x1duk")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Visuals" unique_id=2141676045]
+scroll_offset = Vector2(-4, 181)
+repeat_size = Vector2(343.568, 0)
+autoscroll = Vector2(9.795, 0)
+repeat_times = 3
+
+[node name="Waves" parent="Visuals/Parallax2D2" unique_id=573333013 instance=ExtResource("7_m8c00")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Visuals" unique_id=999156232]
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 152.0
+anchor_bottom = 1.0
+offset_top = 154.0
 offset_right = 320.0
-offset_bottom = 171.0
+offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Visuals/SubViewportContainer" unique_id=290042849]
+disable_3d = true
+transparent_bg = true
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(260, 25)
+
+[node name="Panel" type="PanelContainer" parent="Visuals/SubViewportContainer/SubViewport" unique_id=599720219]
+anchors_preset = -1
+offset_left = 143.0
+offset_top = 1.0
+offset_right = 178.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_m8c00")
+metadata/_edit_use_anchors_ = true
+
+[node name="OffsetLabel" type="Label" parent="Visuals/SubViewportContainer/SubViewport/Panel" unique_id=801456844]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hit F"
 label_settings = SubResource("LabelSettings_m8c00")
 horizontal_alignment = 1

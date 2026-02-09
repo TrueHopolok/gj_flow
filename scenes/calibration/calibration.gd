@@ -10,16 +10,13 @@ var hit_count: int = 0
 @onready var reference_player: AudioStreamPlayer = $ReferencePlayer
 @onready var snare_player: AudioStreamPlayer = $SnarePlayer
 @onready var player: Player = %Player
-@onready var offset_label: Label = $Visuals/OffsetLabel
-@onready var exit_label: Label = $Visuals/ExitLabel
-@onready var animation_player: AnimationPlayer = $Visuals/SubViewport/Central/AnimationPlayer
+@onready var offset_label: Label = %OffsetLabel
 
 
 func _ready() -> void:
 	reference_player.play()
 	reference_player.finished.connect(func() -> void:
 		reference_player.play())
-	animation_player.play("idle")
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -51,9 +48,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	hit_count += 1
 
 	offset_label.text = format_duration(offset_sum / float(hit_count))
-
-	if hit_count >= WANT_SAMPLES:
-		exit_label.show()
 
 
 func exit_calibration() -> void:
