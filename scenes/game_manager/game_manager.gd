@@ -46,6 +46,8 @@ var score: int = 0
 
 var rep_factor: float = 1.0
 
+var autoplay: bool = true
+
 @onready var music_player: PartialAudioStreamPlayer = $MusicPlayer
 
 @onready var kick_player: AudioStreamPlayer = $Kick
@@ -58,6 +60,8 @@ var rep_factor: float = 1.0
 func _ready() -> void:
 	music_player.fully_finished.connect(next_section)
 	start_game()
+
+	autoplay = get_tree().root.get_meta("autoplay", false)
 
 
 func set_health(h: int) -> void:
@@ -133,15 +137,20 @@ func next_section() -> void:
 
 func spawn_note(note: LevelNote) -> void:
 	var spawner: NoteSpawner
+	var dir_int: int
 	match note.direction:
 		LevelNote.LOW_LEFT:
 			spawner = note_spawner_ll
+			dir_int = -2
 		LevelNote.TOP_LEFT:
 			spawner = note_spawner_tl
+			dir_int = -1
 		LevelNote.TOP_RIGHT:
 			spawner = note_spawner_tr
+			dir_int = +1
 		LevelNote.LOW_RIGHT:
 			spawner = note_spawner_lr
+			dir_int = +2
 		_:
 			printerr("Trying to spawn note in unknown direction: %s" % note.direction)
 
@@ -155,6 +164,9 @@ func spawn_note(note: LevelNote) -> void:
 	else:
 		hook = spawner.spawn_note(NOTE_SPAWN_OFFSET)
 	note.delete_hook = hook
+
+	if autoplay:
+		get_tree().create_timer(NOTE_SPAWN_OFFSET).timeout.connect(handle_drum_hit.bind(dir_int))
 
 
 func damage(hp_change: int) -> void:
@@ -187,50 +199,65 @@ func handle_score(note: LevelNote, current_time_sec: float) -> bool:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not event.is_pressed():
+	if not event.is_pressed() or autoplay:
 		return
 
 	if event.is_action_pressed("the_rock"):
 		funny_player.play()
 		secret_happened.emit()
 
+	var dir_int: int
 
-	if not (event.is_action_pressed(LevelNote.LOW_LEFT) or event.is_action_pressed(LevelNote.LOW_RIGHT) or event.is_action_pressed(LevelNote.TOP_LEFT) or event.is_action_pressed(LevelNote.TOP_RIGHT)):
+	if event.is_action_pressed(LevelNote.LOW_LEFT):
+		dir_int = -2
+	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
+		dir_int = +2
+	elif event.is_action_pressed(LevelNote.TOP_LEFT):
+		dir_int = -1
+	elif event.is_action_pressed(LevelNote.TOP_RIGHT):
+		dir_int = +1
+	else:
 		return
 
-	var dir_int := 1
-	if event.is_action_pressed(LevelNote.LOW_LEFT):
-		clap_player.play()
-		dir_int = -2
-		drum_hit.emit(-2)
-	elif event.is_action_pressed(LevelNote.LOW_RIGHT):
-		var chance := 0.001
-		if OS.has_feature("rock"):
-			chance = 0.5
-		if randf() < chance:
-			funny_player.play()
-			secret_happened.emit()
-		else:
-			kick_player.play()
-		dir_int = +2
-		drum_hit.emit(+2)
-	elif event.is_action_pressed(LevelNote.TOP_LEFT):
-		hi_hat_player.play()
-		dir_int = -1
-		drum_hit.emit(-1)
-	elif event.is_action_pressed(LevelNote.TOP_RIGHT):
-		snare_player.play()
-		dir_int = +1
-		drum_hit.emit(+1)
-
 	get_viewport().set_input_as_handled()
+
+	handle_drum_hit(dir_int)
+
+
+func handle_drum_hit(dir_int: int) -> void:
+	var dir_str: String
+	match dir_int:
+		-2:
+			clap_player.play()
+			drum_hit.emit(-2)
+			dir_str = LevelNote.LOW_LEFT
+		+2:
+			var chance := 0.001
+			if OS.has_feature("rock"):
+				chance = 0.5
+			if randf() < chance:
+				funny_player.play()
+				secret_happened.emit()
+			else:
+				kick_player.play()
+			drum_hit.emit(+2)
+			dir_str = LevelNote.LOW_RIGHT
+		-1:
+			hi_hat_player.play()
+			drum_hit.emit(-1)
+			dir_str = LevelNote.TOP_LEFT
+		+1:
+			snare_player.play()
+			drum_hit.emit(+1)
+			dir_str = LevelNote.TOP_RIGHT
+
 	var now := music_player.get_song_pos()
 
 	var idx := next_destroy_idx
 	var note_hit := false
 	var is_perfect := false
 	while idx < notes.size() and beat_to_sec(notes[idx].timing, section.bpm) - TIMING_WINDOW < now:
-		if notes[idx].hittable and event.is_action_pressed(notes[idx].direction):
+		if notes[idx].hittable and dir_str == notes[idx].direction:
 			notes[idx].hittable = false
 			note_hit = true
 			is_perfect = handle_score(notes[idx], now)
