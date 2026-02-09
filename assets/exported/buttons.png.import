@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djfxa1wkicrqk"
-path="res://.godot/imported/knopki_pressed.png-a97f25c92f9348134b16f624915a808b.ctex"
+uid="uid://d01odta1ydwwj"
+path="res://.godot/imported/buttons.png-0c23d49f14b50d147afcb1b51f102c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/exported/knopki_pressed.png"
-dest_files=["res://.godot/imported/knopki_pressed.png-a97f25c92f9348134b16f624915a808b.ctex"]
+source_file="res://assets/exported/buttons.png"
+dest_files=["res://.godot/imported/buttons.png-0c23d49f14b50d147afcb1b51f102c96.ctex"]
 
 [params]
 

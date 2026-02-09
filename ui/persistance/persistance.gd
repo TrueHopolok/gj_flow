@@ -22,8 +22,8 @@ func set_completed(section_id) -> void:
 	if section_id <= _last_unlocked: return
 	_last_unlocked = section_id
 	var file := FileAccess.open(USER_PROGRESS, FileAccess.WRITE)
-	if file == null: 
-		printerr("Failed to save progress: %s" % 
+	if file == null:
+		printerr("Failed to save progress: %s" %
 		error_string(FileAccess.get_open_error()))
 		return
 	file.store_8(_last_unlocked)

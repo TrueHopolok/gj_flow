@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c57ch763fwv17"
-path="res://.godot/imported/knopki_normal.png-5769f57fbb9c4c219ccb96702e39ba61.ctex"
+uid="uid://baav6hrkatwdd"
+path="res://.godot/imported/crane.png-895bebd830faf4d458505cc515908597.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/exported/knopki_normal.png"
-dest_files=["res://.godot/imported/knopki_normal.png-5769f57fbb9c4c219ccb96702e39ba61.ctex"]
+source_file="res://assets/exported/crane.png"
+dest_files=["res://.godot/imported/crane.png-895bebd830faf4d458505cc515908597.ctex"]
 
 [params]
 

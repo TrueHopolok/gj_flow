@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 @export var section_id: int = 0
 

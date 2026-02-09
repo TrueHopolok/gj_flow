@@ -8,6 +8,7 @@ signal fully_finished
 var stream_id: int
 var stream_queue: Array[Variant]
 var current_offset: float
+var correction: float = 0.0
 
 
 func _ready() -> void:
@@ -22,7 +23,7 @@ func restart(rep_factor: float = 1.0) -> void:
 
 
 func get_song_pos() -> float:
-	return (current_offset + get_playback_position()) / pitch_scale
+	return (current_offset + get_playback_position()) / pitch_scale + correction
 
 
 func _switch() -> void:
